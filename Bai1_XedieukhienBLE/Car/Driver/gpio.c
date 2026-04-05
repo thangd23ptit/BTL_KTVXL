@@ -1,39 +1,58 @@
 #include "gpio.h"
 
-void GPIO_ConfigOutput(GPIO_TypeDef* port, uint16_t pin)
+static void GPIO_EnableClock(GPIO_TypeDef *GPIOx)
 {
-    GPIO_InitTypeDef gpio;
-
-    gpio.GPIO_Pin = pin;
-    gpio.GPIO_Mode = GPIO_Mode_Out_PP;
-    gpio.GPIO_Speed = GPIO_Speed_50MHz;
-
-    GPIO_Init(port, &gpio);
+    if(GPIOx == GPIOA) RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
+    else if(GPIOx == GPIOB) RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
+    else if(GPIOx == GPIOC) RCC->APB2ENR |= RCC_APB2ENR_IOPCEN;
 }
 
-void GPIO_ConfigInput(GPIO_TypeDef* port, uint16_t pin)
+void GPIO_Config_Output(GPIO_TypeDef *GPIOx, uint16_t pin)
 {
-    GPIO_InitTypeDef gpio;
+    GPIO_EnableClock(GPIOx);
+    uint16_t pos = pin;
 
-    gpio.GPIO_Pin = pin;
-    gpio.GPIO_Mode = GPIO_Mode_IN_FLOATING;
-
-    GPIO_Init(port, &gpio);
-}
-
-void GPIO_WritePin(GPIO_TypeDef* GPIOx, uint16_t pin, uint8_t state)
-{
-    if(state)
-        GPIO_SetBits(GPIOx, pin);
+    if(pos < 8)
+    {
+        GPIOx->CRL &= ~(0xF << (pos * 4));
+        GPIOx->CRL |=  (0x3 << (pos * 4));
+    }
     else
-        GPIO_ResetBits(GPIOx, pin);
-}
-uint8_t GPIO_ReadPin(GPIO_TypeDef* GPIOx, uint16_t pin)
-{
-    return GPIO_ReadInputDataBit(GPIOx, pin);
+    {
+        pos -= 8;
+        GPIOx->CRH &= ~(0xF << (pos * 4));
+        GPIOx->CRH |=  (0x3 << (pos * 4));
+    }
 }
 
-void GPIO_TogglePin(GPIO_TypeDef* GPIOx, uint16_t pin)
+void GPIO_Config_Input_PU(GPIO_TypeDef *GPIOx, uint16_t pin)
 {
-    GPIOx->ODR ^= pin;
+    GPIO_EnableClock(GPIOx);
+    uint16_t pos = pin;
+
+    if(pos < 8)
+    {
+        GPIOx->CRL &= ~(0xF << (pos * 4));
+        GPIOx->CRL |=  (0x8 << (pos * 4));
+    }
+    else
+    {
+        pos -= 8;
+        GPIOx->CRH &= ~(0xF << (pos * 4));
+        GPIOx->CRH |=  (0x8 << (pos * 4));
+    }
+
+    GPIOx->ODR |= (1 << pin);
 }
+
+void GPIO_Write_Pin(GPIO_TypeDef *GPIOx, uint16_t pin, uint8_t state)
+{
+    if(state) GPIOx->BSRR = (1 << pin);
+    else GPIOx->BRR = (1 << pin);
+}
+
+uint8_t GPIO_Read(GPIO_TypeDef *GPIOx, uint16_t pin)
+{
+    return (GPIOx->IDR & (1 << pin)) ? 1 : 0;
+}
+

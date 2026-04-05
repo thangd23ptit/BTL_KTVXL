@@ -1,10 +1,16 @@
-#ifndef BLUETOOTH_H
-#define BLUETOOTH_H
+#ifndef __BLUETOOTH_H
+#define __BLUETOOTH_H
 
 #include <stdint.h>
 
-void Bluetooth_Init(void);
-void Bluetooth_SendPacket(uint16_t joy_x, uint16_t joy_y, uint8_t mode);
-void Bluetooth_SendAuto(void);
+void Bluetooth_Init(uint32_t baudrate);
+
+void Bluetooth_SendChar(char c);
+void Bluetooth_SendString(const char *str);
+void Bluetooth_SendBuffer(uint8_t *data, uint16_t len);
+
+/* RX interrupt wrapper */
+uint8_t Bluetooth_Available(void);
+char Bluetooth_ReadChar(void);
 
 #endif

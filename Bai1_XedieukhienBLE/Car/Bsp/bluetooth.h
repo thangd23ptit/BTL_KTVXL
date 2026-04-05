@@ -3,9 +3,10 @@
 
 #include <stdint.h>
 
-void Bluetooth_Init(void);
+void Bluetooth_Init(uint32_t baudrate);
 uint8_t Bluetooth_Available(void);
-char Bluetooth_Read(void);
-void Bluetooth_Send(char *str);
+char Bluetooth_ReadChar(void);
+void Bluetooth_SendChar(char c);
+void Bluetooth_SendString(const char *str);
 
 #endif

@@ -1,217 +1,128 @@
-/* sensor.c */
 #include "sensor.h"
+#include "gpio.h"
 
-#define MAX_DIST        200     // cm
-#define TRIGGER_PERIOD  35000   // us (35ms gi?a 2 l?n trigger)
+#define TRIG_FRONT_PORT GPIOA
+#define TRIG_LEFT_PORT  GPIOA
+#define TRIG_RIGHT_PORT GPIOA
 
-#define FRONT 0
-#define LEFT  1
-#define RIGHT 2
+#define TRIG_FRONT_PIN  0
+#define TRIG_LEFT_PIN   1
+#define TRIG_RIGHT_PIN  2
 
-static volatile uint16_t start[3] = {0};
-static volatile uint16_t width[3] = {0};
-static volatile uint8_t  state[3] = {0};   // 0: ch? rising, 1: ch? falling
-static uint16_t dist[3] = {MAX_DIST, MAX_DIST, MAX_DIST};
+static volatile uint32_t rise_time[3];
+static volatile uint16_t distance[3];
 
-static uint8_t step = 0;
-static uint32_t lastTrig = 0;
-
-static void SR05_Trigger(GPIO_TypeDef *port, uint16_t pin)
+static void TIM4_Init_1us(void)
 {
-    GPIO_WritePin(port, pin, 1);
-    Delay_us(10);
-    GPIO_WritePin(port, pin, 0);
+    RCC->APB1ENR |= RCC_APB1ENR_TIM4EN;
+    TIM4->PSC = 72 - 1;     // 1MHz = 1us
+    TIM4->ARR = 0xFFFF;
+    TIM4->CNT = 0;
+    TIM4->CR1 |= TIM_CR1_CEN;
+}
+
+static void EXTI_Config(void)
+{
+    RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
+    RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
+
+    /* PB6 PB7 PB8 input floating */
+    GPIOB->CRL &= ~((0xF << 24) | (0xF << 28));
+    GPIOB->CRL |=  ((0x4 << 24) | (0x4 << 28));
+
+    GPIOB->CRH &= ~(0xF << 0);
+    GPIOB->CRH |=  (0x4 << 0);
+
+    /* map EXTI */
+    AFIO->EXTICR[1] |= AFIO_EXTICR2_EXTI6_PB |
+                       AFIO_EXTICR2_EXTI7_PB;
+
+    AFIO->EXTICR[2] |= AFIO_EXTICR3_EXTI8_PB;
+
+    EXTI->IMR  |= EXTI_IMR_MR6 | EXTI_IMR_MR7 | EXTI_IMR_MR8;
+    EXTI->RTSR |= EXTI_RTSR_TR6 | EXTI_RTSR_TR7 | EXTI_RTSR_TR8;
+    EXTI->FTSR |= EXTI_FTSR_TR6 | EXTI_FTSR_TR7 | EXTI_FTSR_TR8;
+
+    NVIC_EnableIRQ(EXTI9_5_IRQn);
 }
 
 void Sensor_Init(void)
 {
-    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3, ENABLE);
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOB, ENABLE);
+    GPIO_Config_Output(TRIG_FRONT_PORT, TRIG_FRONT_PIN);
+    GPIO_Config_Output(TRIG_LEFT_PORT, TRIG_LEFT_PIN);
+    GPIO_Config_Output(TRIG_RIGHT_PORT, TRIG_RIGHT_PIN);
 
-    // Trigger pins
-    GPIO_ConfigOutput(SR05_FRONT_TRIG_PORT, SR05_FRONT_TRIG_PIN);
-    GPIO_ConfigOutput(SR05_LEFT_TRIG_PORT,  SR05_LEFT_TRIG_PIN);
-    GPIO_ConfigOutput(SR05_RIGHT_TRIG_PORT, SR05_RIGHT_TRIG_PIN);
-    GPIO_WritePin(SR05_FRONT_TRIG_PORT, SR05_FRONT_TRIG_PIN, 0);
-    GPIO_WritePin(SR05_LEFT_TRIG_PORT,  SR05_LEFT_TRIG_PIN,  0);
-    GPIO_WritePin(SR05_RIGHT_TRIG_PORT, SR05_RIGHT_TRIG_PIN, 0);
-
-    // Echo pins - Pull Down t?t hon
-    GPIO_InitTypeDef gpio = {0};
-    gpio.GPIO_Pin   = GPIO_Pin_6 | GPIO_Pin_7;
-    gpio.GPIO_Mode  = GPIO_Mode_IPD;           // Pull-down
-    GPIO_Init(GPIOA, &gpio);
-
-    gpio.GPIO_Pin   = GPIO_Pin_0;
-    GPIO_Init(GPIOB, &gpio);
-
-    // Timer config (1us resolution)
-    TIM_TimeBaseInitTypeDef tim = {0};
-    tim.TIM_Prescaler     = 71;
-    tim.TIM_Period        = 0xFFFF;
-    tim.TIM_CounterMode   = TIM_CounterMode_Up;
-    TIM_TimeBaseInit(TIM3, &tim);
-
-    // Input Capture cho 3 kênh
-    TIM_ICInitTypeDef ic = {0};
-    ic.TIM_ICPolarity   = TIM_ICPolarity_Rising;
-    ic.TIM_ICSelection  = TIM_ICSelection_DirectTI;
-    ic.TIM_ICPrescaler  = TIM_ICPSC_DIV1;
-    ic.TIM_ICFilter     = 0;
-
-    ic.TIM_Channel = TIM_Channel_1; TIM_ICInit(TIM3, &ic);
-    ic.TIM_Channel = TIM_Channel_2; TIM_ICInit(TIM3, &ic);
-    ic.TIM_Channel = TIM_Channel_3; TIM_ICInit(TIM3, &ic);
-
-    TIM_ITConfig(TIM3, TIM_IT_CC1 | TIM_IT_CC2 | TIM_IT_CC3, ENABLE);
-
-    NVIC_InitTypeDef nvic = {0};
-    nvic.NVIC_IRQChannel = TIM3_IRQn;
-    nvic.NVIC_IRQChannelPreemptionPriority = 1;
-    nvic.NVIC_IRQChannelSubPriority = 0;
-    nvic.NVIC_IRQChannelCmd = ENABLE;
-    NVIC_Init(&nvic);
-
-    TIM_Cmd(TIM3, ENABLE);
+    TIM4_Init_1us();
+    EXTI_Config();
 }
 
-// Trigger luân phiên 3 c?m bi?n
-void Sensor_Update(void)
+void Sensor_Trigger_All(void)
 {
-    if (Micros() - lastTrig < TRIGGER_PERIOD) return;
-    lastTrig = Micros();
+    GPIO_Write_Pin(TRIG_FRONT_PORT, TRIG_FRONT_PIN, 1);
+    GPIO_Write_Pin(TRIG_LEFT_PORT, TRIG_LEFT_PIN, 1);
+    GPIO_Write_Pin(TRIG_RIGHT_PORT, TRIG_RIGHT_PIN, 1);
 
-    switch(step)
-    {
-        case 0: SR05_Trigger(SR05_FRONT_TRIG_PORT, SR05_FRONT_TRIG_PIN); break;
-        case 1: SR05_Trigger(SR05_LEFT_TRIG_PORT,  SR05_LEFT_TRIG_PIN);  break;
-        case 2: SR05_Trigger(SR05_RIGHT_TRIG_PORT, SR05_RIGHT_TRIG_PIN); break;
-    }
-    step = (step + 1) % 3;
+    for(volatile int i = 0; i < 200; i++); // ~10us
+
+    GPIO_Write_Pin(TRIG_FRONT_PORT, TRIG_FRONT_PIN, 0);
+    GPIO_Write_Pin(TRIG_LEFT_PORT, TRIG_LEFT_PIN, 0);
+    GPIO_Write_Pin(TRIG_RIGHT_PORT, TRIG_RIGHT_PIN, 0);
 }
 
-void TIM3_IRQHandler(void)
+void EXTI9_5_IRQHandler(void)
 {
-    uint16_t val;
+    uint32_t now = TIM4->CNT;
 
-    // ================== CHANNEL 1 - FRONT (PA6) ==================
-    if (TIM_GetITStatus(TIM3, TIM_IT_CC1) != RESET)
+    /* FRONT PB6 */
+    if(EXTI->PR & EXTI_PR_PR6)
     {
-        val = TIM_GetCapture1(TIM3);
-
-        if (state[FRONT] == 0)          // Ðang ch? Rising edge
+        if(GPIO_Read(GPIOB, 6))
         {
-            start[FRONT] = val;
-            state[FRONT] = 1;
-
-            // Ð?i sang b?t Falling edge
-            TIM_ICInitTypeDef ic;
-            ic.TIM_Channel     = TIM_Channel_1;
-            ic.TIM_ICPolarity  = TIM_ICPolarity_Falling;
-            ic.TIM_ICSelection = TIM_ICSelection_DirectTI;
-            ic.TIM_ICPrescaler = TIM_ICPSC_DIV1;
-            ic.TIM_ICFilter    = 0;
-            TIM_ICInit(TIM3, &ic);
-        }
-        else                            // Ðang ch? Falling edge
-        {
-            width[FRONT] = val - start[FRONT];
-            dist[FRONT] = width[FRONT] / 58;
-            if (dist[FRONT] > MAX_DIST || dist[FRONT] == 0)
-                dist[FRONT] = MAX_DIST;
-
-            state[FRONT] = 0;
-
-            // Ð?i l?i sang Rising edge cho l?n sau
-            TIM_ICInitTypeDef ic;
-            ic.TIM_Channel     = TIM_Channel_1;
-            ic.TIM_ICPolarity  = TIM_ICPolarity_Rising;
-            ic.TIM_ICSelection = TIM_ICSelection_DirectTI;
-            ic.TIM_ICPrescaler = TIM_ICPSC_DIV1;
-            ic.TIM_ICFilter    = 0;
-            TIM_ICInit(TIM3, &ic);
-        }
-        TIM_ClearITPendingBit(TIM3, TIM_IT_CC1);
-    }
-
-    // ================== CHANNEL 2 - LEFT (PA7) ==================
-    if (TIM_GetITStatus(TIM3, TIM_IT_CC2) != RESET)
-    {
-        val = TIM_GetCapture2(TIM3);
-
-        if (state[LEFT] == 0)
-        {
-            start[LEFT] = val;
-            state[LEFT] = 1;
-
-            TIM_ICInitTypeDef ic;
-            ic.TIM_Channel     = TIM_Channel_2;
-            ic.TIM_ICPolarity  = TIM_ICPolarity_Falling;
-            ic.TIM_ICSelection = TIM_ICSelection_DirectTI;
-            ic.TIM_ICPrescaler = TIM_ICPSC_DIV1;
-            ic.TIM_ICFilter    = 0;
-            TIM_ICInit(TIM3, &ic);
+            rise_time[0] = now;
         }
         else
         {
-            width[LEFT] = val - start[LEFT];
-            dist[LEFT] = width[LEFT] / 58;
-            if (dist[LEFT] > MAX_DIST || dist[LEFT] == 0)
-                dist[LEFT] = MAX_DIST;
-
-            state[LEFT] = 0;
-
-            TIM_ICInitTypeDef ic;
-            ic.TIM_Channel     = TIM_Channel_2;
-            ic.TIM_ICPolarity  = TIM_ICPolarity_Rising;
-            ic.TIM_ICSelection = TIM_ICSelection_DirectTI;
-            ic.TIM_ICPrescaler = TIM_ICPSC_DIV1;
-            ic.TIM_ICFilter    = 0;
-            TIM_ICInit(TIM3, &ic);
+            distance[0] = (now - rise_time[0]) / 58;
         }
-        TIM_ClearITPendingBit(TIM3, TIM_IT_CC2);
+        EXTI->PR = EXTI_PR_PR6;
     }
 
-    // ================== CHANNEL 3 - RIGHT (PB0) ==================
-    if (TIM_GetITStatus(TIM3, TIM_IT_CC3) != RESET)
+    /* LEFT PB7 */
+    if(EXTI->PR & EXTI_PR_PR7)
     {
-        val = TIM_GetCapture3(TIM3);
-
-        if (state[RIGHT] == 0)
+        if(GPIO_Read(GPIOB, 7))
         {
-            start[RIGHT] = val;
-            state[RIGHT] = 1;
-
-            TIM_ICInitTypeDef ic;
-            ic.TIM_Channel     = TIM_Channel_3;
-            ic.TIM_ICPolarity  = TIM_ICPolarity_Falling;
-            ic.TIM_ICSelection = TIM_ICSelection_DirectTI;
-            ic.TIM_ICPrescaler = TIM_ICPSC_DIV1;
-            ic.TIM_ICFilter    = 0;
-            TIM_ICInit(TIM3, &ic);
+            rise_time[1] = now;
         }
         else
         {
-            width[RIGHT] = val - start[RIGHT];
-            dist[RIGHT] = width[RIGHT] / 58;
-            if (dist[RIGHT] > MAX_DIST || dist[RIGHT] == 0)
-                dist[RIGHT] = MAX_DIST;
-
-            state[RIGHT] = 0;
-
-            TIM_ICInitTypeDef ic;
-            ic.TIM_Channel     = TIM_Channel_3;
-            ic.TIM_ICPolarity  = TIM_ICPolarity_Rising;
-            ic.TIM_ICSelection = TIM_ICSelection_DirectTI;
-            ic.TIM_ICPrescaler = TIM_ICPSC_DIV1;
-            ic.TIM_ICFilter    = 0;
-            TIM_ICInit(TIM3, &ic);
+            distance[1] = (now - rise_time[1]) / 58;
         }
-        TIM_ClearITPendingBit(TIM3, TIM_IT_CC3);
+        EXTI->PR = EXTI_PR_PR7;
+    }
+
+    /* RIGHT PB8 */
+    if(EXTI->PR & EXTI_PR_PR8)
+    {
+        if(GPIO_Read(GPIOB, 8))
+        {
+            rise_time[2] = now;
+        }
+        else
+        {
+            distance[2] = (now - rise_time[2]) / 58;
+        }
+        EXTI->PR = EXTI_PR_PR8;
     }
 }
 
-// Getter
-uint16_t Sensor_Front(void) { return dist[FRONT]; }
-uint16_t Sensor_Left(void)  { return dist[LEFT]; }
-uint16_t Sensor_Right(void) { return dist[RIGHT]; }
+sensor_data_t Sensor_GetData(void)
+{
+    sensor_data_t data;
+
+    data.front = distance[0];
+    data.left  = distance[1];
+    data.right = distance[2];
+
+    return data;
+}

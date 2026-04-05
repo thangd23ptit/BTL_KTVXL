@@ -1,95 +1,96 @@
 #include "uart.h"
 
-static volatile char rx_buffer[UART_BUFFER_SIZE];
+#define UART_RX_BUFFER_SIZE 64
+
+static volatile uint8_t rx_buffer[UART_RX_BUFFER_SIZE];
 static volatile uint8_t rx_head = 0;
 static volatile uint8_t rx_tail = 0;
-void UART_Init(void)
+
+void UART1_Init(uint32_t baudrate)
 {
-    GPIO_InitTypeDef gpio;
-    USART_InitTypeDef uart;
-    NVIC_InitTypeDef nvic;
+    /* Clock GPIOA + USART1 */
+    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
+    RCC->APB2ENR |= RCC_APB2ENR_USART1EN;
+    RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
 
-    RCC_APB2PeriphClockCmd(
-        RCC_APB2Periph_GPIOA |
-        RCC_APB2Periph_USART1 |
-        RCC_APB2Periph_AFIO,
-        ENABLE
-    );
+    /* PA9 = TX AF Push Pull 50MHz */
+    GPIOA->CRH &= ~(0xF << 4);
+    GPIOA->CRH |=  (0xB << 4);
 
-    //TX
-    gpio.GPIO_Pin = GPIO_Pin_9;
-    gpio.GPIO_Mode = GPIO_Mode_AF_PP;
-    gpio.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIOA, &gpio);
+    /* PA10 = RX Floating Input */
+    GPIOA->CRH &= ~(0xF << 8);
+    GPIOA->CRH |=  (0x4 << 8);
 
-    //RX
-    gpio.GPIO_Pin = GPIO_Pin_10;
-    gpio.GPIO_Mode = GPIO_Mode_IN_FLOATING;
-    GPIO_Init(GPIOA, &gpio);
+    /* Baudrate */
+    USART1->BRR = SystemCoreClock / baudrate;
 
-    uart.USART_BaudRate = 9600;
-    uart.USART_WordLength = USART_WordLength_8b;
-    uart.USART_StopBits = USART_StopBits_1;
-    uart.USART_Parity = USART_Parity_No;
-    uart.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
-    uart.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
+    /* Enable TX RX + RX interrupt + USART */
+    USART1->CR1 = USART_CR1_TE |
+                  USART_CR1_RE |
+                  USART_CR1_RXNEIE |
+                  USART_CR1_UE;
 
-    USART_Init(USART1, &uart);
+    /* NVIC */
+    NVIC_SetPriority(USART1_IRQn, 1);
+    NVIC_EnableIRQ(USART1_IRQn);
 
-    USART_ITConfig(USART1, USART_IT_RXNE, ENABLE);
+    /* Reset buffer */
+    rx_head = 0;
+    rx_tail = 0;
+}
 
-    nvic.NVIC_IRQChannel = USART1_IRQn;
-    nvic.NVIC_IRQChannelPreemptionPriority = 0;
-    nvic.NVIC_IRQChannelSubPriority = 0;
-    nvic.NVIC_IRQChannelCmd = ENABLE;
-    NVIC_Init(&nvic);
+void UART1_SendChar(char c)
+{
+    while(!(USART1->SR & USART_SR_TXE));
+    USART1->DR = (uint8_t)c;
+}
 
-    USART_Cmd(USART1, ENABLE);
+void UART1_SendString(const char *str)
+{
+    while(*str)
+    {
+        UART1_SendChar(*str++);
+    }
+}
+
+uint8_t UART1_Available(void)
+{
+    return (rx_head != rx_tail);
+}
+
+char UART1_ReadChar(void)
+{
+    char c = 0;
+
+    if(rx_head != rx_tail)
+    {
+        c = rx_buffer[rx_tail];
+        rx_tail = (rx_tail + 1) % UART_RX_BUFFER_SIZE;
+    }
+
+    return c;
 }
 
 void USART1_IRQHandler(void)
 {
-    if(USART_GetITStatus(USART1, USART_IT_RXNE) != RESET)
+    /* RX data ready */
+    if(USART1->SR & USART_SR_RXNE)
     {
-        char data = USART_ReceiveData(USART1);
+        uint8_t data = (uint8_t)USART1->DR;
+        uint8_t next = (rx_head + 1) % UART_RX_BUFFER_SIZE;
 
-        uint8_t next = (rx_head + 1) % UART_BUFFER_SIZE;
-
-        if(next != rx_tail) // tranh overflow
+        /* tránh tràn buffer */
+        if(next != rx_tail)
         {
             rx_buffer[rx_head] = data;
             rx_head = next;
         }
     }
-}
 
-uint8_t UART_Available(void)
-{
-    return (rx_head != rx_tail);
-}
-
-char UART_Read(void)
-{
-    char data = 0;
-
-    if(rx_head == rx_tail) return 0;
-
-    data = rx_buffer[rx_tail];
-    rx_tail = (rx_tail + 1) % UART_BUFFER_SIZE;
-
-    return data;
-}
-
-void UART_SendChar(char c)
-{
-    USART_SendData(USART1, c);
-    while(USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
-}
-
-void UART_SendString(char *str)
-{
-    while(*str)
+    /* Clear overrun error n?u có */
+    if(USART1->SR & USART_SR_ORE)
     {
-        UART_SendChar(*str++);
+        volatile uint8_t dummy = USART1->DR;
+        (void)dummy;
     }
 }

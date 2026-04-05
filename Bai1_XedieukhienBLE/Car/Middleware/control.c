@@ -1,37 +1,54 @@
 #include "control.h"
+#include "bluetooth.h"
+#include "motor.h"
+#include <stdlib.h>
 
-static uint16_t speed = 700;
+static control_data_t g_control = {'M', 'S', 700};
 
 void Control_Init(void)
 {
-    Bluetooth_Init();
-    Motor_Init();
+    Bluetooth_Init(9600);
 }
 
-void Control_Run(void){
-	while(Bluetooth_Available()){
-		char cmd = Bluetooth_Read();
-		switch(cmd){
-			case 'F' : Motor_Forward(speed);break;
-			case 'B' : Motor_Backward(speed);break;
-			case 'L' : Motor_Left(speed);break;
-			case 'R' : Motor_Right(speed);break;
-			case 's' : Motor_Stop();break;
-			
-			case '0': speed = 0; break;
-      case '1': speed = 100; break;
-      case '2': speed = 200; break;
-      case '3': speed = 300; break;
-      case '4': speed = 400; break;
-      case '5': speed = 500; break;
-      case '6': speed = 600; break;
-      case '7': speed = 700; break;
-      case '8': speed = 800; break;
-      case '9': speed = 900; break;
-			
-			case 'A' : Mode_Set(MODE_AUTO);break;
-			case 'M' : Mode_Set(MODE_MANUAL); break;
-			default : break;
-		}
-	}
+void Control_Run(void)
+{
+    static char frame[20];
+    static uint8_t idx = 0;
+
+    while(Bluetooth_Available())
+    {
+        char c = Bluetooth_ReadChar();
+
+        if(c == '$') idx = 0;
+
+        if(idx < sizeof(frame) - 1)
+            frame[idx++] = c;
+
+        if(c == '#')
+        {
+            frame[idx] = '\0';
+            idx = 0;
+
+            g_control.mode  = frame[1];
+            g_control.cmd   = frame[3];
+            g_control.speed = atoi(&frame[5]);
+        }
+    }
+}
+
+control_data_t Control_GetData(void)
+{
+    return g_control;
+}
+
+void Control_Execute(control_data_t data)
+{
+    switch(data.cmd)
+    {
+        case 'F': Motor_Forward(data.speed); break;
+        case 'B': Motor_Backward(data.speed); break;
+        case 'L': Motor_Left(data.speed); break;
+        case 'R': Motor_Right(data.speed); break;
+        default : Motor_Stop(); break;
+    }
 }

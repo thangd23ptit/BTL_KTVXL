@@ -1,16 +1,18 @@
 #ifndef __SENSOR_H
 #define __SENSOR_H
 
-#include <stdint.h>
-#include "gpio.h"
-#include "timer.h"
 #include "stm32f10x.h"
+#include <stdint.h>
 
-void Config_Trigger_Sensor(void);
-void Config_Echo_Sensor(void);
+typedef struct
+{
+    uint16_t front;
+    uint16_t left;
+    uint16_t right;
+} sensor_data_t;
+
 void Sensor_Init(void);
-uint16_t Sensor_Front(void);
-uint16_t Sensor_Left(void);
-uint16_t Sensor_Right(void);
+void Sensor_Trigger_All(void);
+sensor_data_t Sensor_GetData(void);
 
 #endif

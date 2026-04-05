@@ -1,13 +1,12 @@
-#ifndef MODE_H
-#define MODE_H
+#ifndef __MODE_H
+#define __MODE_H
 
-typedef enum{
-	MODE_MANUAL = 0,
-	MODE_AUTO
-}Mode_t;
+typedef enum
+{
+    MODE_MANUAL = 'M',
+    MODE_AUTO   = 'A',
+} mode_t;
 
-void Mode_Set(Mode_t mode);
-Mode_t Mode_Get(void);
+mode_t Mode_Get(void);
 
 #endif
-

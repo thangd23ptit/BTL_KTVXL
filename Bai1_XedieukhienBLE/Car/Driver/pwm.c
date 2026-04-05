@@ -2,47 +2,45 @@
 
 void PWM_Init(void)
 {
-    GPIO_InitTypeDef gpio;
-    TIM_TimeBaseInitTypeDef tim;
-    TIM_OCInitTypeDef oc;
+    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
+    RCC->APB2ENR |= RCC_APB2ENR_TIM1EN;
 
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_AFIO, ENABLE);
-    RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
+    /* PA8 CH1, PA11 CH4 */
+    GPIOA->CRH &= ~((0xF << 0) | (0xF << 12));
+    GPIOA->CRH |=  ((0xB << 0) | (0xB << 12));
 
-    gpio.GPIO_Pin = GPIO_Pin_2 | GPIO_Pin_3;
-    gpio.GPIO_Mode = GPIO_Mode_AF_PP;
-    gpio.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIOA, &gpio);
+    TIM1->PSC = 72 - 1;
+    TIM1->ARR = 1000 - 1;
 
-    TIM_TimeBaseStructInit(&tim);
-    tim.TIM_Prescaler = 72 - 1;      
-    tim.TIM_Period = 1000 - 1;      
-    tim.TIM_CounterMode = TIM_CounterMode_Up;
-    TIM_TimeBaseInit(TIM2, &tim);
+    TIM1->CCMR1 = 0;
+    TIM1->CCMR2 = 0;
+    TIM1->CCER  = 0;
 
-    TIM_OCStructInit(&oc);
-    oc.TIM_OCMode = TIM_OCMode_PWM1;
-    oc.TIM_OutputState = TIM_OutputState_Enable;
-    oc.TIM_OCPolarity = TIM_OCPolarity_High;
-    oc.TIM_Pulse = 0;   
+    /* CH1 */
+    TIM1->CCMR1 |= (6 << 4) | (1 << 3);
 
-    TIM_OC3Init(TIM2, &oc);
-    TIM_OC3PreloadConfig(TIM2, TIM_OCPreload_Enable);
-    TIM_OC4Init(TIM2, &oc);
-    TIM_OC4PreloadConfig(TIM2, TIM_OCPreload_Enable);
-    TIM_ARRPreloadConfig(TIM2, ENABLE);
-    TIM_GenerateEvent(TIM2, TIM_EventSource_Update);
-    TIM_Cmd(TIM2, ENABLE);
+    /* CH4 */
+    TIM1->CCMR2 |= (6 << 12) | (1 << 11);
+
+    TIM1->CCER |= TIM_CCER_CC1E;
+    TIM1->CCER |= TIM_CCER_CC4E;
+
+    TIM1->CCR1 = 0;
+    TIM1->CCR4 = 0;
+
+    TIM1->BDTR |= TIM_BDTR_MOE;
+    TIM1->EGR = TIM_EGR_UG;
+    TIM1->CR1 = TIM_CR1_ARPE | TIM_CR1_CEN;
 }
 
-void PWM_SetDuty_Left(uint16_t duty)
+void PWM_SetLeft(uint16_t duty)
 {
-    if (duty > 999) duty = 999;
-    TIM_SetCompare3(TIM2, duty);   
+    if(duty > 1000) duty = 1000;
+    TIM1->CCR1 = duty;
 }
 
-void PWM_SetDuty_Right(uint16_t duty)
+void PWM_SetRight(uint16_t duty)
 {
-    if (duty > 999) duty = 999;
-    TIM_SetCompare4(TIM2, duty);   
+    if(duty > 1000) duty = 1000;
+    TIM1->CCR4 = duty;
 }

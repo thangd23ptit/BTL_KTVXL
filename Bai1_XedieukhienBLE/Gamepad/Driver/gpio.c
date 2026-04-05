@@ -11,16 +11,18 @@ void GPIO_Config_Output(GPIO_TypeDef *GPIOx, uint16_t pin)
 {
     GPIO_EnableClock(GPIOx);
 
-    if (pin < 8)
+    uint16_t pos = pin;
+
+    if (pos < 8)
     {
-        GPIOx->CRL &= (uint16_t)~(0xF << (pin * 4));
-        GPIOx->CRL |= (uint16_t) (0x3 << (pin * 4)); // output 50MHz push-pull
+        GPIOx->CRL &= ~(0xF << (pos * 4));
+        GPIOx->CRL |=  (0x3 << (pos * 4));   // 50MHz push-pull
     }
     else
     {
-        pin -= 8;
-        GPIOx->CRH &= (uint16_t)~(0xF << (pin * 4));
-        GPIOx->CRH |= (uint16_t) (0x3 << (pin * 4));
+        pos -= 8;
+        GPIOx->CRH &= ~(0xF << (pos * 4));
+        GPIOx->CRH |=  (0x3 << (pos * 4));
     }
 }
 
@@ -28,29 +30,24 @@ void GPIO_Config_Input_PU(GPIO_TypeDef *GPIOx, uint16_t pin)
 {
     GPIO_EnableClock(GPIOx);
 
-    if (pin < 8)
+    uint16_t pos = pin;
+
+    if (pos < 8)
     {
-        GPIOx->CRL &=  (uint16_t)~(0xF << (pin * 4));
-        GPIOx->CRL |=  (uint16_t)(0x8 << (pin * 4)); // input pull-up/down
+        GPIOx->CRL &= ~(0xF << (pos * 4));
+        GPIOx->CRL |=  (0x8 << (pos * 4));
     }
     else
     {
-        pin -= 8;
-        GPIOx->CRH &= (uint16_t)~(0xF << (pin * 4));
-        GPIOx->CRH |= (uint16_t) (0x8 << (pin * 4));
+        pos -= 8;
+        GPIOx->CRH &= ~(0xF << (pos * 4));
+        GPIOx->CRH |=  (0x8 << (pos * 4));
     }
 
-    GPIOx->ODR |= (1 << pin); // pull-up
-}
-
-void GPIO_Write_Pin(GPIO_TypeDef *GPIOx, uint16_t pin, uint8_t state)
-{
-    if (state) GPIOx->BSRR = (1 << pin);
-    else GPIOx->BRR = (1 << pin);
+    GPIOx->ODR |= (1 << pin);   // dùng pin g?c
 }
 
 uint8_t GPIO_Read(GPIO_TypeDef *GPIOx, uint16_t pin)
 {
-    return (GPIOx->IDR & (1 << pin)) ? 1 : 0;
+    return (GPIOx->IDR & (1U << pin)) ? 1U : 0U;
 }
-

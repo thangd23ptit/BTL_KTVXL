@@ -1,23 +1,20 @@
 #include "mode.h"
+#include "gpio.h"
 
-uint8_t Mode_GetMode(uint8_t raw_mode)
+#define MODE_MAZE_PIN   3
+
+void Mode_Init(void)
 {
-    if (raw_mode > MODE_AUTO)
-        return MODE_MANUAL_NORMAL;
-    return raw_mode;
+    GPIO_Config_Input_PU(GPIOA, MODE_MAZE_PIN);
 }
 
-uint8_t Mode_IsAuto(uint8_t mode)
+protocol_mode_t Mode_Get(void)
 {
-    return (mode == MODE_AUTO);
-}
-
-uint8_t Mode_LimitSpeed(uint8_t mode, uint8_t pwm)
-{
-    if (mode == MODE_PRECISION)
+    if(GPIO_Read(GPIOA, MODE_MAZE_PIN) == 0)
     {
-        return (pwm * 40) / 100;
+        return MODE_MAZE;
     }
-    return pwm;
+
+    return MODE_MANUAL;
 }
 

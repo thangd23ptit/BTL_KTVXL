@@ -1,12 +1,5 @@
-#ifndef SYSTEM_INIT_H
-#define SYSTEM_INIT_H
-
-#include "gpio.h"
-#include "pwm.h"
-#include "uart.h"
-#include "timer.h"
-#include "motor.h"
-#include "sensor.h"
+#ifndef __SYSTEM_INIT_H
+#define __SYSTEM_INIT_H
 
 void System_Init(void);
 

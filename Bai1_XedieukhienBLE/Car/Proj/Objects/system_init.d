@@ -1,5 +1,5 @@
 ./objects/system_init.o: ..\Src\system_init.c ..\Inc\system_init.h \
-  ..\Driver\gpio.h \
+  ..\Driver\timer.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   ..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h \
   G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h \
@@ -27,5 +27,7 @@
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h \
-  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h ..\Driver\pwm.h \
-  ..\Driver\uart.h ..\Driver\timer.h ..\Bsp\motor.h ..\Bsp\sensor.h
+  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h ..\Bsp\motor.h \
+  ..\Bsp\sensor.h ..\Middleware\control.h ..\Application\app.h \
+  ..\Application\app_control.h ..\Application\app_auto.h \
+  ..\Middleware\mode.h

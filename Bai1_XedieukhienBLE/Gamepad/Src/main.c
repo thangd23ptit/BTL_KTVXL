@@ -1,18 +1,21 @@
 #include "main.h"
 
-void System_Init(void)
-{
-    SysTick_Init();
-    Gamepad_Init();
-}
-
 int main(void)
 {
-    System_Init();
+    /* init system clock 72MHz */
+    SystemInit();
 
-    while (1)
+    /* init delay tick */
+    SysTick_Init();
+
+    /* init gamepad modules */
+    Gamepad_Init();
+
+    while(1)
     {
-        Gamepad_Update();
-        SysTick_DelayMs(20);
+        Gamepad_Run();
+
+        /* g?i packet m?i 50ms */
+        SysTick_DelayMs(50);
     }
 }

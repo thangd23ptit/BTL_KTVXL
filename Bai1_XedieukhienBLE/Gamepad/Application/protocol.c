@@ -1,22 +1,53 @@
 #include "protocol.h"
+#include "bluetooth.h"
 
-void Protocol_BuildPacket(uint16_t joy_x,
-                          uint16_t joy_y,
-                          uint8_t mode,
-                          uint8_t *buffer)
+#define JOY_HIGH_THRESHOLD   3000
+#define JOY_LOW_THRESHOLD    1000
+#define JOY_CENTER_MIN       1800
+#define JOY_CENTER_MAX       2200
+
+protocol_cmd_t Protocol_Encode(uint16_t x, uint16_t y)
 {
-    buffer[0] = PKT_HEADER;
-    buffer[1] = (uint8_t)(joy_x >> 4);
-    buffer[2] = (uint8_t)(joy_y >> 4);
-    buffer[3] = mode;
-    buffer[4] = PKT_TAIL;
-}
+    /* joystick ? gi?a */
+    if((x > JOY_CENTER_MIN && x < JOY_CENTER_MAX) &&
+       (y > JOY_CENTER_MIN && y < JOY_CENTER_MAX))
+    {
+        return CMD_STOP;
+    }
 
-uint8_t Protocol_ParseMode(uint8_t *buffer)
+    /* uu tiên ti?n lùi */
+    if(y > JOY_HIGH_THRESHOLD)
+    {
+        return CMD_FORWARD;
+    }
+
+    if(y < JOY_LOW_THRESHOLD)
+    {
+        return CMD_BACKWARD;
+    }
+
+    if(x > JOY_HIGH_THRESHOLD)
+    {
+        return CMD_RIGHT;
+    }
+
+    if(x < JOY_LOW_THRESHOLD)
+    {
+        return CMD_LEFT;
+    }
+
+    return CMD_STOP;
+}
+void Protocol_Send(protocol_mode_t mode,
+                   protocol_cmd_t cmd,
+                   uint16_t speed)
 {
-    if (buffer[0] != PKT_HEADER || buffer[4] != PKT_TAIL)
-        return 0;
+    char buffer[20];
 
-    return buffer[3];
+    sprintf(buffer, "$%c,%c,%d#",
+            (char)mode,
+            (char)cmd,
+            speed);
+
+    Bluetooth_SendString(buffer);
 }
-

@@ -1,11 +1,7 @@
 #include "mode.h"
+#include "control.h"
 
-static Mode_t currentmode = MODE_MANUAL;
-
-void Mode_Set(Mode_t mode){
-		currentmode = mode;
-}
-
-Mode_t Mode_Get(void){
-	return currentmode;
+mode_t Mode_Get(void)
+{
+    return (mode_t)Control_GetData().mode;
 }

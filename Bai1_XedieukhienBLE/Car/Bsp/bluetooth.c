@@ -1,22 +1,30 @@
 #include "bluetooth.h"
 #include "uart.h"
 
-void Bluetooth_Init(void)
+void Bluetooth_Init(uint32_t baudrate)
 {
-    UART_Init();
+    UART1_Init(baudrate);
 }
 
 uint8_t Bluetooth_Available(void)
 {
-    return UART_Available();
+    return UART1_Available();
 }
 
-char Bluetooth_Read(void)
+char Bluetooth_ReadChar(void)
 {
-    return UART_Read();
+    return UART1_ReadChar();
 }
 
-void Bluetooth_Send(char *str)
+void Bluetooth_SendChar(char c)
 {
-    UART_SendString(str);
+    UART1_SendChar(c);
+}
+
+void Bluetooth_SendString(const char *str)
+{
+    while(*str)
+    {
+        UART1_SendChar(*str++);
+    }
 }

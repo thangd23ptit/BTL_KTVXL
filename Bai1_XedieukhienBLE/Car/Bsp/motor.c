@@ -1,81 +1,89 @@
 #include "motor.h"
+#include "gpio.h"
+#include "pwm.h"
 
-void Config_Motor(void){
-		RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
-		GPIO_ConfigOutput(MOTOR_PORT , R_IN1);
-		GPIO_ConfigOutput(MOTOR_PORT , R_IN2);
-		GPIO_ConfigOutput(MOTOR_PORT , L_IN1);
-		GPIO_ConfigOutput(MOTOR_PORT , L_IN2);
-}
+#define IN1_PORT GPIOB
+#define IN2_PORT GPIOB
+#define IN3_PORT GPIOB
+#define IN4_PORT GPIOB
+
+#define IN1_PIN 0
+#define IN2_PIN 1
+#define IN3_PIN 10
+#define IN4_PIN 11
 
 void Motor_Init(void)
 {
-		Config_Motor();
+    GPIO_Config_Output(IN1_PORT, IN1_PIN);
+    GPIO_Config_Output(IN2_PORT, IN2_PIN);
+    GPIO_Config_Output(IN3_PORT, IN3_PIN);
+    GPIO_Config_Output(IN4_PORT, IN4_PIN);
+
     PWM_Init();
     Motor_Stop();
 }
 
-void Motor_Stop(void)
-{		GPIO_WritePin(GPIOB ,R_IN1,0);
-		GPIO_WritePin(GPIOB ,R_IN2,0);
-		GPIO_WritePin(GPIOB ,L_IN1,0);
-		GPIO_WritePin(GPIOB ,L_IN2,0);
-	
-    PWM_SetDuty_Left(0);
-    PWM_SetDuty_Right(0);
-}
-
 void Motor_Forward(uint16_t speed)
 {
-    GPIO_WritePin(GPIOB ,R_IN1,1);
-		GPIO_WritePin(GPIOB ,R_IN2,0);
-		GPIO_WritePin(GPIOB ,L_IN1,1);
-		GPIO_WritePin(GPIOB ,L_IN2,0);
+    GPIO_Write_Pin(IN1_PORT, IN1_PIN, 1);
+    GPIO_Write_Pin(IN2_PORT, IN2_PIN, 0);
+    GPIO_Write_Pin(IN3_PORT, IN3_PIN, 1);
+    GPIO_Write_Pin(IN4_PORT, IN4_PIN, 0);
 
-    PWM_SetDuty_Left(speed);
-    PWM_SetDuty_Right(speed);
+    PWM_SetLeft(speed);
+    PWM_SetRight(speed);
 }
 
 void Motor_Backward(uint16_t speed)
 {
-    GPIO_WritePin(GPIOB ,R_IN1,0);
-		GPIO_WritePin(GPIOB ,R_IN2,1);
-		GPIO_WritePin(GPIOB ,L_IN1,0);
-		GPIO_WritePin(GPIOB ,L_IN2,1);
+    GPIO_Write_Pin(IN1_PORT, IN1_PIN, 0);
+    GPIO_Write_Pin(IN2_PORT, IN2_PIN, 1);
+    GPIO_Write_Pin(IN3_PORT, IN3_PIN, 0);
+    GPIO_Write_Pin(IN4_PORT, IN4_PIN, 1);
 
-    PWM_SetDuty_Left(speed);
-    PWM_SetDuty_Right(speed);
+    PWM_SetLeft(speed);
+    PWM_SetRight(speed);
 }
 
 void Motor_Left(uint16_t speed)
 {
-    GPIO_WritePin(GPIOB ,R_IN1,1);
-		GPIO_WritePin(GPIOB ,R_IN2,0);
-		GPIO_WritePin(GPIOB ,L_IN1,0);
-		GPIO_WritePin(GPIOB ,L_IN2,0);
+    GPIO_Write_Pin(IN1_PORT, IN1_PIN, 0);
+    GPIO_Write_Pin(IN2_PORT, IN2_PIN, 0);
+    GPIO_Write_Pin(IN3_PORT, IN3_PIN, 1);
+    GPIO_Write_Pin(IN4_PORT, IN4_PIN, 0);
 
-    PWM_SetDuty_Left(0);
-    PWM_SetDuty_Right(speed);
+    PWM_SetLeft(0);
+    PWM_SetRight(speed);
 }
 
 void Motor_Right(uint16_t speed)
 {
-    GPIO_WritePin(GPIOB ,R_IN1,0);
-		GPIO_WritePin(GPIOB ,R_IN2,0);
-		GPIO_WritePin(GPIOB ,L_IN1,1);
-		GPIO_WritePin(GPIOB ,L_IN2,0);
+    GPIO_Write_Pin(IN1_PORT, IN1_PIN, 1);
+    GPIO_Write_Pin(IN2_PORT, IN2_PIN, 0);
+    GPIO_Write_Pin(IN3_PORT, IN3_PIN, 0);
+    GPIO_Write_Pin(IN4_PORT, IN4_PIN, 0);
 
-    PWM_SetDuty_Left(speed);
-    PWM_SetDuty_Right(0);
+    PWM_SetLeft(speed);
+    PWM_SetRight(0);
 }
 
-void Motor_SetSpeed(int left, int right)
+void Motor_Stop(void)
 {
-    GPIO_SetBits(GPIOB, L_IN1);
-    GPIO_ResetBits(GPIOB, L_IN2);
-    GPIO_SetBits(GPIOB, R_IN1);
-    GPIO_ResetBits(GPIOB, R_IN2);
-	
-    PWM_SetDuty_Left(left);
-    PWM_SetDuty_Right(right);
+    GPIO_Write_Pin(IN1_PORT, IN1_PIN, 0);
+    GPIO_Write_Pin(IN2_PORT, IN2_PIN, 0);
+    GPIO_Write_Pin(IN3_PORT, IN3_PIN, 0);
+    GPIO_Write_Pin(IN4_PORT, IN4_PIN, 0);
+
+    PWM_SetLeft(0);
+    PWM_SetRight(0);
+}
+void Motor_SetSpeed(uint16_t left, uint16_t right)
+{
+    GPIO_Write_Pin(IN1_PORT, IN1_PIN, 1);
+    GPIO_Write_Pin(IN2_PORT, IN2_PIN, 0);
+    GPIO_Write_Pin(IN3_PORT, IN3_PIN, 1);
+    GPIO_Write_Pin(IN4_PORT, IN4_PIN, 0);
+
+    PWM_SetLeft(left);
+    PWM_SetRight(right);
 }

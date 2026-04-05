@@ -2,15 +2,15 @@
 #define __UART_H
 
 #include "stm32f10x.h"
+#include <stdint.h>
 
-#define UART_BUFFER_SIZE 128
+void UART1_Init(uint32_t baudrate);
 
-void UART_Init(void);
+void UART1_SendChar(char c);
+void UART1_SendString(const char *str);
 
-uint8_t UART_Available(void);
-char UART_Read(void);
-
-void UART_SendChar(char c);
-void UART_SendString(char *str);
+/* RX interrupt ring buffer */
+uint8_t UART1_Available(void);
+char UART1_ReadChar(void);
 
 #endif

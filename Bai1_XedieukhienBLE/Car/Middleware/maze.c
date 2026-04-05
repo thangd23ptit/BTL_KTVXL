@@ -2,65 +2,48 @@
 #include "sensor.h"
 #include "motor.h"
 
-#define BASE_SPEED   600
-#define WALL_TH      15
-#define DESIRED      10
+#define FRONT_LIMIT 20
 
-#define KP 15
-#define KD 8
+#define KP 15.0f
+#define KI 0.0f
+#define KD 8.0f
 
-static int prev_error = 0;
+static float prev_error = 0;
+static float integral = 0;
 
-static void PID(uint16_t right)
+static uint16_t clamp_speed(int32_t speed)
 {
-    int error = DESIRED - right;
-    int d = error - prev_error;
+    if(speed < 0) return 0;
+    if(speed > 1000) return 1000;
+    return (uint16_t)speed;
+}
 
-    int out = KP*error + KD*d;
+void Maze_Run(uint16_t base_speed)
+{
+    sensor_data_t s = Sensor_GetData();
+
+    /* n?u g?n tu?ng tru?c -> quay d?u */
+    if(s.front < FRONT_LIMIT)
+    {
+        Motor_SetSpeed(base_speed, 0);
+        return;
+    }
+
+    float error = (float)s.left - (float)s.right;
+
+    integral += error;
+    float derivative = error - prev_error;
     prev_error = error;
-    if(out > 300) out = 300;
-    if(out < -300) out = -300;
 
-    int left  = BASE_SPEED + out;
-    int right_spd = BASE_SPEED - out;
+    float pid = KP * error +
+                KI * integral +
+                KD * derivative;
 
-    if(left < 0) left = 0;
-    if(right_spd < 0) right_spd = 0;
+    int32_t left_speed  = base_speed - (int32_t)pid;
+    int32_t right_speed = base_speed + (int32_t)pid;
 
-    if(left > 1000) left = 1000;
-    if(right_spd > 1000) right_spd = 1000;
+    left_speed  = clamp_speed(left_speed);
+    right_speed = clamp_speed(right_speed);
 
-    Motor_SetSpeed(left, right_spd);
-}
-
-void Maze_Init(void)
-{
-    Sensor_Init();
-    Motor_Init();
-}
-
-void Maze_Run(void)
-{
-    Sensor_Update();
-
-    uint16_t f = Sensor_Front();
-    uint16_t l = Sensor_Left();
-    uint16_t r = Sensor_Right();
-
-    if(r > WALL_TH)
-    {
-        Motor_Right(BASE_SPEED);
-    }
-    else if(f > WALL_TH)
-    {
-        PID(r);
-    }
-    else if(l > WALL_TH)
-    {
-        Motor_Left(BASE_SPEED);
-    }
-    else
-    {
-        Motor_Backward(BASE_SPEED);
-    }
+    Motor_SetSpeed(left_speed, right_speed);
 }

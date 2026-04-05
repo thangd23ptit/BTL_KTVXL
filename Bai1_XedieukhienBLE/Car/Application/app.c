@@ -1,23 +1,27 @@
 #include "app.h"
+#include "mode.h"
+#include "app_control.h"
+#include "app_auto.h"
 
 void App_Init(void)
 {
-    Sensor_Init();
-    Control_Init();
-    Maze_Init();
-    Mode_Set(MODE_MANUAL);
+    /* reserved */
 }
 
 void App_Run(void)
 {
-    Sensor_Update();
-		Control_Run();
-    if(Mode_Get() == MODE_MANUAL)
+    switch(Mode_Get())
     {
-        App_Control_Run();
-    }
-    else
-    {
-        App_Auto_Run();
+        case MODE_MANUAL:
+            App_Control_Run();
+            break;
+
+        case MODE_AUTO:
+            App_Auto_Run();
+            break;
+
+        default:
+            App_Control_Run();
+            break;
     }
 }

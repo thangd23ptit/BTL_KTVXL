@@ -1,11 +1,20 @@
-#ifndef CONTROL_H
-#define CONTROL_H
+#ifndef __CONTROL_H
+#define __CONTROL_H
 
-#include "bluetooth.h"
-#include "motor.h"
-#include "mode.h"
+#include <stdint.h>
+
+typedef struct
+{
+    char mode;
+    char cmd;
+    uint16_t speed;
+} control_data_t;
 
 void Control_Init(void);
 void Control_Run(void);
+control_data_t Control_GetData(void);
+
+/* middleware API cho app */
+void Control_Execute(control_data_t data);
 
 #endif

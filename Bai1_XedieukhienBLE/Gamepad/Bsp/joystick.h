@@ -1,5 +1,5 @@
-#ifndef JOYSTICK_H
-#define JOYSTICK_H
+#ifndef __JOYSTICK_H
+#define __JOYSTICK_H
 
 #include <stdint.h>
 
@@ -7,10 +7,10 @@ typedef struct
 {
     uint16_t x;
     uint16_t y;
-} Joystick_Data_t;
+} joystick_data_t;
 
 void Joystick_Init(void);
-void Joystick_Read(Joystick_Data_t *joy);
-uint8_t Mode_Read(void);
+void Joystick_Read(uint16_t *x, uint16_t *y);
+joystick_data_t Joystick_GetData(void);
 
 #endif

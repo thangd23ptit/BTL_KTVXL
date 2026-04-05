@@ -1,11 +1,15 @@
-#include "system_init.h"
-#include "app.h"
+#include "motor.h"
+#include "control.h"
 
 int main(void)
 {
-    System_Init();
-		App_Init();
-		while(1){
-			App_Run();
-		}
+    Motor_Init();
+    Control_Init();
+    Motor_Stop();
+
+    while(1)
+    {
+        Control_Run();
+        Control_Execute(Control_GetData());
+    }
 }

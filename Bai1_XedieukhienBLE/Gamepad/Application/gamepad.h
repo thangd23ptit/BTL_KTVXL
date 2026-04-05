@@ -1,7 +1,7 @@
-#ifndef GAMEPAD_H
-#define GAMEPAD_H
+#ifndef __GAMEPAD_H
+#define __GAMEPAD_H
 
 void Gamepad_Init(void);
-void Gamepad_Update(void);
+void Gamepad_Run(void);
 
 #endif
