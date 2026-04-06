@@ -1,20 +1,24 @@
-/* STM32F103C8T6_128KB_FLASH.ld */
+/* STM32F103C8T6 GCC Linker Script */
 
 ENTRY(Reset_Handler)
 
+/* Memories definition */
 MEMORY
 {
-    FLASH (rx)  : ORIGIN = 0x08000000, LENGTH = 128K   /* 128KB Flash */
-    SRAM  (rwx) : ORIGIN = 0x20000000, LENGTH = 20K
+    FLASH (rx)  : ORIGIN = 0x08000000, LENGTH = 64K
+    SRAM  (xrw) : ORIGIN = 0x20000000, LENGTH = 20K
 }
 
+/* Top of stack */
 _estack = ORIGIN(SRAM) + LENGTH(SRAM);
 
-_Min_Heap_Size  = 0x200;
-_Min_Stack_Size = 0x800;
+/* Heap and stack size */
+_Min_Heap_Size  = 0x200;   /* 512 bytes */
+_Min_Stack_Size = 0x800;   /* 2 KB */
 
 SECTIONS
 {
+    /* Interrupt vector */
     .isr_vector :
     {
         . = ALIGN(4);
@@ -22,15 +26,34 @@ SECTIONS
         . = ALIGN(4);
     } > FLASH
 
+    /* Program code and read-only data */
     .text :
     {
         . = ALIGN(4);
         *(.text*)
         *(.rodata*)
+        *(.glue_7)
+        *(.glue_7t)
+        KEEP(*(.init))
+        KEEP(*(.fini))
         . = ALIGN(4);
         _etext = .;
     } > FLASH
 
+    /* ARM exception tables */
+    .ARM.extab :
+    {
+        *(.ARM.extab*)
+    } > FLASH
+
+    .ARM.exidx :
+    {
+        __exidx_start = .;
+        *(.ARM.exidx*)
+        __exidx_end = .;
+    } > FLASH
+
+    /* Initialized data */
     _sidata = LOADADDR(.data);
 
     .data :
@@ -42,6 +65,7 @@ SECTIONS
         _edata = .;
     } > SRAM AT > FLASH
 
+    /* Uninitialized data */
     .bss :
     {
         . = ALIGN(4);
@@ -52,20 +76,34 @@ SECTIONS
         _ebss = .;
     } > SRAM
 
-    . = ALIGN(4);
-    .heap :
+    /* Heap */
+    .heap (NOLOAD):
     {
+        . = ALIGN(8);
         _sheap = .;
         . = . + _Min_Heap_Size;
         _eheap = .;
     } > SRAM
 
-    . = ALIGN(8);
-    .stack :
+    /* Stack */
+    .stack (NOLOAD):
     {
+        . = ALIGN(8);
+        _sstack = .;
         . = . + _Min_Stack_Size;
+        _estack_section = .;
     } > SRAM
 
     . = ALIGN(4);
     _end = .;
+
+    /* Discard unused standard library sections */
+    /DISCARD/ :
+    {
+        *(.note*)
+        *(.comment*)
+    }
+
+    /* RAM overflow check */
+    ASSERT(_end <= ORIGIN(SRAM) + LENGTH(SRAM), "RAM overflow!")
 }

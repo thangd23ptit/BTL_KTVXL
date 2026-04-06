@@ -24,7 +24,7 @@ LDFLAGS += -Wl,-Map=$(BUILD_DIR)/$(TARGET).map
 LDFLAGS += -Wl,--print-memory-usage    # <-- Thêm cái này rất hữu ích
 LDFLAGS += --specs=nano.specs
 LDFLAGS += --specs=nosys.specs
-LDFLAGS += -nostdlib                   # <-- Thêm để sạch hơn
+
 
 # ================= INCLUDE =================
 INCLUDES = \

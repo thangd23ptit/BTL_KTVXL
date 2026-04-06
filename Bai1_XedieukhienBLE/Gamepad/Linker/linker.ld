@@ -43,14 +43,17 @@ SECTIONS
     } > SRAM AT > FLASH
 
     .bss :
-    {
-        . = ALIGN(4);
-        _sbss = .;
-        *(.bss*)
-        *(COMMON)
-        . = ALIGN(4);
-        _ebss = .;
-    } > SRAM
+	{
+		. = ALIGN(4);
+		_sbss = .;
+		*(.bss)
+		*(.bss*)
+		*(COMMON)
+		. = ALIGN(4);
+		_ebss = .;
+		end = .;
+		_end = .;
+	} >RAM
 
     . = ALIGN(4);
     .heap :
