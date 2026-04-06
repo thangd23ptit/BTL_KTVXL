@@ -63,4 +63,5 @@ int main(void)
 						}
 				}
 		}
+	GPIO_Reset(GPIOC, GPIO_Pin_13);
 }
