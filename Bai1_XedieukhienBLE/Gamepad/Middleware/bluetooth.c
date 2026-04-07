@@ -11,14 +11,9 @@ void Bluetooth_SendChar(char c)
     UART1_SendChar(c);
 }
 
-void Bluetooth_SendString(const char *str)
+void Bluetooth_SendString(char *str)
 {
     UART1_SendString(str);
-}
-
-void Bluetooth_SendBuffer(uint8_t *data, uint16_t len)
-{
-    UART1_SendBuffer(data, len);
 }
 
 uint8_t Bluetooth_Available(void)
@@ -26,7 +21,7 @@ uint8_t Bluetooth_Available(void)
     return UART1_Available();
 }
 
-char Bluetooth_ReadChar(void)
+char Bluetooth_Read(void)
 {
-    return UART1_ReadChar();
+    return UART1_ReadBuffer();
 }

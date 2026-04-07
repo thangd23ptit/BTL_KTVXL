@@ -2,16 +2,15 @@
 #define __UART_H
 
 #include "stm32f10x.h"
-#include <stdint.h>
+
+#define UART_RX_BUFFER_SIZE 64
 
 void UART1_Init(uint32_t baudrate);
 
 void UART1_SendChar(char c);
-void UART1_SendString(const char *str);
-void UART1_SendBuffer(uint8_t *data, uint16_t len);
+void UART1_SendString(char *str);
 
-/* RX interrupt */
 uint8_t UART1_Available(void);
-char UART1_ReadChar(void);
-
+char UART1_ReadBuffer(void);
+void UART1_SendNumber(int32_t num);
 #endif

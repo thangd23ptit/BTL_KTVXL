@@ -1,58 +1,70 @@
 #include "adc.h"
 
-void ADC1_Init(void)
+static uint8_t current_channel = 0;
+
+static void ADC_GPIO_Config(uint8_t channel)
 {
-    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
+    RCC->APB2ENR |= RCC_APB2ENR_IOPAEN | RCC_APB2ENR_IOPBEN;
+
+    if(channel <= 7)
+    {
+        GPIOA->CRL &= ~(0xF << (channel * 4));
+    }
+    else if(channel == 8)
+    {
+        GPIOB->CRL &= ~(0xF << 0);
+    }
+    else if(channel == 9)
+    {
+        GPIOB->CRL &= ~(0xF << 4);
+    }
+}
+
+void ADC1_Init_Single(uint8_t channel)
+{
+    current_channel = channel;
+
+    ADC_GPIO_Config(channel);
+
     RCC->APB2ENR |= RCC_APB2ENR_ADC1EN;
 
-    /* PA0 PA1 analog */
-    GPIOA->CRL &= ~((0xF << 0) | (0xF << 4));
-
-    /* ADC clock = PCLK2 / 6 */
     RCC->CFGR &= ~RCC_CFGR_ADCPRE;
     RCC->CFGR |= RCC_CFGR_ADCPRE_DIV6;
 
-    /* single conversion */
-    ADC1->SQR1 = 0;
+    if(channel <= 9)
+    {
+        ADC1->SMPR2 &= ~(0x7 << (channel * 3));
+        ADC1->SMPR2 |=  (0x7 << (channel * 3));
+    }
 
-    /* enable ADC */
+    ADC1->SQR1 = 0;
+    ADC1->SQR3 = channel;
+
     ADC1->CR2 |= ADC_CR2_ADON;
 
-    for(volatile int i = 0; i < 10000; i++);
+    for(volatile int i = 0; i < 1000; i++);
 
-    /* reset calibration */
     ADC1->CR2 |= ADC_CR2_RSTCAL;
     while(ADC1->CR2 & ADC_CR2_RSTCAL);
 
-    /* calibration */
     ADC1->CR2 |= ADC_CR2_CAL;
     while(ADC1->CR2 & ADC_CR2_CAL);
 }
 
-uint16_t ADC1_ReadChannel(uint8_t channel)
+uint16_t ADC1_Read(void)
 {
-    /* choose channel */
-    ADC1->SQR3 = channel;
+    ADC1->SQR3 = current_channel;
 
-    /* sample time 239.5 cycles */
-    ADC1->SMPR2 &= ~(0x7 << (channel * 3));
-    ADC1->SMPR2 |=  (0x7 << (channel * 3));
+    // start conversion
+    ADC1->CR2 |= ADC_CR2_ADON;
 
-    /* start conversion */
-    ADC1->CR2 |= ADC_CR2_SWSTART;
-
-    /* wait end */
+    // wait EOC
     while(!(ADC1->SR & ADC_SR_EOC));
 
-    uint16_t value = ADC1->DR;
-
-    ADC1->SR &= ~ADC_SR_EOC;
-
-    return value;
+    return ADC1->DR;
 }
 
-void Joystick_ADC_Read(uint16_t *x, uint16_t *y)
+float ADC1_ReadVoltage(void)
 {
-    *x = ADC1_ReadChannel(0);
-    *y = ADC1_ReadChannel(1);
+    return (ADC1_Read() * 3.3f) / 4095.0f;
 }

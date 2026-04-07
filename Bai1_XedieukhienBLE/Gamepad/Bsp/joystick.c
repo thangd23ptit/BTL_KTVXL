@@ -1,36 +1,33 @@
 #include "joystick.h"
 #include "adc.h"
 
-#define JOY_FILTER_SAMPLES 4
-
-static uint16_t Joystick_ReadAvg(uint8_t channel)
+void Joystick_Init(Joystick_t *joy,
+                   uint8_t x_channel,
+                   uint8_t y_channel)
 {
-    uint32_t sum = 0;
-
-    for(uint8_t i = 0; i < JOY_FILTER_SAMPLES; i++)
-    {
-        sum += ADC1_ReadChannel(channel);
-    }
-
-    return (uint16_t)(sum / JOY_FILTER_SAMPLES);
+    joy->x_channel = x_channel;
+    joy->y_channel = y_channel;
+    joy->center = 2048;
 }
 
-void Joystick_Init(void)
+uint16_t Joystick_ReadX(Joystick_t *joy)
 {
-    ADC1_Init();
+    ADC1_Init_Single(joy->x_channel);
+    return ADC1_Read();
 }
 
-void Joystick_Read(uint16_t *x, uint16_t *y)
+uint16_t Joystick_ReadY(Joystick_t *joy)
 {
-    *x = Joystick_ReadAvg(0);   // PA0
-    *y = Joystick_ReadAvg(1);   // PA1
+    ADC1_Init_Single(joy->y_channel);
+    return ADC1_Read();
 }
 
-joystick_data_t Joystick_GetData(void)
+int16_t Joystick_GetXOffset(Joystick_t *joy)
 {
-    joystick_data_t joy;
+    return (int16_t)Joystick_ReadX(joy) - joy->center;
+}
 
-    Joystick_Read(&joy.x, &joy.y);
-
-    return joy;
+int16_t Joystick_GetYOffset(Joystick_t *joy)
+{
+    return (int16_t)Joystick_ReadY(joy) - joy->center;
 }

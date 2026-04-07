@@ -1,8 +1,6 @@
 #include "uart.h"
 
-#define UART_RX_BUFFER_SIZE 64
-
-static volatile uint8_t rx_buffer[UART_RX_BUFFER_SIZE];
+static volatile char rx_buffer[UART_RX_BUFFER_SIZE];
 static volatile uint8_t rx_head = 0;
 static volatile uint8_t rx_tail = 0;
 
@@ -10,25 +8,61 @@ void UART1_Init(uint32_t baudrate)
 {
     RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
     RCC->APB2ENR |= RCC_APB2ENR_USART1EN;
-    RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
 
-    /* PA9 TX */
+    // TX PA9
     GPIOA->CRH &= ~(0xF << 4);
     GPIOA->CRH |=  (0xB << 4);
 
-    /* PA10 RX */
+    // RX PA10
     GPIOA->CRH &= ~(0xF << 8);
     GPIOA->CRH |=  (0x4 << 8);
 
-    USART1->BRR = SystemCoreClock / baudrate;
+    USART1->BRR = 72000000 / baudrate;
 
-    USART1->CR1 = 0;
     USART1->CR1 |= USART_CR1_TE;
     USART1->CR1 |= USART_CR1_RE;
-    USART1->CR1 |= USART_CR1_RXNEIE;   // enable RX interrupt
-    USART1->CR1 |= USART_CR1_UE;
 
+    // enable RX interrupt
+    USART1->CR1 |= USART_CR1_RXNEIE;
+
+    // enable NVIC USART1 IRQ
     NVIC_EnableIRQ(USART1_IRQn);
+
+    USART1->CR1 |= USART_CR1_UE;
+}
+
+void USART1_IRQHandler(void)
+{
+    if(USART1->SR & USART_SR_RXNE)
+    {
+        char data = USART1->DR;
+
+        uint8_t next = (rx_head + 1) % UART_RX_BUFFER_SIZE;
+
+        if(next != rx_tail)
+        {
+            rx_buffer[rx_head] = data;
+            rx_head = next;
+        }
+    }
+}
+
+uint8_t UART1_Available(void)
+{
+    return (rx_head != rx_tail);
+}
+
+char UART1_ReadBuffer(void)
+{
+    char data = 0;
+
+    if(rx_head != rx_tail)
+    {
+        data = rx_buffer[rx_tail];
+        rx_tail = (rx_tail + 1) % UART_RX_BUFFER_SIZE;
+    }
+
+    return data;
 }
 
 void UART1_SendChar(char c)
@@ -37,55 +71,41 @@ void UART1_SendChar(char c)
     USART1->DR = c;
 }
 
-void UART1_SendString(const char *str)
+void UART1_SendString(char *str)
 {
     while(*str)
     {
         UART1_SendChar(*str++);
     }
-
-    while(!(USART1->SR & USART_SR_TC));
 }
 
-void UART1_SendBuffer(uint8_t *data, uint16_t len)
+#include "uart.h"
+
+void UART1_SendNumber(int32_t num)
 {
-    for(uint16_t i = 0; i < len; i++)
+    char buffer[12];
+    uint8_t i = 0;
+
+    if (num == 0)
     {
-        UART1_SendChar(data[i]);
+        UART1_SendChar('0');
+        return;
     }
 
-    while(!(USART1->SR & USART_SR_TC));
-}
-
-uint8_t UART1_Available(void)
-{
-    return (rx_head != rx_tail);
-}
-
-char UART1_ReadChar(void)
-{
-    char c = 0;
-
-    if(rx_head != rx_tail)
+    if (num < 0)
     {
-        c = rx_buffer[rx_tail];
-        rx_tail = (rx_tail + 1) % UART_RX_BUFFER_SIZE;
+        UART1_SendChar('-');
+        num = -num;
     }
 
-    return c;
-}
-
-void USART1_IRQHandler(void)
-{
-    if(USART1->SR & USART_SR_RXNE)
+    while (num > 0)
     {
-        uint8_t data = USART1->DR;
-        uint8_t next = (rx_head + 1) % UART_RX_BUFFER_SIZE;
+        buffer[i++] = (num % 10) + '0';
+        num /= 10;
+    }
 
-        if(next != rx_tail)
-        {
-            rx_buffer[rx_head] = data;
-            rx_head = next;
-        }
+    while (i > 0)
+    {
+        UART1_SendChar(buffer[--i]);
     }
 }

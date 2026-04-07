@@ -1,30 +1,20 @@
 #include "systick.h"
-#include "stm32f10x.h"
 
-static volatile uint32_t g_tick = 0;
-
-void SysTick_Handler(void)
+void SysTick_DelayUs(uint32_t us)
 {
-    g_tick++;
-}
-
-void SysTick_Init(void)
-{
-    SysTick->LOAD = SystemCoreClock / 1000 - 1;
+    SysTick->LOAD = 72 * us - 1;   // 72MHz => 1us = 72 tick
     SysTick->VAL  = 0;
+    SysTick->CTRL = (1 << 2) | (1 << 0); // CLKSOURCE = AHB, ENABLE
 
-    SysTick->CTRL = SysTick_CTRL_CLKSOURCE_Msk |
-                    SysTick_CTRL_TICKINT_Msk   |
-                    SysTick_CTRL_ENABLE_Msk;
+    while((SysTick->CTRL & (1 << 16)) == 0);
+
+    SysTick->CTRL = 0;
 }
 
 void SysTick_DelayMs(uint32_t ms)
 {
-    uint32_t start = g_tick;
-    while((g_tick - start) < ms);
-}
-
-uint32_t SysTick_GetTick(void)
-{
-    return g_tick;
+    while(ms--)
+    {
+        SysTick_DelayUs(1000);
+    }
 }

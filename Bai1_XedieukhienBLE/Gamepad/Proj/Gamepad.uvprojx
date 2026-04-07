@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER STM3210X_MD</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Lib\STM32F10x_StdPeriph_Driver\inc;..\Lib\STM32F10x_StdPeriph_Driver\src;..\Bsp;..\Middleware;..\Inc;..\Application;..\Driver;..\Lib\CMSIS\CM3\CoreSupport;..\Lib\CMSIS\CM3\DeviceSupport</IncludePath>
+              <IncludePath>..\Lib\STM32F10x_StdPeriph_Driver\inc;..\Lib\STM32F10x_StdPeriph_Driver\src;..\Bsp;..\Middleware;..\Inc;..\Application;..\Driver;..\Lib\CMSIS\CM3\CoreSupport;..\Lib\CMSIS\CM3\DeviceSupport;..\Src</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
