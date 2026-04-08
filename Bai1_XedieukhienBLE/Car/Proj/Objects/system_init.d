@@ -30,4 +30,4 @@
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h ..\Bsp\motor.h \
   ..\Bsp\sensor.h ..\Middleware\control.h ..\Application\app.h \
   ..\Application\app_control.h ..\Application\app_auto.h \
-  ..\Middleware\mode.h
+  ..\Middleware\mode.h ..\Bsp\bluetooth.h

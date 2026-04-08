@@ -26,6 +26,7 @@
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h \
-  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h \
-  G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdio.h \
-  G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdlib.h
+  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h ..\Inc\system_init.h \
+  ..\Middleware\control.h ..\Bsp\sensor.h ..\Application\app.h \
+  ..\Application\app_control.h ..\Application\app_auto.h \
+  ..\Middleware\mode.h ..\Driver\timer.h ..\Bsp\bluetooth.h

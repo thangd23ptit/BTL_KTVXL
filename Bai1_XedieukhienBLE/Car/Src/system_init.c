@@ -4,6 +4,7 @@
 #include "sensor.h"
 #include "control.h"
 #include "app.h"
+#include "bluetooth.h"
 
 void System_Init(void)
 {
@@ -21,4 +22,5 @@ void System_Init(void)
 
     /* application */
     App_Init();
+		Bluetooth_Init(9600);
 }

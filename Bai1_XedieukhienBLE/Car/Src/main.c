@@ -1,173 +1,30 @@
 #include "stm32f10x.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include "stm32f10x_gpio.h"
-#include "stm32f10x_usart.h"
-#include "stm32f10x_rcc.h"
-#include "stm32f10x_adc.h"
-
-uint16_t x_val, y_val;
-uint16_t speed;
-char tx_buffer[30];
-
-void delay_ms(uint32_t ms)
-{
-    for(uint32_t i = 0; i < ms * 8000; i++)
-    {
-        __NOP();
-    }
-}
-
-void UART_SendString(char *str)
-{
-    while(*str)
-    {
-        USART_SendData(USART1, *str++);
-        while(USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
-    }
-}
-
-void USART1_Config(void)
-{
-    GPIO_InitTypeDef GPIO_InitStruct;
-    USART_InitTypeDef USART_InitStruct;
-
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA |
-                           RCC_APB2Periph_USART1, ENABLE);
-
-    // PA9 TX
-    GPIO_InitStruct.GPIO_Pin = GPIO_Pin_9;
-    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_AF_PP;
-    GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
-    GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-    // PA10 RX
-    GPIO_InitStruct.GPIO_Pin = GPIO_Pin_10;
-    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IN_FLOATING;
-    GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-    USART_InitStruct.USART_BaudRate = 9600;
-    USART_InitStruct.USART_WordLength = USART_WordLength_8b;
-    USART_InitStruct.USART_StopBits = USART_StopBits_1;
-    USART_InitStruct.USART_Parity = USART_Parity_No;
-    USART_InitStruct.USART_HardwareFlowControl = USART_HardwareFlowControl_None;
-    USART_InitStruct.USART_Mode = USART_Mode_Tx | USART_Mode_Rx;
-
-    USART_Init(USART1, &USART_InitStruct);
-    USART_Cmd(USART1, ENABLE);
-}
-
-void ADC_Config(void)
-{
-    GPIO_InitTypeDef GPIO_InitStruct;
-    ADC_InitTypeDef ADC_InitStruct;
-
-    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA |
-                           RCC_APB2Periph_ADC1, ENABLE);
-
-    RCC_ADCCLKConfig(RCC_PCLK2_Div6);
-
-    // PA0 PA1 analog
-    GPIO_InitStruct.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1;
-    GPIO_InitStruct.GPIO_Mode = GPIO_Mode_AIN;
-    GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-    ADC_InitStruct.ADC_Mode = ADC_Mode_Independent;
-    ADC_InitStruct.ADC_ScanConvMode = DISABLE;
-    ADC_InitStruct.ADC_ContinuousConvMode = DISABLE;
-    ADC_InitStruct.ADC_ExternalTrigConv = ADC_ExternalTrigConv_None;
-    ADC_InitStruct.ADC_DataAlign = ADC_DataAlign_Right;
-    ADC_InitStruct.ADC_NbrOfChannel = 1;
-
-    ADC_Init(ADC1, &ADC_InitStruct);
-    ADC_Cmd(ADC1, ENABLE);
-
-    ADC_ResetCalibration(ADC1);
-    while(ADC_GetResetCalibrationStatus(ADC1));
-
-    ADC_StartCalibration(ADC1);
-    while(ADC_GetCalibrationStatus(ADC1));
-}
-
-uint16_t ADC_Read(uint8_t channel)
-{
-    ADC_RegularChannelConfig(ADC1, channel, 1, ADC_SampleTime_55Cycles5);
-    ADC_SoftwareStartConvCmd(ADC1, ENABLE);
-
-    while(ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC) == RESET);
-
-    return ADC_GetConversionValue(ADC1);
-}
-
-void Send_Frame(char dir, uint16_t pwm)
-{
-    sprintf(tx_buffer, "$M,%c,%d#", dir, pwm);
-    UART_SendString(tx_buffer);
-}
-
-uint16_t Calculate_Speed(uint16_t adc, uint16_t center)
-{
-    uint16_t diff;
-
-    if(adc > center)
-        diff = adc - center;
-    else
-        diff = center - adc;
-
-    // dead zone
-    if(diff < 200)
-        return 0;
-
-    diff -= 200;
-
-    // gi?i h?n max usable
-    if(diff > 1300)
-        diff = 1300;
-
-    return (diff * 1000) / 1300;
-}
+#include "system_init.h"
+#include "control.h"
+#include "sensor.h"
+#include "app.h"
+#include "timer.h"
+#include "bluetooth.h"
 
 int main(void)
 {
-    USART1_Config();
-    ADC_Config();
+    SystemInit();
+    System_Init();
+
+    Bluetooth_SendString("CAR START\r\n");
 
     while(1)
     {
-        x_val = ADC_Read(ADC_Channel_0);
-        y_val = ADC_Read(ADC_Channel_1);
+        /* 1. d?c d? li?u BLE */
+        Control_Run();
 
-        // Test joystick: print ADC values
-        sprintf(tx_buffer, "X: %d, Y: %d\r\n", x_val, y_val);
-        UART_SendString(tx_buffer);
+        /* 2. kích toàn b? SR05 */
+        Sensor_Trigger_All();
 
-        // ===== Y axis =====
-        if(y_val > 2300)
-        {
-            speed = Calculate_Speed(y_val, 2048);
-            Send_Frame('F', speed);
-        }
-        else if(y_val < 1800)
-        {
-            speed = Calculate_Speed(y_val, 2048);
-            Send_Frame('B', speed);
-        }
-        // ===== X axis =====
-        else if(x_val > 2300)
-        {
-            speed = Calculate_Speed(x_val, 2048);
-            Send_Frame('R', speed);
-        }
-        else if(x_val < 1800)
-        {
-            speed = Calculate_Speed(x_val, 2048);
-            Send_Frame('L', speed);
-        }
-        else
-        {
-            Send_Frame('S', 0);
-        }
+        /* 3. ch? sensor c?p nh?t */
+        Delay_ms(50);
 
-        delay_ms(50);
+        /* 4. ch?y app theo mode */
+        App_Run();
     }
 }

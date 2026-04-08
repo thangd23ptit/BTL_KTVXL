@@ -1,6 +1,6 @@
 Dependencies for Project 'Car_Control_BLE_and_Auto_Maze', Target 'Project': (DO NOT MODIFY !)
 CompilerVersion: 6140000::V6.14::ARMCLANG
-F (..\Src\main.c)(0x69D514FC)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Application -I ../Bsp -I ../Driver -I ../Inc -I ../Middleware -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport-I./RTE/Device/STM32F103C8-I./RTE/_Project-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/main.o -MD)
+F (..\Src\main.c)(0x69D65968)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Application -I ../Bsp -I ../Driver -I ../Inc -I ../Middleware -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport-I./RTE/Device/STM32F103C8-I./RTE/_Project-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/main.o -MD)
 I (G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61AD876E)
 I (..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h)(0x69CE8EF4)
 I (G:\KeilC\ARM\ARMCLANG\include\stdint.h)(0x5ED619F4)
@@ -29,9 +29,16 @@ I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x69CE8EF4)
-I (G:\KeilC\ARM\ARMCLANG\include\stdio.h)(0x5ED619F4)
-I (G:\KeilC\ARM\ARMCLANG\include\stdlib.h)(0x5ED619F4)
-F (..\Src\system_init.c)(0x69D125A4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Application -I ../Bsp -I ../Driver -I ../Inc -I ../Middleware -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport-I./RTE/Device/STM32F103C8-I./RTE/_Project-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/system_init.o -MD)
+I (..\Inc\system_init.h)(0x69D12553)
+I (..\Middleware\control.h)(0x69D1223C)
+I (..\Bsp\sensor.h)(0x69D11F07)
+I (..\Application\app.h)(0x69CE8EF4)
+I (..\Application\app_control.h)(0x69D12508)
+I (..\Application\app_auto.h)(0x69D1251B)
+I (..\Middleware\mode.h)(0x69D124E2)
+I (..\Driver\timer.h)(0x69D11407)
+I (..\Bsp\bluetooth.h)(0x69D11EBB)
+F (..\Src\system_init.c)(0x69D657F0)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Application -I ../Bsp -I ../Driver -I ../Inc -I ../Middleware -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport-I./RTE/Device/STM32F103C8-I./RTE/_Project-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/system_init.o -MD)
 I (..\Inc\system_init.h)(0x69D12553)
 I (..\Driver\timer.h)(0x69D11407)
 I (G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61AD876E)
@@ -69,6 +76,7 @@ I (..\Application\app.h)(0x69CE8EF4)
 I (..\Application\app_control.h)(0x69D12508)
 I (..\Application\app_auto.h)(0x69D1251B)
 I (..\Middleware\mode.h)(0x69D124E2)
+I (..\Bsp\bluetooth.h)(0x69D11EBB)
 F (..\Inc\system_init.h)(0x69D12553)()
 F (..\Application\app.c)(0x69D124FD)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Application -I ../Bsp -I ../Driver -I ../Inc -I ../Middleware -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport-I./RTE/Device/STM32F103C8-I./RTE/_Project-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/app.o -MD)
 I (..\Application\app.h)(0x69CE8EF4)
@@ -123,7 +131,7 @@ I (..\Bsp\bluetooth.h)(0x69D11EBB)
 I (..\Bsp\motor.h)(0x69D123BE)
 I (G:\KeilC\ARM\ARMCLANG\include\stdlib.h)(0x5ED619F4)
 F (..\Middleware\control.h)(0x69D1223C)()
-F (..\Middleware\maze.c)(0x69D12438)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Application -I ../Bsp -I ../Driver -I ../Inc -I ../Middleware -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport-I./RTE/Device/STM32F103C8-I./RTE/_Project-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/maze.o -MD)
+F (..\Middleware\maze.c)(0x69D6596A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Application -I ../Bsp -I ../Driver -I ../Inc -I ../Middleware -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport-I./RTE/Device/STM32F103C8-I./RTE/_Project-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/maze.o -MD)
 I (..\Middleware\maze.h)(0x69D122BE)
 I (G:\KeilC\ARM\ARMCLANG\include\stdint.h)(0x5ED619F4)
 I (..\Bsp\sensor.h)(0x69D11F07)
@@ -289,7 +297,7 @@ I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x69CE8EF4)
 F (..\Driver\gpio.h)(0x69D113C0)()
-F (..\Driver\pwm.c)(0x69D1DE07)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Application -I ../Bsp -I ../Driver -I ../Inc -I ../Middleware -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport-I./RTE/Device/STM32F103C8-I./RTE/_Project-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/pwm.o -MD)
+F (..\Driver\pwm.c)(0x69D65DA7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Application -I ../Bsp -I ../Driver -I ../Inc -I ../Middleware -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport-I./RTE/Device/STM32F103C8-I./RTE/_Project-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/pwm.o -MD)
 I (..\Driver\pwm.h)(0x69D113D9)
 I (G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61AD876E)
 I (..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h)(0x69CE8EF4)
