@@ -13,8 +13,6 @@ typedef struct
 void Control_Init(void);
 void Control_Run(void);
 control_data_t Control_GetData(void);
-
-/* middleware API cho app */
 void Control_Execute(control_data_t data);
 
 #endif

@@ -1,0 +1,6 @@
+--cpu Cortex-M3
+".\objects\main.o"
+--scatter ".\Objects\FindMax.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\FindMax.map" -o .\Objects\FindMax.axf

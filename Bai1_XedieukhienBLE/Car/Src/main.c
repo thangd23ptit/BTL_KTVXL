@@ -6,25 +6,13 @@
 #include "timer.h"
 #include "bluetooth.h"
 
-int main(void)
-{
-    SystemInit();
+int main(void){
+    SystemInit();// config system 72MHz
     System_Init();
-
-    Bluetooth_SendString("CAR START\r\n");
-
-    while(1)
-    {
-        /* 1. d?c d? li?u BLE */
-        Control_Run();
-
-        /* 2. kích toàn b? SR05 */
-        Sensor_Trigger_All();
-
-        /* 3. ch? sensor c?p nh?t */
+    while(1){
+        Control_Run();//doc frame tu bluetooth 
+        Sensor_Trigger_All();//khoi tao tat ca sensor 
         Delay_ms(50);
-
-        /* 4. ch?y app theo mode */
-        App_Run();
+        App_Run();//bat dau 
     }
 }

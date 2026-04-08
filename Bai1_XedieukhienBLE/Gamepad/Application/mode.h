@@ -12,9 +12,7 @@ typedef struct
     uint8_t last_state;
 } Mode_t;
 
-void Mode_Init(Mode_t *mode,
-               GPIO_TypeDef *port,
-               uint16_t pin);
+void Mode_Init(Mode_t *mode, GPIO_TypeDef *port, uint16_t pin);
 
 protocol_mode_t Mode_Update(Mode_t *mode);
 
