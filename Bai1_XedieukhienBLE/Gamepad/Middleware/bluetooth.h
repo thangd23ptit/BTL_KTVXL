@@ -10,5 +10,5 @@ void Bluetooth_SendString(char *str);
 
 uint8_t Bluetooth_Available(void);
 char Bluetooth_Read(void);
-
+void Bluetooth_SendNum(int32_t num);
 #endif

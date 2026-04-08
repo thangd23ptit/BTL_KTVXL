@@ -1,6 +1,10 @@
 #include "stm32f10x.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "stm32f10x_gpio.h"
+#include "stm32f10x_usart.h"
+#include "stm32f10x_rcc.h"
+#include "stm32f10x_adc.h"
 
 uint16_t x_val, y_val;
 uint16_t speed;
@@ -132,6 +136,10 @@ int main(void)
     {
         x_val = ADC_Read(ADC_Channel_0);
         y_val = ADC_Read(ADC_Channel_1);
+
+        // Test joystick: print ADC values
+        sprintf(tx_buffer, "X: %d, Y: %d\r\n", x_val, y_val);
+        UART_SendString(tx_buffer);
 
         // ===== Y axis =====
         if(y_val > 2300)

@@ -155,6 +155,16 @@
           <WinNumber>1</WinNumber>
           <ItemText>voltage</ItemText>
         </Ww>
+        <Ww>
+          <count>1</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>x_offset</ItemText>
+        </Ww>
+        <Ww>
+          <count>2</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>y_offset</ItemText>
+        </Ww>
       </WatchWindow1>
       <Tracepoint>
         <THDelay>0</THDelay>
@@ -202,10 +212,6 @@
         <Entry>
           <Name>System Viewer\ADC1</Name>
           <WinId>35903</WinId>
-        </Entry>
-        <Entry>
-          <Name>System Viewer\DAC</Name>
-          <WinId>35905</WinId>
         </Entry>
         <Entry>
           <Name>System Viewer\RCC</Name>

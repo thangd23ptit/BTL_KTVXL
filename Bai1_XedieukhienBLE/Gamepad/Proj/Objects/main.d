@@ -1,4 +1,4 @@
-./objects/main.o: ..\Src\main.c \
+./objects/main.o: ..\Src\main.c ..\Inc\main.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   ..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h \
   G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h \
@@ -26,5 +26,8 @@
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h \
-  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h \
-  G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdio.h
+  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h ..\Driver\gpio.h \
+  ..\Driver\adc.h ..\Driver\uart.h ..\Driver\systick.h \
+  ..\Middleware\bluetooth.h ..\Bsp\joystick.h ..\Application\protocol.h \
+  ..\Application\mode.h ..\Application\protocol.h \
+  ..\Application\gamepad.h ..\Application\mode.h

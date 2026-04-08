@@ -25,3 +25,7 @@ char Bluetooth_Read(void)
 {
     return UART1_ReadBuffer();
 }
+
+void Bluetooth_SendNum(int32_t num){
+		return UART1_SendNumber(num);
+}

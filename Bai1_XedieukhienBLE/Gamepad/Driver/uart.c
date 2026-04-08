@@ -79,8 +79,6 @@ void UART1_SendString(char *str)
     }
 }
 
-#include "uart.h"
-
 void UART1_SendNumber(int32_t num)
 {
     char buffer[12];

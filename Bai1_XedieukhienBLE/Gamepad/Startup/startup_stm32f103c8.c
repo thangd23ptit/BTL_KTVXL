@@ -145,36 +145,32 @@ const uint32_t vector_table[] = {
 };
 
 /* ================= RESET HANDLER ================= */
+extern void SystemInit(void);
+extern uint32_t _sidata;
+
 void Reset_Handler(void)
 {
     uint32_t size;
     uint8_t *pDst;
     uint8_t *pSrc;
 
-    /* Copy .data section from Flash to SRAM */
-    size = (uint32_t)&_edata - (uint32_t)&_sdata;
     pDst = (uint8_t*)&_sdata;
-    pSrc = (uint8_t*)&_etext;
+    pSrc = (uint8_t*)&_sidata;
+    size = (uint32_t)&_edata - (uint32_t)&_sdata;
 
-    for (uint32_t i = 0; i < size; i++)
-    {
+    for(uint32_t i = 0; i < size; i++)
         *pDst++ = *pSrc++;
-    }
 
-    /* Zero .bss section */
-    size = (uint32_t)&_ebss - (uint32_t)&_sbss;
     pDst = (uint8_t*)&_sbss;
+    size = (uint32_t)&_ebss - (uint32_t)&_sbss;
 
-    for (uint32_t i = 0; i < size; i++)
-    {
+    for(uint32_t i = 0; i < size; i++)
         *pDst++ = 0;
-    }
 
-    /* Call main() */
+    SystemInit();   // QUAN TRỌNG
     main();
 
-    /* Nếu main() return thì treo vô hạn */
-    while (1);
+    while(1);
 }
 
 /* ================= DEFAULT HANDLER ================= */

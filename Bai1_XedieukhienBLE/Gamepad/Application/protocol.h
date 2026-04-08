@@ -6,7 +6,7 @@
 typedef enum
 {
     MODE_MANUAL = 'M',
-    MODE_MAZE   = 'Z'
+    MODE_AUTO   = 'A'
 } protocol_mode_t;
 
 typedef enum
