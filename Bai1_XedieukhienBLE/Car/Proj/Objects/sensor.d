@@ -26,4 +26,5 @@
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h \
-  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h ..\Driver\gpio.h
+  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h ..\Driver\gpio.h \
+  ..\Driver\timer.h

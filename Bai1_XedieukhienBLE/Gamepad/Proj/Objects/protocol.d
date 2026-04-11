@@ -1,5 +1,6 @@
 ./objects/protocol.o: ..\Application\protocol.c ..\Application\protocol.h \
-  G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h ..\Driver\uart.h \
+  G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  ..\Middleware\bluetooth.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   ..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\system_stm32f10x.h \

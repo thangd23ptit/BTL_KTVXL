@@ -1,7 +1,7 @@
 Dependencies for Project 'Gamepad', Target 'Gamepad': (DO NOT MODIFY !)
 CompilerVersion: 6140000::V6.14::ARMCLANG
-F (..\Src\main.c)(0x69D5D435)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/main.o -MD)
-I (..\Inc\main.h)(0x69D5D42D)
+F (..\Src\main.c)(0x69D67635)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/main.o -MD)
+I (..\Inc\main.h)(0x69D67627)
 I (G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61AD876E)
 I (..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h)(0x69CE8EF4)
 I (G:\KeilC\ARM\ARMCLANG\include\stdint.h)(0x5ED619F4)
@@ -30,17 +30,17 @@ I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x69CE8EF4)
-I (..\Driver\gpio.h)(0x69D51C27)
+I (..\Driver\gpio.h)(0x69D6763B)
 I (..\Driver\adc.h)(0x69D51EB6)
-I (..\Driver\uart.h)(0x69D52410)
+I (..\Driver\uart.h)(0x69D67463)
 I (..\Driver\systick.h)(0x69D51D46)
-I (..\Middleware\bluetooth.h)(0x69D5CC4E)
-I (..\Bsp\joystick.h)(0x69D52178)
-I (..\Application\protocol.h)(0x69D5D1C3)
-I (..\Application\mode.h)(0x69D5D2DE)
-I (..\Application\gamepad.h)(0x69D5D367)
-F (..\Inc\main.h)(0x69D5D42D)()
-F (..\Driver\systick.c)(0x69D51D4E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/systick.o -MD)
+I (..\Middleware\bluetooth.h)(0x69D674DE)
+I (..\Bsp\joystick.h)(0x69D674F9)
+I (..\Application\protocol.h)(0x69D6751D)
+I (..\Application\mode.h)(0x69D675B1)
+I (..\Application\gamepad.h)(0x69D675E4)
+F (..\Inc\main.h)(0x69D67627)()
+F (..\Driver\systick.c)(0x69D673E4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/systick.o -MD)
 I (..\Driver\systick.h)(0x69D51D46)
 I (G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61AD876E)
 I (..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h)(0x69CE8EF4)
@@ -70,7 +70,7 @@ I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x69CE8EF4)
-F (..\Driver\adc.c)(0x69D5CB8C)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/adc.o -MD)
+F (..\Driver\adc.c)(0x69D6759D)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/adc.o -MD)
 I (..\Driver\adc.h)(0x69D51EB6)
 I (G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61AD876E)
 I (..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h)(0x69CE8EF4)
@@ -101,8 +101,8 @@ I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x69CE8EF4)
 F (..\Driver\adc.h)(0x69D51EB6)()
-F (..\Driver\gpio.c)(0x69D51C66)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/gpio.o -MD)
-I (..\Driver\gpio.h)(0x69D51C27)
+F (..\Driver\gpio.c)(0x69D673D8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/gpio.o -MD)
+I (..\Driver\gpio.h)(0x69D6763B)
 I (G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61AD876E)
 I (..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h)(0x69CE8EF4)
 I (G:\KeilC\ARM\ARMCLANG\include\stdint.h)(0x5ED619F4)
@@ -131,9 +131,9 @@ I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x69CE8EF4)
-F (..\Driver\gpio.h)(0x69D51C27)()
+F (..\Driver\gpio.h)(0x69D6763B)()
 F (..\Driver\systick.h)(0x69D51D46)()
-F (..\Driver\tim.c)(0x69D51DF8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/tim.o -MD)
+F (..\Driver\tim.c)(0x69D673F8)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/tim.o -MD)
 I (..\Driver\tim.h)(0x69D51DDF)
 I (G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61AD876E)
 I (..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h)(0x69CE8EF4)
@@ -164,8 +164,8 @@ I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x69CE8EF4)
 F (..\Driver\tim.h)(0x69D51DDF)()
-F (..\Driver\uart.c)(0x69D5CA34)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/uart.o -MD)
-I (..\Driver\uart.h)(0x69D52410)
+F (..\Driver\uart.c)(0x69D67F89)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/uart.o -MD)
+I (..\Driver\uart.h)(0x69D67463)
 I (G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61AD876E)
 I (..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h)(0x69CE8EF4)
 I (G:\KeilC\ARM\ARMCLANG\include\stdint.h)(0x5ED619F4)
@@ -194,7 +194,7 @@ I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x69CE8EF4)
-F (..\Driver\uart.h)(0x69D52410)()
+F (..\Driver\uart.h)(0x69D67463)()
 F (..\Lib\STM32F10x_StdPeriph_Driver\src\misc.c)(0x69CE8EF4)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/misc.o -MD)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x69CE8EF4)
 I (G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61AD876E)
@@ -885,8 +885,8 @@ F (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_spi.h)(0x69CE8EF4)()
 F (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x69CE8EF4)()
 F (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x69CE8EF4)()
 F (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x69CE8EF4)()
-F (..\Middleware\bluetooth.c)(0x69D5CC42)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/bluetooth.o -MD)
-I (..\Middleware\bluetooth.h)(0x69D5CC4E)
+F (..\Middleware\bluetooth.c)(0x69D674EB)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/bluetooth.o -MD)
+I (..\Middleware\bluetooth.h)(0x69D674DE)
 I (G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61AD876E)
 I (..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h)(0x69CE8EF4)
 I (G:\KeilC\ARM\ARMCLANG\include\stdint.h)(0x5ED619F4)
@@ -915,11 +915,11 @@ I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x69CE8EF4)
-I (..\Driver\uart.h)(0x69D52410)
-F (..\Middleware\bluetooth.h)(0x69D5CC4E)()
-F (..\Application\gamepad.c)(0x69D5D38D)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/gamepad.o -MD)
-I (..\Application\gamepad.h)(0x69D5D367)
-I (..\Bsp\joystick.h)(0x69D52178)
+I (..\Driver\uart.h)(0x69D67463)
+F (..\Middleware\bluetooth.h)(0x69D674DE)()
+F (..\Application\gamepad.c)(0x69D67617)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/gamepad.o -MD)
+I (..\Application\gamepad.h)(0x69D675E4)
+I (..\Bsp\joystick.h)(0x69D674F9)
 I (G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61AD876E)
 I (..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h)(0x69CE8EF4)
 I (G:\KeilC\ARM\ARMCLANG\include\stdint.h)(0x5ED619F4)
@@ -948,11 +948,11 @@ I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x69CE8EF4)
-I (..\Application\mode.h)(0x69D5D2DE)
-I (..\Application\protocol.h)(0x69D5D1C3)
-F (..\Application\gamepad.h)(0x69D5D367)()
-F (..\Application\mode.c)(0x69D5D2E3)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/mode.o -MD)
-I (..\Application\mode.h)(0x69D5D2DE)
+I (..\Application\mode.h)(0x69D675B1)
+I (..\Application\protocol.h)(0x69D6751D)
+F (..\Application\gamepad.h)(0x69D675E4)()
+F (..\Application\mode.c)(0x69D675D1)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/mode.o -MD)
+I (..\Application\mode.h)(0x69D675B1)
 I (G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61AD876E)
 I (..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h)(0x69CE8EF4)
 I (G:\KeilC\ARM\ARMCLANG\include\stdint.h)(0x5ED619F4)
@@ -981,14 +981,14 @@ I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x69CE8EF4)
-I (..\Application\protocol.h)(0x69D5D1C3)
-I (..\Driver\gpio.h)(0x69D51C27)
+I (..\Application\protocol.h)(0x69D6751D)
+I (..\Driver\gpio.h)(0x69D6763B)
 I (..\Driver\tim.h)(0x69D51DDF)
-F (..\Application\mode.h)(0x69D5D2DE)()
-F (..\Application\protocol.c)(0x69D5D130)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/protocol.o -MD)
-I (..\Application\protocol.h)(0x69D5D1C3)
+F (..\Application\mode.h)(0x69D675B1)()
+F (..\Application\protocol.c)(0x69D779C5)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/protocol.o -MD)
+I (..\Application\protocol.h)(0x69D6751D)
 I (G:\KeilC\ARM\ARMCLANG\include\stdint.h)(0x5ED619F4)
-I (..\Driver\uart.h)(0x69D52410)
+I (..\Middleware\bluetooth.h)(0x69D674DE)
 I (G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61AD876E)
 I (..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h)(0x69CE8EF4)
 I (G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\system_stm32f10x.h)(0x61AD876E)
@@ -1016,9 +1016,9 @@ I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x69CE8EF4)
-F (..\Application\protocol.h)(0x69D5D1C3)()
-F (..\Bsp\joystick.c)(0x69D52199)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/joystick.o -MD)
-I (..\Bsp\joystick.h)(0x69D52178)
+F (..\Application\protocol.h)(0x69D6751D)()
+F (..\Bsp\joystick.c)(0x69D6750D)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/joystick.o -MD)
+I (..\Bsp\joystick.h)(0x69D674F9)
 I (G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61AD876E)
 I (..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h)(0x69CE8EF4)
 I (G:\KeilC\ARM\ARMCLANG\include\stdint.h)(0x5ED619F4)
@@ -1048,7 +1048,7 @@ I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h)(0x69CE8EF4)
 I (..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h)(0x69CE8EF4)
 I (..\Driver\adc.h)(0x69D51EB6)
-F (..\Bsp\joystick.h)(0x69D52178)()
+F (..\Bsp\joystick.h)(0x69D674F9)()
 F (RTE\Device\STM32F103C8\RTE_Device.h)(0x5FC05DFA)()
 F (RTE\Device\STM32F103C8\startup_stm32f10x_md.s)(0x61AD876E)(--target=arm-arm-none-eabi -mcpu=cortex-m3 -masm=auto -c-gdwarf-3-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-Wa,armasm,--pd,"__UVISION_VERSION SETA 531" -Wa,armasm,--pd,"_RTE_ SETA 1" -Wa,armasm,--pd,"STM32F10X_MD SETA 1" -Wa,armasm,--pd,"_RTE_ SETA 1"-o ./objects/startup_stm32f10x_md.o)
 F (RTE\Device\STM32F103C8\system_stm32f10x.c)(0x61AD876E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O1 -ffunction-sections -w -I ../Lib/STM32F10x_StdPeriph_Driver/inc -I ../Lib/STM32F10x_StdPeriph_Driver/src -I ../Bsp -I ../Middleware -I ../Inc -I ../Application -I ../Driver -I ../Lib/CMSIS/CM3/CoreSupport -I ../Lib/CMSIS/CM3/DeviceSupport -I ../Src-I./RTE/Device/STM32F103C8-I./RTE/_Gamepad-IG:/KeilC/Package/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IG:/KeilC/Package/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_STDPERIPH_DRIVER -DSTM3210X_MD-o ./objects/system_stm32f10x.o -MD)

@@ -618,8 +618,8 @@ Section Cross References
     mode.o(.text.Mode_Update) refers to tim.o(.text.Delay_ms) for Delay_ms
     mode.o(.ARM.exidx.text.Mode_Update) refers to mode.o(.text.Mode_Update) for [Anonymous Symbol]
     protocol.o(.ARM.exidx.text.Protocol_Encode) refers to protocol.o(.text.Protocol_Encode) for [Anonymous Symbol]
-    protocol.o(.text.Protocol_Send) refers to uart.o(.text.UART1_SendChar) for UART1_SendChar
-    protocol.o(.text.Protocol_Send) refers to uart.o(.text.UART1_SendNumber) for UART1_SendNumber
+    protocol.o(.text.Protocol_Send) refers to bluetooth.o(.text.Bluetooth_SendChar) for Bluetooth_SendChar
+    protocol.o(.text.Protocol_Send) refers to bluetooth.o(.text.Bluetooth_SendNum) for Bluetooth_SendNum
     protocol.o(.ARM.exidx.text.Protocol_Send) refers to protocol.o(.text.Protocol_Send) for [Anonymous Symbol]
     joystick.o(.ARM.exidx.text.Joystick_Init) refers to joystick.o(.text.Joystick_Init) for [Anonymous Symbol]
     joystick.o(.text.Joystick_ReadX) refers to adc.o(.text.ADC1_Init_Single) for ADC1_Init_Single
@@ -1787,7 +1787,6 @@ Removing Unused input sections from the image.
     Removing bluetooth.o(.text), (0 bytes).
     Removing bluetooth.o(.text.Bluetooth_Init), (8 bytes).
     Removing bluetooth.o(.ARM.exidx.text.Bluetooth_Init), (8 bytes).
-    Removing bluetooth.o(.text.Bluetooth_SendChar), (8 bytes).
     Removing bluetooth.o(.ARM.exidx.text.Bluetooth_SendChar), (8 bytes).
     Removing bluetooth.o(.text.Bluetooth_SendString), (8 bytes).
     Removing bluetooth.o(.ARM.exidx.text.Bluetooth_SendString), (8 bytes).
@@ -1795,7 +1794,6 @@ Removing Unused input sections from the image.
     Removing bluetooth.o(.ARM.exidx.text.Bluetooth_Available), (8 bytes).
     Removing bluetooth.o(.text.Bluetooth_Read), (8 bytes).
     Removing bluetooth.o(.ARM.exidx.text.Bluetooth_Read), (8 bytes).
-    Removing bluetooth.o(.text.Bluetooth_SendNum), (8 bytes).
     Removing bluetooth.o(.ARM.exidx.text.Bluetooth_SendNum), (8 bytes).
     Removing gamepad.o(.text), (0 bytes).
     Removing gamepad.o(.ARM.exidx.text.Gamepad_Init), (8 bytes).
@@ -1823,7 +1821,7 @@ Removing Unused input sections from the image.
     Removing system_stm32f10x.o(.data.SystemCoreClock), (4 bytes).
     Removing system_stm32f10x.o(.rodata.AHBPrescTable), (16 bytes).
 
-1048 unused section(s) (total 20164 bytes) removed from the image.
+1046 unused section(s) (total 20148 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1985,33 +1983,35 @@ Image Symbol Table
     [Anonymous Symbol]                       0x080002f4   Section        0  adc.o(.text.ADC1_Read)
     ADC_GPIO_Config                          0x08000325   Thumb Code   102  adc.o(.text.ADC_GPIO_Config)
     [Anonymous Symbol]                       0x08000324   Section        0  adc.o(.text.ADC_GPIO_Config)
-    [Anonymous Symbol]                       0x0800038c   Section        0  tim.o(.text.Delay_ms)
-    [Anonymous Symbol]                       0x080003b8   Section        0  gpio.o(.text.GPIO_Config)
-    GPIO_EnableClock                         0x08000435   Thumb Code    56  gpio.o(.text.GPIO_EnableClock)
-    [Anonymous Symbol]                       0x08000434   Section        0  gpio.o(.text.GPIO_EnableClock)
-    [Anonymous Symbol]                       0x0800046c   Section        0  gpio.o(.text.GPIO_Read)
-    [Anonymous Symbol]                       0x08000478   Section        0  gamepad.o(.text.Gamepad_Init)
-    [Anonymous Symbol]                       0x08000490   Section        0  gamepad.o(.text.Gamepad_Update)
-    [Anonymous Symbol]                       0x08000504   Section        0  joystick.o(.text.Joystick_Init)
-    [Anonymous Symbol]                       0x08000510   Section        0  joystick.o(.text.Joystick_ReadX)
-    [Anonymous Symbol]                       0x08000520   Section        0  joystick.o(.text.Joystick_ReadY)
-    [Anonymous Symbol]                       0x08000530   Section        0  mode.o(.text.Mode_Init)
-    [Anonymous Symbol]                       0x08000548   Section        0  mode.o(.text.Mode_Update)
-    NVIC_EnableIRQ                           0x08000589   Thumb Code    14  uart.o(.text.NVIC_EnableIRQ)
-    [Anonymous Symbol]                       0x08000588   Section        0  uart.o(.text.NVIC_EnableIRQ)
-    [Anonymous Symbol]                       0x08000598   Section        0  protocol.o(.text.Protocol_Encode)
-    [Anonymous Symbol]                       0x080005d4   Section        0  protocol.o(.text.Protocol_Send)
-    SetSysClock                              0x08000609   Thumb Code     8  system_stm32f10x.o(.text.SetSysClock)
-    [Anonymous Symbol]                       0x08000608   Section        0  system_stm32f10x.o(.text.SetSysClock)
-    SetSysClockTo72                          0x08000611   Thumb Code   190  system_stm32f10x.o(.text.SetSysClockTo72)
-    [Anonymous Symbol]                       0x08000610   Section        0  system_stm32f10x.o(.text.SetSysClockTo72)
-    [Anonymous Symbol]                       0x080006d0   Section        0  system_stm32f10x.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x08000728   Section        0  tim.o(.text.TIM2_Init_1ms)
-    [Anonymous Symbol]                       0x0800076c   Section        0  uart.o(.text.UART1_Init)
-    [Anonymous Symbol]                       0x080007ec   Section        0  uart.o(.text.UART1_SendChar)
-    [Anonymous Symbol]                       0x08000800   Section        0  uart.o(.text.UART1_SendNumber)
-    [Anonymous Symbol]                       0x08000880   Section        0  uart.o(.text.USART1_IRQHandler)
-    [Anonymous Symbol]                       0x080008c4   Section        0  main.o(.text.main)
+    [Anonymous Symbol]                       0x0800038c   Section        0  bluetooth.o(.text.Bluetooth_SendChar)
+    [Anonymous Symbol]                       0x08000394   Section        0  bluetooth.o(.text.Bluetooth_SendNum)
+    [Anonymous Symbol]                       0x0800039c   Section        0  tim.o(.text.Delay_ms)
+    [Anonymous Symbol]                       0x080003c8   Section        0  gpio.o(.text.GPIO_Config)
+    GPIO_EnableClock                         0x08000445   Thumb Code    56  gpio.o(.text.GPIO_EnableClock)
+    [Anonymous Symbol]                       0x08000444   Section        0  gpio.o(.text.GPIO_EnableClock)
+    [Anonymous Symbol]                       0x0800047c   Section        0  gpio.o(.text.GPIO_Read)
+    [Anonymous Symbol]                       0x08000488   Section        0  gamepad.o(.text.Gamepad_Init)
+    [Anonymous Symbol]                       0x080004a0   Section        0  gamepad.o(.text.Gamepad_Update)
+    [Anonymous Symbol]                       0x08000514   Section        0  joystick.o(.text.Joystick_Init)
+    [Anonymous Symbol]                       0x08000520   Section        0  joystick.o(.text.Joystick_ReadX)
+    [Anonymous Symbol]                       0x08000530   Section        0  joystick.o(.text.Joystick_ReadY)
+    [Anonymous Symbol]                       0x08000540   Section        0  mode.o(.text.Mode_Init)
+    [Anonymous Symbol]                       0x08000558   Section        0  mode.o(.text.Mode_Update)
+    NVIC_EnableIRQ                           0x08000599   Thumb Code    14  uart.o(.text.NVIC_EnableIRQ)
+    [Anonymous Symbol]                       0x08000598   Section        0  uart.o(.text.NVIC_EnableIRQ)
+    [Anonymous Symbol]                       0x080005a8   Section        0  protocol.o(.text.Protocol_Encode)
+    [Anonymous Symbol]                       0x080005e4   Section        0  protocol.o(.text.Protocol_Send)
+    SetSysClock                              0x08000619   Thumb Code     8  system_stm32f10x.o(.text.SetSysClock)
+    [Anonymous Symbol]                       0x08000618   Section        0  system_stm32f10x.o(.text.SetSysClock)
+    SetSysClockTo72                          0x08000621   Thumb Code   190  system_stm32f10x.o(.text.SetSysClockTo72)
+    [Anonymous Symbol]                       0x08000620   Section        0  system_stm32f10x.o(.text.SetSysClockTo72)
+    [Anonymous Symbol]                       0x080006e0   Section        0  system_stm32f10x.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x08000738   Section        0  tim.o(.text.TIM2_Init_1ms)
+    [Anonymous Symbol]                       0x0800077c   Section        0  uart.o(.text.UART1_Init)
+    [Anonymous Symbol]                       0x080007fc   Section        0  uart.o(.text.UART1_SendChar)
+    [Anonymous Symbol]                       0x08000810   Section        0  uart.o(.text.UART1_SendNumber)
+    [Anonymous Symbol]                       0x08000890   Section        0  uart.o(.text.USART1_IRQHandler)
+    [Anonymous Symbol]                       0x080008d4   Section        0  main.o(.text.main)
     .bss                                     0x20000000   Section       96  libspace.o(.bss)
     ADC1_Init_Single.adc_inited              0x20000060   Data           1  adc.o(.bss.ADC1_Init_Single.adc_inited)
     [Anonymous Symbol]                       0x20000060   Section        0  adc.o(.bss.ADC1_Init_Single.adc_inited)
@@ -2180,27 +2180,29 @@ Image Symbol Table
     __semihosting_library_function           0x08000227   Thumb Code     0  indicate_semi.o(.text)
     ADC1_Init_Single                         0x08000229   Thumb Code   204  adc.o(.text.ADC1_Init_Single)
     ADC1_Read                                0x080002f5   Thumb Code    48  adc.o(.text.ADC1_Read)
-    Delay_ms                                 0x0800038d   Thumb Code    42  tim.o(.text.Delay_ms)
-    GPIO_Config                              0x080003b9   Thumb Code   122  gpio.o(.text.GPIO_Config)
-    GPIO_Read                                0x0800046d   Thumb Code    10  gpio.o(.text.GPIO_Read)
-    Gamepad_Init                             0x08000479   Thumb Code    24  gamepad.o(.text.Gamepad_Init)
-    Gamepad_Update                           0x08000491   Thumb Code   116  gamepad.o(.text.Gamepad_Update)
-    Joystick_Init                            0x08000505   Thumb Code    12  joystick.o(.text.Joystick_Init)
-    Joystick_ReadX                           0x08000511   Thumb Code    14  joystick.o(.text.Joystick_ReadX)
-    Joystick_ReadY                           0x08000521   Thumb Code    14  joystick.o(.text.Joystick_ReadY)
-    Mode_Init                                0x08000531   Thumb Code    24  mode.o(.text.Mode_Init)
-    Mode_Update                              0x08000549   Thumb Code    62  mode.o(.text.Mode_Update)
-    Protocol_Encode                          0x08000599   Thumb Code    60  protocol.o(.text.Protocol_Encode)
-    Protocol_Send                            0x080005d5   Thumb Code    52  protocol.o(.text.Protocol_Send)
-    SystemInit                               0x080006d1   Thumb Code    86  system_stm32f10x.o(.text.SystemInit)
-    TIM2_Init_1ms                            0x08000729   Thumb Code    66  tim.o(.text.TIM2_Init_1ms)
-    UART1_Init                               0x0800076d   Thumb Code   128  uart.o(.text.UART1_Init)
-    UART1_SendChar                           0x080007ed   Thumb Code    18  uart.o(.text.UART1_SendChar)
-    UART1_SendNumber                         0x08000801   Thumb Code   126  uart.o(.text.UART1_SendNumber)
-    USART1_IRQHandler                        0x08000881   Thumb Code    68  uart.o(.text.USART1_IRQHandler)
-    main                                     0x080008c5   Thumb Code    62  main.o(.text.main)
-    Region$$Table$$Base                      0x08000904   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08000914   Number         0  anon$$obj.o(Region$$Table)
+    Bluetooth_SendChar                       0x0800038d   Thumb Code     8  bluetooth.o(.text.Bluetooth_SendChar)
+    Bluetooth_SendNum                        0x08000395   Thumb Code     8  bluetooth.o(.text.Bluetooth_SendNum)
+    Delay_ms                                 0x0800039d   Thumb Code    42  tim.o(.text.Delay_ms)
+    GPIO_Config                              0x080003c9   Thumb Code   122  gpio.o(.text.GPIO_Config)
+    GPIO_Read                                0x0800047d   Thumb Code    10  gpio.o(.text.GPIO_Read)
+    Gamepad_Init                             0x08000489   Thumb Code    24  gamepad.o(.text.Gamepad_Init)
+    Gamepad_Update                           0x080004a1   Thumb Code   116  gamepad.o(.text.Gamepad_Update)
+    Joystick_Init                            0x08000515   Thumb Code    12  joystick.o(.text.Joystick_Init)
+    Joystick_ReadX                           0x08000521   Thumb Code    14  joystick.o(.text.Joystick_ReadX)
+    Joystick_ReadY                           0x08000531   Thumb Code    14  joystick.o(.text.Joystick_ReadY)
+    Mode_Init                                0x08000541   Thumb Code    24  mode.o(.text.Mode_Init)
+    Mode_Update                              0x08000559   Thumb Code    62  mode.o(.text.Mode_Update)
+    Protocol_Encode                          0x080005a9   Thumb Code    60  protocol.o(.text.Protocol_Encode)
+    Protocol_Send                            0x080005e5   Thumb Code    52  protocol.o(.text.Protocol_Send)
+    SystemInit                               0x080006e1   Thumb Code    86  system_stm32f10x.o(.text.SystemInit)
+    TIM2_Init_1ms                            0x08000739   Thumb Code    66  tim.o(.text.TIM2_Init_1ms)
+    UART1_Init                               0x0800077d   Thumb Code   128  uart.o(.text.UART1_Init)
+    UART1_SendChar                           0x080007fd   Thumb Code    18  uart.o(.text.UART1_SendChar)
+    UART1_SendNumber                         0x08000811   Thumb Code   126  uart.o(.text.UART1_SendNumber)
+    USART1_IRQHandler                        0x08000891   Thumb Code    68  uart.o(.text.USART1_IRQHandler)
+    main                                     0x080008d5   Thumb Code    62  main.o(.text.main)
+    Region$$Table$$Base                      0x08000914   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08000924   Number         0  anon$$obj.o(Region$$Table)
     __libspace_start                         0x20000000   Data          96  libspace.o(.bss)
     __temporary_stack_top$libspace           0x20000060   Data           0  libspace.o(.bss)
     gamepad                                  0x20000064   Data          12  main.o(.bss.gamepad)
@@ -2213,9 +2215,9 @@ Memory Map of the image
 
   Image Entry point : 0x080000ed
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00000914, Max: 0x00010000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00000924, Max: 0x00010000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000914, Max: 0x00010000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00000924, Max: 0x00010000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2279,58 +2281,60 @@ Memory Map of the image
     0x080002f4   0x080002f4   0x00000030   Code   RO           28    .text.ADC1_Read     adc.o
     0x08000324   0x08000324   0x00000066   Code   RO           26    .text.ADC_GPIO_Config  adc.o
     0x0800038a   0x0800038a   0x00000002   PAD
-    0x0800038c   0x0800038c   0x0000002a   Code   RO           62    .text.Delay_ms      tim.o
-    0x080003b6   0x080003b6   0x00000002   PAD
-    0x080003b8   0x080003b8   0x0000007a   Code   RO           42    .text.GPIO_Config   gpio.o
-    0x08000432   0x08000432   0x00000002   PAD
-    0x08000434   0x08000434   0x00000038   Code   RO           44    .text.GPIO_EnableClock  gpio.o
-    0x0800046c   0x0800046c   0x0000000a   Code   RO           48    .text.GPIO_Read     gpio.o
-    0x08000476   0x08000476   0x00000002   PAD
-    0x08000478   0x08000478   0x00000018   Code   RO         1253    .text.Gamepad_Init  gamepad.o
-    0x08000490   0x08000490   0x00000074   Code   RO         1255    .text.Gamepad_Update  gamepad.o
-    0x08000504   0x08000504   0x0000000c   Code   RO         1289    .text.Joystick_Init  joystick.o
-    0x08000510   0x08000510   0x0000000e   Code   RO         1291    .text.Joystick_ReadX  joystick.o
-    0x0800051e   0x0800051e   0x00000002   PAD
-    0x08000520   0x08000520   0x0000000e   Code   RO         1293    .text.Joystick_ReadY  joystick.o
+    0x0800038c   0x0800038c   0x00000008   Code   RO         1235    .text.Bluetooth_SendChar  bluetooth.o
+    0x08000394   0x08000394   0x00000008   Code   RO         1243    .text.Bluetooth_SendNum  bluetooth.o
+    0x0800039c   0x0800039c   0x0000002a   Code   RO           62    .text.Delay_ms      tim.o
+    0x080003c6   0x080003c6   0x00000002   PAD
+    0x080003c8   0x080003c8   0x0000007a   Code   RO           42    .text.GPIO_Config   gpio.o
+    0x08000442   0x08000442   0x00000002   PAD
+    0x08000444   0x08000444   0x00000038   Code   RO           44    .text.GPIO_EnableClock  gpio.o
+    0x0800047c   0x0800047c   0x0000000a   Code   RO           48    .text.GPIO_Read     gpio.o
+    0x08000486   0x08000486   0x00000002   PAD
+    0x08000488   0x08000488   0x00000018   Code   RO         1253    .text.Gamepad_Init  gamepad.o
+    0x080004a0   0x080004a0   0x00000074   Code   RO         1255    .text.Gamepad_Update  gamepad.o
+    0x08000514   0x08000514   0x0000000c   Code   RO         1289    .text.Joystick_Init  joystick.o
+    0x08000520   0x08000520   0x0000000e   Code   RO         1291    .text.Joystick_ReadX  joystick.o
     0x0800052e   0x0800052e   0x00000002   PAD
-    0x08000530   0x08000530   0x00000018   Code   RO         1265    .text.Mode_Init     mode.o
-    0x08000548   0x08000548   0x0000003e   Code   RO         1267    .text.Mode_Update   mode.o
-    0x08000586   0x08000586   0x00000002   PAD
-    0x08000588   0x08000588   0x0000000e   Code   RO           74    .text.NVIC_EnableIRQ  uart.o
+    0x08000530   0x08000530   0x0000000e   Code   RO         1293    .text.Joystick_ReadY  joystick.o
+    0x0800053e   0x0800053e   0x00000002   PAD
+    0x08000540   0x08000540   0x00000018   Code   RO         1265    .text.Mode_Init     mode.o
+    0x08000558   0x08000558   0x0000003e   Code   RO         1267    .text.Mode_Update   mode.o
     0x08000596   0x08000596   0x00000002   PAD
-    0x08000598   0x08000598   0x0000003c   Code   RO         1277    .text.Protocol_Encode  protocol.o
-    0x080005d4   0x080005d4   0x00000034   Code   RO         1279    .text.Protocol_Send  protocol.o
-    0x08000608   0x08000608   0x00000008   Code   RO         1318    .text.SetSysClock   system_stm32f10x.o
-    0x08000610   0x08000610   0x000000be   Code   RO         1322    .text.SetSysClockTo72  system_stm32f10x.o
-    0x080006ce   0x080006ce   0x00000002   PAD
-    0x080006d0   0x080006d0   0x00000056   Code   RO         1316    .text.SystemInit    system_stm32f10x.o
-    0x08000726   0x08000726   0x00000002   PAD
-    0x08000728   0x08000728   0x00000042   Code   RO           60    .text.TIM2_Init_1ms  tim.o
-    0x0800076a   0x0800076a   0x00000002   PAD
-    0x0800076c   0x0800076c   0x00000080   Code   RO           72    .text.UART1_Init    uart.o
-    0x080007ec   0x080007ec   0x00000012   Code   RO           82    .text.UART1_SendChar  uart.o
-    0x080007fe   0x080007fe   0x00000002   PAD
-    0x08000800   0x08000800   0x0000007e   Code   RO           86    .text.UART1_SendNumber  uart.o
-    0x0800087e   0x0800087e   0x00000002   PAD
-    0x08000880   0x08000880   0x00000044   Code   RO           76    .text.USART1_IRQHandler  uart.o
-    0x080008c4   0x080008c4   0x0000003e   Code   RO            2    .text.main          main.o
-    0x08000902   0x08000902   0x00000002   PAD
-    0x08000904   0x08000904   0x00000010   Data   RO         1518    Region$$Table       anon$$obj.o
+    0x08000598   0x08000598   0x0000000e   Code   RO           74    .text.NVIC_EnableIRQ  uart.o
+    0x080005a6   0x080005a6   0x00000002   PAD
+    0x080005a8   0x080005a8   0x0000003c   Code   RO         1277    .text.Protocol_Encode  protocol.o
+    0x080005e4   0x080005e4   0x00000034   Code   RO         1279    .text.Protocol_Send  protocol.o
+    0x08000618   0x08000618   0x00000008   Code   RO         1318    .text.SetSysClock   system_stm32f10x.o
+    0x08000620   0x08000620   0x000000be   Code   RO         1322    .text.SetSysClockTo72  system_stm32f10x.o
+    0x080006de   0x080006de   0x00000002   PAD
+    0x080006e0   0x080006e0   0x00000056   Code   RO         1316    .text.SystemInit    system_stm32f10x.o
+    0x08000736   0x08000736   0x00000002   PAD
+    0x08000738   0x08000738   0x00000042   Code   RO           60    .text.TIM2_Init_1ms  tim.o
+    0x0800077a   0x0800077a   0x00000002   PAD
+    0x0800077c   0x0800077c   0x00000080   Code   RO           72    .text.UART1_Init    uart.o
+    0x080007fc   0x080007fc   0x00000012   Code   RO           82    .text.UART1_SendChar  uart.o
+    0x0800080e   0x0800080e   0x00000002   PAD
+    0x08000810   0x08000810   0x0000007e   Code   RO           86    .text.UART1_SendNumber  uart.o
+    0x0800088e   0x0800088e   0x00000002   PAD
+    0x08000890   0x08000890   0x00000044   Code   RO           76    .text.USART1_IRQHandler  uart.o
+    0x080008d4   0x080008d4   0x0000003e   Code   RO            2    .text.main          main.o
+    0x08000912   0x08000912   0x00000002   PAD
+    0x08000914   0x08000914   0x00000010   Data   RO         1518    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08000914, Size: 0x000006b8, Max: 0x00005000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08000924, Size: 0x000006b8, Max: 0x00005000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x20000000        -       0x00000060   Zero   RW         1385    .bss                c_w.l(libspace.o)
     0x20000060        -       0x00000001   Zero   RW           32    .bss.ADC1_Init_Single.adc_inited  adc.o
     0x20000061        -       0x00000001   Zero   RW           33    .bss.current_channel  adc.o
-    0x20000062   0x08000914   0x00000002   PAD
+    0x20000062   0x08000924   0x00000002   PAD
     0x20000064        -       0x0000000c   Zero   RW            4    .bss.gamepad        main.o
     0x20000070        -       0x00000040   Zero   RW           90    .bss.rx_buffer      uart.o
     0x200000b0        -       0x00000001   Zero   RW           88    .bss.rx_head        uart.o
     0x200000b1        -       0x00000001   Zero   RW           89    .bss.rx_tail        uart.o
-    0x200000b2   0x08000914   0x00000006   PAD
+    0x200000b2   0x08000924   0x00000006   PAD
     0x200000b8        -       0x00000200   Zero   RW         1307    HEAP                startup_stm32f10x_md.o
     0x200002b8        -       0x00000400   Zero   RW         1306    STACK               startup_stm32f10x_md.o
 
@@ -2342,20 +2346,21 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       354          0          0          0          2       2291   adc.o
-       140         10          0          0          0       2182   gamepad.o
-       188         16          0          0          0       2293   gpio.o
+       354          0          0          0          2       2283   adc.o
+        16          0          0          0          0       1283   bluetooth.o
+       140         10          0          0          0       2180   gamepad.o
+       188         16          0          0          0       2283   gpio.o
         40          0          0          0          0       1428   joystick.o
         62          0          0          0         12       1334   main.o
         86          0          0          0          0       1647   mode.o
-       112          0          0          0          0       1388   protocol.o
+       112          0          0          0          0       1386   protocol.o
         64         26        236          0       1536        832   startup_stm32f10x_md.o
        284          0          0          0          0       2700   system_stm32f10x.o
        108          0          0          0          0       1967   tim.o
-       354          0          0          0         66       4662   uart.o
+       354          0          0          0         66       4658   uart.o
 
     ----------------------------------------------------------------------
-      1820         52        252          0       1624      22724   Object Totals
+      1836         52        252          0       1624      23981   Object Totals
          0          0         16          0          0          0   (incl. Generated)
         28          0          0          0          8          0   (incl. Padding)
 
@@ -2403,15 +2408,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      2072         68        252          0       1720      22988   Grand Totals
-      2072         68        252          0       1720      22988   ELF Image Totals
-      2072         68        252          0          0          0   ROM Totals
+      2088         68        252          0       1720      24229   Grand Totals
+      2088         68        252          0       1720      24229   ELF Image Totals
+      2088         68        252          0          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 2324 (   2.27kB)
+    Total RO  Size (Code + RO Data)                 2340 (   2.29kB)
     Total RW  Size (RW Data + ZI Data)              1720 (   1.68kB)
-    Total ROM Size (Code + RO Data + RW Data)       2324 (   2.27kB)
+    Total ROM Size (Code + RO Data + RW Data)       2340 (   2.29kB)
 
 ==============================================================================
 

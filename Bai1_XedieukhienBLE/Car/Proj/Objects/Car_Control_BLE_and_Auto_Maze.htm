@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Car_Control_BLE_and_Auto_Maze.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Car_Control_BLE_and_Auto_Maze.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Wed Apr  8 20:34:36 2026
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6140002: Last Updated: Sat Apr 11 09:46:23 2026
 <BR><P>
 <H3>Maximum Stack Usage =        112 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -77,7 +77,7 @@ Function Pointers
  <LI><a href="#[24]">TIM1_TRG_COM_IRQHandler</a> from startup_stm32f10x_md.o(.text) referenced from startup_stm32f10x_md.o(RESET)
  <LI><a href="#[23]">TIM1_UP_IRQHandler</a> from startup_stm32f10x_md.o(.text) referenced from startup_stm32f10x_md.o(RESET)
  <LI><a href="#[26]">TIM2_IRQHandler</a> from startup_stm32f10x_md.o(.text) referenced from startup_stm32f10x_md.o(RESET)
- <LI><a href="#[27]">TIM3_IRQHandler</a> from startup_stm32f10x_md.o(.text) referenced from startup_stm32f10x_md.o(RESET)
+ <LI><a href="#[27]">TIM3_IRQHandler</a> from timer.o(.text.TIM3_IRQHandler) referenced from startup_stm32f10x_md.o(RESET)
  <LI><a href="#[28]">TIM4_IRQHandler</a> from startup_stm32f10x_md.o(.text) referenced from startup_stm32f10x_md.o(RESET)
  <LI><a href="#[2f]">USART1_IRQHandler</a> from uart.o(.text.USART1_IRQHandler) referenced from startup_stm32f10x_md.o(RESET)
  <LI><a href="#[30]">USART2_IRQHandler</a> from startup_stm32f10x_md.o(.text) referenced from startup_stm32f10x_md.o(RESET)
@@ -196,8 +196,8 @@ Global Symbols
 <P><STRONG><a name="[ad]"></a>__rt_lib_shutdown_user_alloc_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, libshutdown2.o(.ARM.Collect$$libshutdown$$0000000C))
 
 <P><STRONG><a name="[39]"></a>__rt_entry</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry.o(.ARM.Collect$$rtentry$$00000000))
-<BR><BR>[Called By]<UL><LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
-<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
+<BR><BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload_rt2
+<LI><a href="#[36]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__main
 </UL>
 
 <P><STRONG><a name="[ae]"></a>__rt_entry_presh_1</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, __rtentry2.o(.ARM.Collect$$rtentry$$00000002))
@@ -408,9 +408,6 @@ Global Symbols
 <P><STRONG><a name="[26]"></a>TIM2_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f10x_md.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
-<P><STRONG><a name="[27]"></a>TIM3_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f10x_md.o(.text))
-<BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
-</UL>
 <P><STRONG><a name="[28]"></a>TIM4_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f10x_md.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
@@ -442,7 +439,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strtol
 <LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_errno_addr
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Run
+<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Run
 </UL>
 
 <P><STRONG><a name="[b2]"></a>__use_two_region_memory</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
@@ -452,9 +449,9 @@ Global Symbols
 <P><STRONG><a name="[b4]"></a>__rt_heap_expand$2region</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, heapauxi.o(.text), UNUSED)
 
 <P><STRONG><a name="[4b]"></a>__aeabi_errno_addr</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, rt_errno_addr_intlibspace.o(.text))
-<BR><BR>[Called By]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
-<LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_strtoul
+<BR><BR>[Called By]<UL><LI><a href="#[4e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_strtoul
 <LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strtol
+<LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;atoi
 </UL>
 
 <P><STRONG><a name="[b5]"></a>__errno$intlibspace</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, rt_errno_addr_intlibspace.o(.text), UNUSED)
@@ -556,10 +553,6 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_Run
 </UL>
 
-<P><STRONG><a name="[82]"></a>App_Init</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, app.o(.text.App_Init))
-<BR><BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_Init
-</UL>
-
 <P><STRONG><a name="[58]"></a>App_Run</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, app.o(.text.App_Run))
 <BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = App_Run &rArr; App_Auto_Run &rArr; Maze_Run &rArr; Motor_SetSpeed
 </UL>
@@ -575,7 +568,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Available
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Run
+<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Run
 </UL>
 
 <P><STRONG><a name="[5c]"></a>Bluetooth_Init</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, bluetooth.o(.text.Bluetooth_Init))
@@ -583,7 +576,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Init
 </UL>
-<BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Init
+<BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Init
 <LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_Init
 </UL>
 
@@ -592,25 +585,17 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_ReadChar
 </UL>
-<BR>[Called By]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Run
-</UL>
-
-<P><STRONG><a name="[60]"></a>Bluetooth_SendString</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, bluetooth.o(.text.Bluetooth_SendString))
-<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Bluetooth_SendString
-</UL>
-<BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_SendChar
-</UL>
-<BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Run
 </UL>
 
 <P><STRONG><a name="[57]"></a>Control_Execute</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, control.o(.text.Control_Execute))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Control_Execute &rArr; Motor_Right
 </UL>
-<BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Stop
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Right
-<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Left
-<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Forward
-<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Backward
+<BR>[Calls]<UL><LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Stop
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Right
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Left
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Forward
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Backward
 </UL>
 <BR>[Called By]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_Control_Run
 </UL>
@@ -621,7 +606,7 @@ Global Symbols
 <LI><a href="#[53]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_Auto_Run
 </UL>
 
-<P><STRONG><a name="[67]"></a>Control_Init</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, control.o(.text.Control_Init))
+<P><STRONG><a name="[65]"></a>Control_Init</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, control.o(.text.Control_Init))
 <BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Control_Init &rArr; Bluetooth_Init &rArr; UART1_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Bluetooth_Init
@@ -629,7 +614,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_Init
 </UL>
 
-<P><STRONG><a name="[68]"></a>Control_Run</STRONG> (Thumb, 108 bytes, Stack size 24 bytes, control.o(.text.Control_Run))
+<P><STRONG><a name="[66]"></a>Control_Run</STRONG> (Thumb, 108 bytes, Stack size 24 bytes, control.o(.text.Control_Run))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = Control_Run &rArr; atoi &rArr; strtol &rArr; _strtoul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Bluetooth_ReadChar
@@ -639,8 +624,12 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[85]"></a>Delay_ms</STRONG> (Thumb, 42 bytes, Stack size 0 bytes, timer.o(.text.Delay_ms))
-<BR><BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<P><STRONG><a name="[67]"></a>Delay_us</STRONG> (Thumb, 60 bytes, Stack size 24 bytes, timer.o(.text.Delay_us))
+<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Delay_us
+</UL>
+<BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__NOP
+</UL>
+<BR>[Called By]<UL><LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sensor_Trigger_All
 </UL>
 
 <P><STRONG><a name="[21]"></a>EXTI9_5_IRQHandler</STRONG> (Thumb, 238 bytes, Stack size 16 bytes, sensor.o(.text.EXTI9_5_IRQHandler))
@@ -655,8 +644,8 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_EnableClock
 </UL>
-<BR>[Called By]<UL><LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sensor_Init
-<LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Init
+<BR>[Called By]<UL><LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Init
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sensor_Init
 </UL>
 
 <P><STRONG><a name="[69]"></a>GPIO_Read</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, gpio.o(.text.GPIO_Read))
@@ -665,20 +654,27 @@ Global Symbols
 
 <P><STRONG><a name="[76]"></a>GPIO_Write_Pin</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, gpio.o(.text.GPIO_Write_Pin))
 <BR><BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
-<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Stop
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Right
-<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Left
-<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Forward
-<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Backward
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Stop
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Right
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Left
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Forward
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Backward
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sensor_Trigger_All
 </UL>
 
-<P><STRONG><a name="[55]"></a>Maze_Run</STRONG> (Thumb, 162 bytes, Stack size 32 bytes, maze.o(.text.Maze_Run))
+<P><STRONG><a name="[85]"></a>GetTickMs</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, timer.o(.text.GetTickMs))
+<BR><BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[55]"></a>Maze_Run</STRONG> (Thumb, 236 bytes, Stack size 32 bytes, maze.o(.text.Maze_Run))
 <BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = Maze_Run &rArr; Motor_SetSpeed
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sensor_GetData
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
 <LI><a href="#[74]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clamp_speed
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Right
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Left
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Backward
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_fmul
 <LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2f
 <LI><a href="#[73]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_f2iz
@@ -696,7 +692,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_Run
 </UL>
 
-<P><STRONG><a name="[62]"></a>Motor_Backward</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, motor.o(.text.Motor_Backward))
+<P><STRONG><a name="[60]"></a>Motor_Backward</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, motor.o(.text.Motor_Backward))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Motor_Backward
 </UL>
 <BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_SetRight
@@ -704,9 +700,10 @@ Global Symbols
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Write_Pin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Execute
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Maze_Run
 </UL>
 
-<P><STRONG><a name="[64]"></a>Motor_Forward</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, motor.o(.text.Motor_Forward))
+<P><STRONG><a name="[62]"></a>Motor_Forward</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, motor.o(.text.Motor_Forward))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Motor_Forward
 </UL>
 <BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_SetRight
@@ -721,12 +718,12 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_Init
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Config_Output
-<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Stop
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Stop
 </UL>
 <BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_Init
 </UL>
 
-<P><STRONG><a name="[65]"></a>Motor_Left</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, motor.o(.text.Motor_Left))
+<P><STRONG><a name="[63]"></a>Motor_Left</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, motor.o(.text.Motor_Left))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Motor_Left
 </UL>
 <BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_SetRight
@@ -734,9 +731,10 @@ Global Symbols
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Write_Pin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Execute
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Maze_Run
 </UL>
 
-<P><STRONG><a name="[66]"></a>Motor_Right</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, motor.o(.text.Motor_Right))
+<P><STRONG><a name="[64]"></a>Motor_Right</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, motor.o(.text.Motor_Right))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Motor_Right
 </UL>
 <BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_SetRight
@@ -744,6 +742,7 @@ Global Symbols
 <LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Write_Pin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Execute
+<LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Maze_Run
 </UL>
 
 <P><STRONG><a name="[75]"></a>Motor_SetSpeed</STRONG> (Thumb, 68 bytes, Stack size 16 bytes, motor.o(.text.Motor_SetSpeed))
@@ -756,7 +755,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Maze_Run
 </UL>
 
-<P><STRONG><a name="[63]"></a>Motor_Stop</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, motor.o(.text.Motor_Stop))
+<P><STRONG><a name="[61]"></a>Motor_Stop</STRONG> (Thumb, 64 bytes, Stack size 8 bytes, motor.o(.text.Motor_Stop))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Motor_Stop
 </UL>
 <BR>[Calls]<UL><LI><a href="#[78]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PWM_SetRight
@@ -773,20 +772,20 @@ Global Symbols
 
 <P><STRONG><a name="[77]"></a>PWM_SetLeft</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, pwm.o(.text.PWM_SetLeft))
 <BR><BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
-<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Stop
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Right
-<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Left
-<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Forward
-<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Backward
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Stop
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Right
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Left
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Forward
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Backward
 </UL>
 
 <P><STRONG><a name="[78]"></a>PWM_SetRight</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, pwm.o(.text.PWM_SetRight))
 <BR><BR>[Called By]<UL><LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_SetSpeed
-<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Stop
-<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Right
-<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Left
-<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Forward
-<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Backward
+<LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Stop
+<LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Right
+<LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Left
+<LI><a href="#[62]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Forward
+<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Backward
 </UL>
 
 <P><STRONG><a name="[6e]"></a>Sensor_GetData</STRONG> (Thumb, 22 bytes, Stack size 0 bytes, sensor.o(.text.Sensor_GetData))
@@ -800,13 +799,15 @@ Global Symbols
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_Config
 <LI><a href="#[6c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Config_Output
 </UL>
-<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_Init
+<BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_Init
 </UL>
 
-<P><STRONG><a name="[7d]"></a>Sensor_Trigger_All</STRONG> (Thumb, 98 bytes, Stack size 24 bytes, sensor.o(.text.Sensor_Trigger_All))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = Sensor_Trigger_All
+<P><STRONG><a name="[7d]"></a>Sensor_Trigger_All</STRONG> (Thumb, 78 bytes, Stack size 16 bytes, sensor.o(.text.Sensor_Trigger_All))
+<BR><BR>[Stack]<UL><LI>Max Depth = 40<LI>Call Chain = Sensor_Trigger_All &rArr; Delay_us
 </UL>
-<BR>[Calls]<UL><LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Write_Pin
+<BR>[Calls]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_us
+<LI><a href="#[76]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Write_Pin
 </UL>
 <BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -820,21 +821,27 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(.text)
 </UL>
-<P><STRONG><a name="[80]"></a>System_Init</STRONG> (Thumb, 32 bytes, Stack size 8 bytes, system_init.o(.text.System_Init))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = System_Init &rArr; Sensor_Init &rArr; GPIO_Config_Output
+<P><STRONG><a name="[80]"></a>System_Init</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, system_init.o(.text.System_Init))
+<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = System_Init &rArr; Motor_Init &rArr; GPIO_Config_Output
 </UL>
 <BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_Init_1ms
-<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sensor_Init
 <LI><a href="#[79]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Motor_Init
-<LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Init
+<LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Init
 <LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Bluetooth_Init
-<LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_Init
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sensor_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[44]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[81]"></a>TIM3_Init_1ms</STRONG> (Thumb, 64 bytes, Stack size 0 bytes, timer.o(.text.TIM3_Init_1ms))
-<BR><BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_Init
+<P><STRONG><a name="[27]"></a>TIM3_IRQHandler</STRONG> (Thumb, 40 bytes, Stack size 0 bytes, timer.o(.text.TIM3_IRQHandler))
+<BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
+</UL>
+<P><STRONG><a name="[81]"></a>TIM3_Init_1ms</STRONG> (Thumb, 62 bytes, Stack size 8 bytes, timer.o(.text.TIM3_Init_1ms))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = TIM3_Init_1ms
+</UL>
+<BR>[Calls]<UL><LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_EnableIRQ
+</UL>
+<BR>[Called By]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_Init
 </UL>
 
 <P><STRONG><a name="[5b]"></a>UART1_Available</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, uart.o(.text.UART1_Available))
@@ -854,24 +861,20 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Bluetooth_ReadChar
 </UL>
 
-<P><STRONG><a name="[61]"></a>UART1_SendChar</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, uart.o(.text.UART1_SendChar))
-<BR><BR>[Called By]<UL><LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Bluetooth_SendString
-</UL>
-
 <P><STRONG><a name="[2f]"></a>USART1_IRQHandler</STRONG> (Thumb, 90 bytes, Stack size 12 bytes, uart.o(.text.USART1_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = USART1_IRQHandler
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f10x_md.o(RESET)
 </UL>
-<P><STRONG><a name="[44]"></a>main</STRONG> (Thumb, 48 bytes, Stack size 0 bytes, main.o(.text.main))
+<P><STRONG><a name="[44]"></a>main</STRONG> (Thumb, 62 bytes, Stack size 0 bytes, main.o(.text.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 112<LI>Call Chain = main &rArr; Control_Run &rArr; atoi &rArr; strtol &rArr; _strtoul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[80]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;System_Init
 <LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 <LI><a href="#[7d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sensor_Trigger_All
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_ms
-<LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Run
-<LI><a href="#[60]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Bluetooth_SendString
+<LI><a href="#[7b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Sensor_Init
+<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetTickMs
+<LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Control_Run
 <LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;App_Run
 </UL>
 <BR>[Called By]<UL><LI><a href="#[43]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__rt_entry_main
@@ -955,7 +958,7 @@ Local Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[55]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Maze_Run
 </UL>
 
-<P><STRONG><a name="[6a]"></a>EXTI_Config</STRONG> (Thumb, 130 bytes, Stack size 8 bytes, sensor.o(.text.EXTI_Config))
+<P><STRONG><a name="[6a]"></a>EXTI_Config</STRONG> (Thumb, 146 bytes, Stack size 8 bytes, sensor.o(.text.EXTI_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = EXTI_Config
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_EnableIRQ
@@ -981,6 +984,14 @@ Local Symbols
 
 <P><STRONG><a name="[83]"></a>NVIC_SetPriority</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, uart.o(.text.NVIC_SetPriority))
 <BR><BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART1_Init
+</UL>
+
+<P><STRONG><a name="[82]"></a>NVIC_EnableIRQ</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, timer.o(.text.NVIC_EnableIRQ))
+<BR><BR>[Called By]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM3_Init_1ms
+</UL>
+
+<P><STRONG><a name="[68]"></a>__NOP</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, timer.o(.text.__NOP))
+<BR><BR>[Called By]<UL><LI><a href="#[67]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_us
 </UL>
 
 <P><STRONG><a name="[7e]"></a>SetSysClock</STRONG> (Thumb, 8 bytes, Stack size 8 bytes, system_stm32f10x.o(.text.SetSysClock))

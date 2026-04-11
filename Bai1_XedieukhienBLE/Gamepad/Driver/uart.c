@@ -7,18 +7,14 @@ static volatile uint8_t rx_tail = 0;
 void UART1_Init(uint32_t baudrate){
     RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
     RCC->APB2ENR |= RCC_APB2ENR_USART1EN;
-    // TX PA9
     GPIOA->CRH &= ~(0xF << 4);
     GPIOA->CRH |=  (0xB << 4);
-    // RX PA10
     GPIOA->CRH &= ~(0xF << 8);
     GPIOA->CRH |=  (0x4 << 8);
     USART1->BRR = 72000000 / baudrate;
     USART1->CR1 |= USART_CR1_TE;
     USART1->CR1 |= USART_CR1_RE;
-    // enable RX interrupt
     USART1->CR1 |= USART_CR1_RXNEIE;
-    // enable NVIC USART1 IRQ
     NVIC_EnableIRQ(USART1_IRQn);
     USART1->CR1 |= USART_CR1_UE;
 }

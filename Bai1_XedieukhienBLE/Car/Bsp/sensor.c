@@ -1,5 +1,6 @@
 #include "sensor.h"
 #include "gpio.h"
+#include "timer.h"
 
 #define TRIG_FRONT_PORT GPIOA
 #define TRIG_LEFT_PORT  GPIOA
@@ -27,8 +28,11 @@ static void EXTI_Config(void){
     GPIOB->CRL |=  ((0x4 << 24) | (0x4 << 28));
     GPIOB->CRH &= ~(0xF << 0);
     GPIOB->CRH |=  (0x4 << 0);
-    AFIO->EXTICR[1] |= AFIO_EXTICR2_EXTI6_PB | AFIO_EXTICR2_EXTI7_PB;
-    AFIO->EXTICR[2] |= AFIO_EXTICR3_EXTI8_PB;
+    AFIO->EXTICR[1] &= ~(AFIO_EXTICR2_EXTI6 | AFIO_EXTICR2_EXTI7);
+		AFIO->EXTICR[1] |= AFIO_EXTICR2_EXTI6_PB | AFIO_EXTICR2_EXTI7_PB;
+
+		AFIO->EXTICR[2] &= ~AFIO_EXTICR3_EXTI8;
+		AFIO->EXTICR[2] |= AFIO_EXTICR3_EXTI8_PB;
     EXTI->IMR  |= EXTI_IMR_MR6 | EXTI_IMR_MR7 | EXTI_IMR_MR8;
     EXTI->RTSR |= EXTI_RTSR_TR6 | EXTI_RTSR_TR7 | EXTI_RTSR_TR8;
     EXTI->FTSR |= EXTI_FTSR_TR6 | EXTI_FTSR_TR7 | EXTI_FTSR_TR8;
@@ -42,14 +46,35 @@ void Sensor_Init(void){
     TIM4_Init_1us();
     EXTI_Config();
 }
-void Sensor_Trigger_All(void){
-    GPIO_Write_Pin(TRIG_FRONT_PORT, TRIG_FRONT_PIN, 1);
-    GPIO_Write_Pin(TRIG_LEFT_PORT, TRIG_LEFT_PIN, 1);
-    GPIO_Write_Pin(TRIG_RIGHT_PORT, TRIG_RIGHT_PIN, 1);
-    for(volatile int i = 0; i < 200; i++); // ~10us
-    GPIO_Write_Pin(TRIG_FRONT_PORT, TRIG_FRONT_PIN, 0);
-    GPIO_Write_Pin(TRIG_LEFT_PORT, TRIG_LEFT_PIN, 0);
-    GPIO_Write_Pin(TRIG_RIGHT_PORT, TRIG_RIGHT_PIN, 0);
+void Sensor_Trigger_All(uint8_t id)
+{
+    switch(id)
+    {
+        case 0:
+            GPIO_Write_Pin(TRIG_FRONT_PORT, TRIG_FRONT_PIN, 1);
+            break;
+        case 1:
+            GPIO_Write_Pin(TRIG_LEFT_PORT, TRIG_LEFT_PIN, 1);
+            break;
+        case 2:
+            GPIO_Write_Pin(TRIG_RIGHT_PORT, TRIG_RIGHT_PIN, 1);
+            break;
+    }
+
+    Delay_us(10);
+
+    switch(id)
+    {
+        case 0:
+            GPIO_Write_Pin(TRIG_FRONT_PORT, TRIG_FRONT_PIN, 0);
+            break;
+        case 1:
+            GPIO_Write_Pin(TRIG_LEFT_PORT, TRIG_LEFT_PIN, 0);
+            break;
+        case 2:
+            GPIO_Write_Pin(TRIG_RIGHT_PORT, TRIG_RIGHT_PIN, 0);
+            break;
+    }
 }
 
 void EXTI9_5_IRQHandler(void){

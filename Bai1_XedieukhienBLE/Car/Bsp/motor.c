@@ -45,21 +45,21 @@ void Motor_Backward(uint16_t speed){
 //motor re trai
 void Motor_Left(uint16_t speed){
     GPIO_Write_Pin(IN1_PORT, IN1_PIN, 0);
-    GPIO_Write_Pin(IN2_PORT, IN2_PIN, 0);
-    GPIO_Write_Pin(IN3_PORT, IN3_PIN, 1);
-    GPIO_Write_Pin(IN4_PORT, IN4_PIN, 0);
-    PWM_SetLeft(0);
+    GPIO_Write_Pin(IN2_PORT, IN2_PIN, 1);
+    GPIO_Write_Pin(IN3_PORT, IN3_PIN, 0);
+    GPIO_Write_Pin(IN4_PORT, IN4_PIN, 1);
+    PWM_SetLeft(speed/2);
     PWM_SetRight(speed);
 }
 
 //motor re phai
 void Motor_Right(uint16_t speed){
-    GPIO_Write_Pin(IN1_PORT, IN1_PIN, 1);
-    GPIO_Write_Pin(IN2_PORT, IN2_PIN, 0);
+    GPIO_Write_Pin(IN1_PORT, IN1_PIN, 0);
+    GPIO_Write_Pin(IN2_PORT, IN2_PIN, 1);
     GPIO_Write_Pin(IN3_PORT, IN3_PIN, 0);
-    GPIO_Write_Pin(IN4_PORT, IN4_PIN, 0);
+    GPIO_Write_Pin(IN4_PORT, IN4_PIN, 1);
     PWM_SetLeft(speed);
-    PWM_SetRight(0);
+    PWM_SetRight(speed/2);
 }
 
 //motor dung

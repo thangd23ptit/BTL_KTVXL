@@ -12,7 +12,7 @@ typedef struct
 } sensor_data_t;
 
 void Sensor_Init(void);
-void Sensor_Trigger_All(void);
+void Sensor_Trigger_All(uint8_t id);
 sensor_data_t Sensor_GetData(void);
 
 #endif
