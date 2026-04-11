@@ -74,10 +74,10 @@ void Motor_Stop(void){
 
 //set toc do cho motor
 void Motor_SetSpeed(uint16_t left, uint16_t right){
-    GPIO_Write_Pin(IN1_PORT, IN1_PIN, 1);
-    GPIO_Write_Pin(IN2_PORT, IN2_PIN, 0);
-    GPIO_Write_Pin(IN3_PORT, IN3_PIN, 1);
-    GPIO_Write_Pin(IN4_PORT, IN4_PIN, 0);
+    GPIO_Write_Pin(IN1_PORT, IN1_PIN, 0);
+    GPIO_Write_Pin(IN2_PORT, IN2_PIN, 1);
+    GPIO_Write_Pin(IN3_PORT, IN3_PIN, 0);
+    GPIO_Write_Pin(IN4_PORT, IN4_PIN, 1);
     PWM_SetLeft(left);
     PWM_SetRight(right);
 }
