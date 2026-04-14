@@ -49,3 +49,22 @@ uint8_t GPIO_Read(GPIO_TypeDef *GPIOx, uint16_t pin){
     return (GPIOx->IDR & (1 << pin)) ? 1 : 0;
 }
 
+void GPIO_Config_Input(GPIO_TypeDef *GPIOx, uint16_t pin)
+{
+    GPIO_EnableClock(GPIOx);
+
+    uint16_t pos = pin;
+
+    if(pos < 8)
+    {
+        GPIOx->CRL &= ~(0xF << (pos * 4));
+        GPIOx->CRL |=  (0x4 << (pos * 4));   // input floating
+    }
+    else
+    {
+        pos -= 8;
+        GPIOx->CRH &= ~(0xF << (pos * 4));
+        GPIOx->CRH |=  (0x4 << (pos * 4));   // input floating
+    }
+}
+

@@ -1,16 +1,27 @@
-#include "system_init.h"
+
 #include "timer.h"
+#include "bluetooth.h"
 #include "motor.h"
 #include "sensor.h"
-#include "control.h"
-#include "app.h"
-#include "bluetooth.h"
+#include "line_sensor.h"
+#include "system_init.h"
 
-//ham khoi tao tong hop
-void System_Init(void){
+void System_Init(void)
+{
+    SystemInit();
+
+    /* core drivers */
     TIM3_Init_1ms();
+		TIM4_Init_1us();
+    Bluetooth_Init(9600);
+
+    /* bsp */
     Motor_Init();
-    Control_Init();
-    Sensor_Init();
-		Bluetooth_Init(9600);
+    Sensor_Init();        // SR05 front
+    LineSensor_Init();    // 5 line
+
+    /* sensor startup stable */
+    Delay_ms(300);
+
+    Bluetooth_SendString("=== SYSTEM INIT OK ===\r\n");
 }

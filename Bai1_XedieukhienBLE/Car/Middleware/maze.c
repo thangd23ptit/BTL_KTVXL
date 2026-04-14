@@ -1,61 +1,128 @@
-	#include "maze.h"
-	#include "sensor.h"
-	#include "motor.h"
-//=== Thuat toan PID giu thang bang cho xe ===
-	#define FRONT_LIMIT 20
-	#define KP 15.0f
-	#define KI 0.0f
-	#define KD 8.0f
+#include "maze.h"
+#include "line_sensor.h"
+#include "sensor.h"
+#include "motor.h"
+#include "timer.h"
 
-	static float prev_error = 0;
-	static float integral = 0;
-	static uint16_t clamp_speed(int32_t speed){
-			if(speed < 0) return 0;
-			if(speed > 1000) return 1000;
-			return (uint16_t)speed;
-	}
+/* ================= CONFIG ================= */
+#define FRONT_LIMIT      10
+#define TURN_SPEED       420
+
+#define KP               38.0f
+#define KD               20.0f
+
+#define TURN_DELAY_90    220
+#define UTURN_DELAY      420
+
+/* ================= PID ================= */
+static float prev_error = 0;
+
+/* ================= UTIL ================= */
+static uint16_t clamp_speed(int32_t x)
+{
+    if(x < 0) return 0;
+    if(x > 1000) return 1000;
+    return (uint16_t)x;
+}
+
+static void Turn_Left_90(void)
+{
+    Motor_Left(TURN_SPEED);
+    Delay_ms(TURN_DELAY_90);
+
+    while(LineSensor_ReadRaw() == 0)
+    {
+        Motor_Left(TURN_SPEED);
+    }
+}
+
+static void Turn_Right_90(void)
+{
+    Motor_Right(TURN_SPEED);
+    Delay_ms(TURN_DELAY_90);
+
+    while(LineSensor_ReadRaw() == 0)
+    {
+        Motor_Right(TURN_SPEED);
+    }
+}
+
+static void Turn_Back(void)
+{
+    Motor_Right(TURN_SPEED);
+    Delay_ms(UTURN_DELAY);
+
+    while(LineSensor_ReadRaw() == 0)
+    {
+        Motor_Right(TURN_SPEED);
+    }
+}
+
+/* ================= MAIN ================= */
 void Maze_Run(uint16_t base_speed)
 {
-    sensor_data_t s = Sensor_GetData();
+    static uint32_t last_sr05 = 0;
 
-    // gap tuong truoc
-    if(s.front < FRONT_LIMIT)
+    /* trigger SR05 m?i 60ms */
+    if(GetTickMs() - last_sr05 >= 60)
     {
-        if(s.left > 20)
+        Sensor_Trigger();
+        last_sr05 = GetTickMs();
+    }
+
+    uint16_t front = Sensor_GetFront();
+    uint8_t raw = LineSensor_ReadRaw();
+
+    /* ===== WALL FRONT ===== */
+    if(front > 0 && front < FRONT_LIMIT)
+    {
+        if((raw & 0x07) == 0x07)
         {
-            Motor_Left(base_speed);
+            Turn_Left_90();
         }
-        else if(s.right > 20)
+        else if((raw & 0x1C) == 0x1C)
         {
-            Motor_Right(base_speed);
+            Turn_Right_90();
         }
         else
         {
-            Motor_Backward(base_speed);
+            Turn_Back();
         }
         return;
     }
 
-    // PID giu giua hanh lang
-    if(s.left < 30 && s.right < 30)
+    /* ===== INTERSECTION ===== */
+    if(raw == 0x1F)
     {
-        float error = (float)s.left - (float)s.right;
-        integral += error;
-        float derivative = error - prev_error;
-        prev_error = error;
-
-        float pid = KP * error + KD * derivative;
-
-        int32_t left_speed  = base_speed - pid;
-        int32_t right_speed = base_speed + pid;
-
-        Motor_SetSpeed(
-            clamp_speed(left_speed),
-            clamp_speed(right_speed)
-        );
+        Turn_Left_90();
+        return;
     }
-    else
+
+    /* ===== LEFT L ===== */
+    if((raw & 0x07) == 0x07)
     {
-        Motor_SetSpeed(base_speed, base_speed);
+        Turn_Left_90();
+        return;
     }
+
+    /* ===== RIGHT L ===== */
+    if((raw & 0x1C) == 0x1C)
+    {
+        Turn_Right_90();
+        return;
+    }
+
+    /* ===== PID LINE FOLLOW ===== */
+    int8_t error = LineSensor_GetError();
+
+    float pid = KP * error + KD * (error - prev_error);
+    prev_error = error;
+
+    int32_t left  = base_speed - pid + 20;
+    int32_t right = base_speed + pid;
+
+    Motor_SetSpeed(
+        clamp_speed(left),
+        clamp_speed(right)
+    );
 }

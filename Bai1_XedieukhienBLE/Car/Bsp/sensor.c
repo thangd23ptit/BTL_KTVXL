@@ -2,116 +2,87 @@
 #include "gpio.h"
 #include "timer.h"
 
-#define TRIG_FRONT_PORT GPIOA
-#define TRIG_LEFT_PORT  GPIOA
-#define TRIG_RIGHT_PORT GPIOA
+/* ================= PIN CONFIG ================= */
+#define TRIG_PORT   GPIOA
+#define TRIG_PIN    0
 
-#define TRIG_FRONT_PIN  0
-#define TRIG_LEFT_PIN   1
-#define TRIG_RIGHT_PIN  2
+#define ECHO_PORT   GPIOB
+#define ECHO_PIN    6
 
-static volatile uint32_t rise_time[3];
-static volatile uint16_t distance[3];
+/* ================= PRIVATE VAR ================= */
+static volatile uint32_t rise_time = 0;
+static volatile uint16_t distance_cm = 0;
 
-static void TIM4_Init_1us(void){
-    RCC->APB1ENR |= RCC_APB1ENR_TIM4EN;
-    TIM4->PSC = 72 - 1;     
-    TIM4->ARR = 0xFFFF;
-    TIM4->CNT = 0;
-    TIM4->CR1 |= TIM_CR1_CEN;
-}
-
-static void EXTI_Config(void){
+/* ================= EXTI CONFIG ================= */
+static void EXTI_Config(void)
+{
     RCC->APB2ENR |= RCC_APB2ENR_AFIOEN;
     RCC->APB2ENR |= RCC_APB2ENR_IOPBEN;
-    GPIOB->CRL &= ~((0xF << 24) | (0xF << 28));
-    GPIOB->CRL |=  ((0x4 << 24) | (0x4 << 28));
-    GPIOB->CRH &= ~(0xF << 0);
-    GPIOB->CRH |=  (0x4 << 0);
-    AFIO->EXTICR[1] &= ~(AFIO_EXTICR2_EXTI6 | AFIO_EXTICR2_EXTI7);
-		AFIO->EXTICR[1] |= AFIO_EXTICR2_EXTI6_PB | AFIO_EXTICR2_EXTI7_PB;
 
-		AFIO->EXTICR[2] &= ~AFIO_EXTICR3_EXTI8;
-		AFIO->EXTICR[2] |= AFIO_EXTICR3_EXTI8_PB;
-    EXTI->IMR  |= EXTI_IMR_MR6 | EXTI_IMR_MR7 | EXTI_IMR_MR8;
-    EXTI->RTSR |= EXTI_RTSR_TR6 | EXTI_RTSR_TR7 | EXTI_RTSR_TR8;
-    EXTI->FTSR |= EXTI_FTSR_TR6 | EXTI_FTSR_TR7 | EXTI_FTSR_TR8;
+    /* PB6 input floating */
+    GPIOB->CRL &= ~(0xF << (6 * 4));
+    GPIOB->CRL |=  (0x4 << (6 * 4));
+
+    /* EXTI6 -> PB6 */
+    AFIO->EXTICR[1] &= ~AFIO_EXTICR2_EXTI6;
+    AFIO->EXTICR[1] |=  AFIO_EXTICR2_EXTI6_PB;
+
+    /* rising + falling */
+    EXTI->IMR  |= EXTI_IMR_MR6;
+    EXTI->RTSR |= EXTI_RTSR_TR6;
+    EXTI->FTSR |= EXTI_FTSR_TR6;
+
     NVIC_EnableIRQ(EXTI9_5_IRQn);
-} 
+}
 
-void Sensor_Init(void){
-    GPIO_Config_Output(TRIG_FRONT_PORT, TRIG_FRONT_PIN);
-    GPIO_Config_Output(TRIG_LEFT_PORT, TRIG_LEFT_PIN);
-    GPIO_Config_Output(TRIG_RIGHT_PORT, TRIG_RIGHT_PIN);
+/* ================= PUBLIC ================= */
+void Sensor_Init(void)
+{
+    GPIO_Config_Output(TRIG_PORT, TRIG_PIN);
+    GPIO_Write_Pin(TRIG_PORT, TRIG_PIN, 0);
+
     TIM4_Init_1us();
     EXTI_Config();
 }
-void Sensor_Trigger_All(uint8_t id)
+
+/* trigger 10us pulse */
+void Sensor_Trigger(void)
 {
-    switch(id)
-    {
-        case 0:
-            GPIO_Write_Pin(TRIG_FRONT_PORT, TRIG_FRONT_PIN, 1);
-            break;
-        case 1:
-            GPIO_Write_Pin(TRIG_LEFT_PORT, TRIG_LEFT_PIN, 1);
-            break;
-        case 2:
-            GPIO_Write_Pin(TRIG_RIGHT_PORT, TRIG_RIGHT_PIN, 1);
-            break;
-    }
-
+    GPIO_Write_Pin(TRIG_PORT, TRIG_PIN, 1);
     Delay_us(10);
-
-    switch(id)
-    {
-        case 0:
-            GPIO_Write_Pin(TRIG_FRONT_PORT, TRIG_FRONT_PIN, 0);
-            break;
-        case 1:
-            GPIO_Write_Pin(TRIG_LEFT_PORT, TRIG_LEFT_PIN, 0);
-            break;
-        case 2:
-            GPIO_Write_Pin(TRIG_RIGHT_PORT, TRIG_RIGHT_PIN, 0);
-            break;
-    }
+    GPIO_Write_Pin(TRIG_PORT, TRIG_PIN, 0);
 }
 
-void EXTI9_5_IRQHandler(void){
-    uint32_t now = TIM4->CNT;
-    if(EXTI->PR & EXTI_PR_PR6){
-        if(GPIO_Read(GPIOB, 6)){
-            rise_time[0] = now;
+uint16_t Sensor_GetFront(void)
+{
+    return distance_cm;
+}
+
+/* ================= INTERRUPT ================= */
+void EXTI9_5_IRQHandler(void)
+{
+    if(EXTI->PR & EXTI_PR_PR6)
+    {
+        uint32_t now = TIM4->CNT;
+
+        if(GPIO_Read(ECHO_PORT, ECHO_PIN))
+        {
+            /* rising edge */
+            rise_time = now;
         }
-        else{
-            distance[0] = (now - rise_time[0]) / 58;
+        else
+        {
+            /* falling edge */
+            uint32_t pulse_width;
+
+            if(now >= rise_time)
+                pulse_width = now - rise_time;
+            else
+                pulse_width = (0xFFFF - rise_time) + now;
+
+            distance_cm = pulse_width / 58;
         }
+
         EXTI->PR = EXTI_PR_PR6;
     }
-    if(EXTI->PR & EXTI_PR_PR7){
-        if(GPIO_Read(GPIOB, 7)){
-            rise_time[1] = now;
-        }
-        else{
-            distance[1] = (now - rise_time[1]) / 58;
-        }
-        EXTI->PR = EXTI_PR_PR7;
-    }
-    if(EXTI->PR & EXTI_PR_PR8){
-        if(GPIO_Read(GPIOB, 8)){
-            rise_time[2] = now;
-        }
-        else{
-            distance[2] = (now - rise_time[2]) / 58;
-        }
-        EXTI->PR = EXTI_PR_PR8;
-    }
-}
-
-sensor_data_t Sensor_GetData(void){
-    sensor_data_t data;
-    data.front = distance[0];
-    data.left  = distance[1];
-    data.right = distance[2];
-    return data;
 }

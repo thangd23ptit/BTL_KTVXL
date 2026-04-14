@@ -1,16 +1,23 @@
 #include "app.h"
-#include "mode.h"
-#include "app_control.h"
 #include "app_auto.h"
+#include "app_control.h"
 
-//ham get mode auto va manual
-void App_Run(void){
-    switch(Mode_Get()){
-        case MODE_MANUAL:
-            App_Control_Run();
-            break;
-        case MODE_AUTO:
+static app_mode_t g_app_mode = APP_MODE_AUTO;
+
+void App_SetMode(app_mode_t mode)
+{
+    g_app_mode = mode;
+}
+
+void App_Run(void)
+{
+    switch(g_app_mode)
+    {
+        case APP_MODE_AUTO:
             App_Auto_Run();
+            break;
+        case APP_MODE_MANUAL:
+						App_Control_Run();
             break;
         default:
             App_Control_Run();

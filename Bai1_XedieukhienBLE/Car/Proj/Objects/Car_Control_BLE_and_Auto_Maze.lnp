@@ -10,6 +10,7 @@
 ".\objects\bluetooth.o"
 ".\objects\motor.o"
 ".\objects\sensor.o"
+".\objects\line_sensor.o"
 ".\objects\gpio.o"
 ".\objects\pwm.o"
 ".\objects\uart.o"

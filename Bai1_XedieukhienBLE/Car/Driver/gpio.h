@@ -8,5 +8,6 @@ void GPIO_Config_Output(GPIO_TypeDef *GPIOx, uint16_t pin);
 void GPIO_Config_Input_PU(GPIO_TypeDef *GPIOx, uint16_t pin);
 void GPIO_Write_Pin(GPIO_TypeDef *GPIOx, uint16_t pin, uint8_t state);
 uint8_t GPIO_Read(GPIO_TypeDef *GPIOx, uint16_t pin);
+void GPIO_Config_Input(GPIO_TypeDef *GPIOx, uint16_t pin);
 
 #endif

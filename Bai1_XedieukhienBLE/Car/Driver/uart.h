@@ -9,5 +9,5 @@ void UART1_SendChar(char c);
 void UART1_SendString(const char *str);
 uint8_t UART1_Available(void);
 char UART1_ReadChar(void);
-
+void UART1_SendNum(uint16_t num);
 #endif

@@ -60,3 +60,26 @@ void USART1_IRQHandler(void){
         (void)dummy;
     }
 }
+
+void UART1_SendNum(uint16_t num)
+{
+    char buf[6];
+    int i = 0;
+
+    if(num == 0)
+    {
+        UART1_SendChar('0');
+        return;
+    }
+
+    while(num > 0)
+    {
+        buf[i++] = (num % 10) + '0';
+        num /= 10;
+    }
+
+    while(i--)
+    {
+        UART1_SendChar(buf[i]);
+    }
+}
