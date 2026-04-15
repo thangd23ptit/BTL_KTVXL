@@ -61,5 +61,4 @@ clean:
 STLINK = ./Tools/STM32_ST-LINK_Utility/ST-LINK_Utility/ST-LINK_CLI.exe
 flash: $(BIN)
 	$(STLINK) -P "$(shell cygpath -w $(CURDIR))/$(BIN)" 0x08000000 -Rst
-
 .PHONY: all clean flash
