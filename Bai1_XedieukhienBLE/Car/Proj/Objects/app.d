@@ -28,4 +28,5 @@
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h ..\Inc\system_init.h \
   ..\Middleware\control.h ..\Application\app_control.h \
-  ..\Application\app_auto.h ..\Bsp\motor.h ..\Driver\timer.h
+  ..\Application\app_auto.h ..\Bsp\motor.h ..\Driver\timer.h \
+  ..\Bsp\bluetooth.h

@@ -1,0 +1,1 @@
+-T D:\linker.ld -Wl,-Ttext=0,-Tdata=0x40000000 -o B23DCDT212_Bai3.elf "b23dcdt212_bai3.o" "b23dcdt212.bai3.o" -nostartfiles -nodefaultlibs -lc -lgcc

@@ -1,4 +1,5 @@
-./objects/system_init.o: ..\Src\system_init.c ..\Driver\timer.h \
+./objects/system_init.o: ..\Src\system_init.c ..\Inc\system_init.h \
+  ..\Application\app_timer.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   ..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h \
   G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h \
@@ -26,6 +27,6 @@
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h \
-  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h ..\Bsp\bluetooth.h \
-  ..\Bsp\motor.h ..\Bsp\sensor.h ..\Bsp\line_sensor.h \
-  ..\Inc\system_init.h
+  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h \
+  ..\Application\app_control.h ..\Application\app_motor.h \
+  ..\Application\app_sensor.h ..\Application\app_line_sensor.h

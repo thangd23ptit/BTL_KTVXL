@@ -1,4 +1,3 @@
-
 BUILD_DIR = Output
 TARGET    = Xedieukhien_BLE
 PREFIX    = ./Tools/Cygwin/GNU_Arm_ToolChain/10_2021_10/bin/arm-none-eabi-
@@ -17,20 +16,19 @@ CFLAGS += -DSTM32F10X_MD
 CFLAGS += -DUSE_STDPERIPH_DRIVER
 
 LDFLAGS  = $(CPU)
-LDFLAGS += -TLinker/linker.ld         
+LDFLAGS += -TLinker/linker.ld
 LDFLAGS += -Wl,--gc-sections
 LDFLAGS += -Wl,-Map=$(BUILD_DIR)/$(TARGET).map
-LDFLAGS += -Wl,--print-memory-usage   
+LDFLAGS += -Wl,--print-memory-usage
 LDFLAGS += --specs=nano.specs
-LDFLAGS += --specs=nosys.specs
 
 INCLUDES = \
 -IInc \
--ISrc \
 -IApplication \
--IBsp \
--IDriver \
+-IIp \
 -IMiddleware \
+-ISrc \
+-IProj \
 -ILib/STM32F10x_StdPeriph_Driver/inc \
 -ILib/CMSIS/CM3/CoreSupport \
 -ILib/CMSIS/CM3/DeviceSupport/ST/STM32F10x
@@ -38,20 +36,20 @@ INCLUDES = \
 SRC = \
 $(wildcard Src/*.c) \
 $(wildcard Application/*.c) \
-$(wildcard Bsp/*.c) \
-$(wildcard Driver/*.c) \
+$(wildcard Ip/*.c) \
 $(wildcard Middleware/*.c) \
+$(wildcard Proj/*.c) \
 $(wildcard Lib/STM32F10x_StdPeriph_Driver/src/*.c) \
 Lib/CMSIS/CM3/DeviceSupport/ST/STM32F10x/system_stm32f10x.c
 
-STARTUP = Startup/startup_stm32f103c8.c    
+STARTUP = Startup/startup_stm32f103c8.c
 
 OBJ = $(patsubst %.c,$(BUILD_DIR)/%.o,$(SRC))
 OBJ += $(BUILD_DIR)/startup.o
 
-BIN = $(BUILD_DIR)/$(TARGET).bin
 ELF = $(BUILD_DIR)/$(TARGET).elf
 HEX = $(BUILD_DIR)/$(TARGET).hex
+BIN = $(BUILD_DIR)/$(TARGET).bin
 
 all: $(ELF)
 

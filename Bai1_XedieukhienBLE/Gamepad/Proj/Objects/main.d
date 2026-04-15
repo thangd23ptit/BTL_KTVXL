@@ -26,8 +26,10 @@
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h \
-  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h ..\Driver\gpio.h \
-  ..\Driver\adc.h ..\Driver\uart.h ..\Driver\systick.h \
-  ..\Middleware\bluetooth.h ..\Bsp\joystick.h ..\Application\protocol.h \
-  ..\Application\mode.h ..\Application\protocol.h \
-  ..\Application\gamepad.h ..\Application\mode.h
+  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h ..\Application\app_gpio.h \
+  ..\Application\app_adc.h ..\Application\app_uart.h \
+  ..\Application\app_systick.h ..\Application\app_bluetooth.h \
+  ..\Application\app_joystick.h ..\Application\app_protocol.h \
+  ..\Application\app_mode.h ..\Application\app_protocol.h \
+  ..\Application\app_gamepad.h ..\Application\app_joystick.h \
+  ..\Application\app_mode.h ..\Application\app_tim.h

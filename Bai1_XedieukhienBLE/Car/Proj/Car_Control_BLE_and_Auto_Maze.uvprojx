@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER STM3210X_MD</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Application;..\Bsp;..\Driver;..\Inc;..\Middleware;..\Lib\STM32F10x_StdPeriph_Driver\inc;..\Lib\STM32F10x_StdPeriph_Driver\src;..\Lib\CMSIS\CM3\CoreSupport;..\Lib\CMSIS\CM3\DeviceSupport</IncludePath>
+              <IncludePath>..\Application;..\Inc;..\Middleware;..\Lib\STM32F10x_StdPeriph_Driver\inc;..\Lib\STM32F10x_StdPeriph_Driver\src;..\Lib\CMSIS\CM3\CoreSupport;..\Lib\CMSIS\CM3\DeviceSupport;..\Ip</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -384,14 +384,14 @@
           <GroupName>Src</GroupName>
           <Files>
             <File>
-              <FileName>main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Src\main.c</FilePath>
-            </File>
-            <File>
               <FileName>system_init.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Src\system_init.c</FilePath>
+            </File>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Src\main.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -409,24 +409,14 @@
           <GroupName>Application</GroupName>
           <Files>
             <File>
-              <FileName>app.c</FileName>
+              <FileName>app_bluetooth.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Application\app.c</FilePath>
+              <FilePath>..\Application\app_bluetooth.c</FilePath>
             </File>
             <File>
-              <FileName>app.h</FileName>
+              <FileName>app_bluetooth.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Application\app.h</FilePath>
-            </File>
-            <File>
-              <FileName>app_auto.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Application\app_auto.c</FilePath>
-            </File>
-            <File>
-              <FileName>app_auto.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Application\app_auto.h</FilePath>
+              <FilePath>..\Application\app_bluetooth.h</FilePath>
             </File>
             <File>
               <FileName>app_control.c</FileName>
@@ -438,130 +428,325 @@
               <FileType>5</FileType>
               <FilePath>..\Application\app_control.h</FilePath>
             </File>
+            <File>
+              <FileName>app_gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\app_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_gpio.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Application\app_gpio.h</FilePath>
+            </File>
+            <File>
+              <FileName>app_line_sensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\app_line_sensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_line_sensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Application\app_line_sensor.h</FilePath>
+            </File>
+            <File>
+              <FileName>app_maze.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\app_maze.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_maze.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Application\app_maze.h</FilePath>
+            </File>
+            <File>
+              <FileName>app_mode.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\app_mode.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_mode.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Application\app_mode.h</FilePath>
+            </File>
+            <File>
+              <FileName>app_motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\app_motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Application\app_motor.h</FilePath>
+            </File>
+            <File>
+              <FileName>app_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\app_pwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_pwm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Application\app_pwm.h</FilePath>
+            </File>
+            <File>
+              <FileName>app_sensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\app_sensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_sensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Application\app_sensor.h</FilePath>
+            </File>
+            <File>
+              <FileName>app_timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\app_timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Application\app_timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>app_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\app_uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_uart.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Application\app_uart.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Middleware</GroupName>
           <Files>
             <File>
-              <FileName>control.c</FileName>
+              <FileName>mid_bluetooth.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Middleware\control.c</FilePath>
+              <FilePath>..\Middleware\mid_bluetooth.c</FilePath>
             </File>
             <File>
-              <FileName>control.h</FileName>
+              <FileName>mid_bluetooth.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Middleware\control.h</FilePath>
+              <FilePath>..\Middleware\mid_bluetooth.h</FilePath>
             </File>
             <File>
-              <FileName>maze.c</FileName>
+              <FileName>mid_control.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Middleware\maze.c</FilePath>
+              <FilePath>..\Middleware\mid_control.c</FilePath>
             </File>
             <File>
-              <FileName>maze.h</FileName>
+              <FileName>mid_control.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Middleware\maze.h</FilePath>
+              <FilePath>..\Middleware\mid_control.h</FilePath>
             </File>
             <File>
-              <FileName>mode.c</FileName>
+              <FileName>mid_gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Middleware\mode.c</FilePath>
+              <FilePath>..\Middleware\mid_gpio.c</FilePath>
             </File>
             <File>
-              <FileName>mode.h</FileName>
+              <FileName>mid_gpio.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Middleware\mode.h</FilePath>
+              <FilePath>..\Middleware\mid_gpio.h</FilePath>
+            </File>
+            <File>
+              <FileName>mid_line_sensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middleware\mid_line_sensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>mid_line_sensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middleware\mid_line_sensor.h</FilePath>
+            </File>
+            <File>
+              <FileName>mid_maze.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middleware\mid_maze.c</FilePath>
+            </File>
+            <File>
+              <FileName>mid_maze.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middleware\mid_maze.h</FilePath>
+            </File>
+            <File>
+              <FileName>mid_mode.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middleware\mid_mode.c</FilePath>
+            </File>
+            <File>
+              <FileName>mid_mode.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middleware\mid_mode.h</FilePath>
+            </File>
+            <File>
+              <FileName>mid_motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middleware\mid_motor.c</FilePath>
+            </File>
+            <File>
+              <FileName>mid_motor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middleware\mid_motor.h</FilePath>
+            </File>
+            <File>
+              <FileName>mid_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middleware\mid_pwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>mid_pwm.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middleware\mid_pwm.h</FilePath>
+            </File>
+            <File>
+              <FileName>mid_sensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middleware\mid_sensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>mid_sensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middleware\mid_sensor.h</FilePath>
+            </File>
+            <File>
+              <FileName>mid_timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middleware\mid_timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>mid_timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middleware\mid_timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>mid_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middleware\mid_uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>mid_uart.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middleware\mid_uart.h</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>Bsp</GroupName>
+          <GroupName>Ip</GroupName>
           <Files>
             <File>
-              <FileName>bluetooth.c</FileName>
+              <FileName>ip_bluetooth.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Bsp\bluetooth.c</FilePath>
+              <FilePath>..\Ip\ip_bluetooth.c</FilePath>
             </File>
             <File>
-              <FileName>bluetooth.h</FileName>
+              <FileName>ip_bluetooth.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Bsp\bluetooth.h</FilePath>
+              <FilePath>..\Ip\ip_bluetooth.h</FilePath>
             </File>
             <File>
-              <FileName>motor.c</FileName>
+              <FileName>ip_control.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Bsp\motor.c</FilePath>
+              <FilePath>..\Ip\ip_control.c</FilePath>
             </File>
             <File>
-              <FileName>motor.h</FileName>
+              <FileName>ip_control.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Bsp\motor.h</FilePath>
+              <FilePath>..\Ip\ip_control.h</FilePath>
             </File>
             <File>
-              <FileName>sensor.c</FileName>
+              <FileName>ip_gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Bsp\sensor.c</FilePath>
+              <FilePath>..\Ip\ip_gpio.c</FilePath>
             </File>
             <File>
-              <FileName>sensor.h</FileName>
+              <FileName>ip_gpio.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Bsp\sensor.h</FilePath>
+              <FilePath>..\Ip\ip_gpio.h</FilePath>
             </File>
             <File>
-              <FileName>line_sensor.c</FileName>
+              <FileName>ip_line_sensor.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Bsp\line_sensor.c</FilePath>
+              <FilePath>..\Ip\ip_line_sensor.c</FilePath>
             </File>
             <File>
-              <FileName>line_sensor.h</FileName>
+              <FileName>ip_line_sensor.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Bsp\line_sensor.h</FilePath>
+              <FilePath>..\Ip\ip_line_sensor.h</FilePath>
             </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Driver</GroupName>
-          <Files>
             <File>
-              <FileName>gpio.c</FileName>
+              <FileName>ip_maze.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Driver\gpio.c</FilePath>
+              <FilePath>..\Ip\ip_maze.c</FilePath>
             </File>
             <File>
-              <FileName>gpio.h</FileName>
+              <FileName>ip_maze.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Driver\gpio.h</FilePath>
+              <FilePath>..\Ip\ip_maze.h</FilePath>
             </File>
             <File>
-              <FileName>pwm.c</FileName>
+              <FileName>ip_mode.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Driver\pwm.c</FilePath>
+              <FilePath>..\Ip\ip_mode.c</FilePath>
             </File>
             <File>
-              <FileName>pwm.h</FileName>
+              <FileName>ip_mode.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Driver\pwm.h</FilePath>
+              <FilePath>..\Ip\ip_mode.h</FilePath>
             </File>
             <File>
-              <FileName>uart.c</FileName>
+              <FileName>ip_motor.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Driver\uart.c</FilePath>
+              <FilePath>..\Ip\ip_motor.c</FilePath>
             </File>
             <File>
-              <FileName>uart.h</FileName>
+              <FileName>ip_motor.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Driver\uart.h</FilePath>
+              <FilePath>..\Ip\ip_motor.h</FilePath>
             </File>
             <File>
-              <FileName>timer.c</FileName>
+              <FileName>ip_pwm.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Driver\timer.c</FilePath>
+              <FilePath>..\Ip\ip_pwm.c</FilePath>
             </File>
             <File>
-              <FileName>timer.h</FileName>
+              <FileName>ip_pwm.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Driver\timer.h</FilePath>
+              <FilePath>..\Ip\ip_pwm.h</FilePath>
+            </File>
+            <File>
+              <FileName>ip_sensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Ip\ip_sensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>ip_sensor.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Ip\ip_sensor.h</FilePath>
+            </File>
+            <File>
+              <FileName>ip_timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Ip\ip_timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>ip_timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Ip\ip_timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>ip_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Ip\ip_uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>ip_uart.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Ip\ip_uart.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER STM3210X_MD</Define>
               <Undefine></Undefine>
-              <IncludePath>..\Lib\STM32F10x_StdPeriph_Driver\inc;..\Lib\STM32F10x_StdPeriph_Driver\src;..\Bsp;..\Middleware;..\Inc;..\Application;..\Driver;..\Lib\CMSIS\CM3\CoreSupport;..\Lib\CMSIS\CM3\DeviceSupport;..\Src</IncludePath>
+              <IncludePath>..\Lib\STM32F10x_StdPeriph_Driver\inc;..\Lib\STM32F10x_StdPeriph_Driver\src;..\Middleware;..\Inc;..\Application;..\Lib\CMSIS\CM3\CoreSupport;..\Lib\CMSIS\CM3\DeviceSupport;..\Src;..\Ip</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -401,57 +401,107 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>Driver</GroupName>
+          <GroupName>Ip</GroupName>
           <Files>
             <File>
-              <FileName>systick.c</FileName>
+              <FileName>ip_adc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Driver\systick.c</FilePath>
+              <FilePath>..\Ip\ip_adc.c</FilePath>
             </File>
             <File>
-              <FileName>adc.c</FileName>
+              <FileName>ip_adc.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Ip\ip_adc.h</FilePath>
+            </File>
+            <File>
+              <FileName>ip_bluetooth.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Driver\adc.c</FilePath>
+              <FilePath>..\Ip\ip_bluetooth.c</FilePath>
             </File>
             <File>
-              <FileName>adc.h</FileName>
+              <FileName>ip_bluetooth.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Driver\adc.h</FilePath>
+              <FilePath>..\Ip\ip_bluetooth.h</FilePath>
             </File>
             <File>
-              <FileName>gpio.c</FileName>
+              <FileName>ip_gamepad.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Driver\gpio.c</FilePath>
+              <FilePath>..\Ip\ip_gamepad.c</FilePath>
             </File>
             <File>
-              <FileName>gpio.h</FileName>
+              <FileName>ip_gamepad.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Driver\gpio.h</FilePath>
+              <FilePath>..\Ip\ip_gamepad.h</FilePath>
             </File>
             <File>
-              <FileName>systick.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Driver\systick.h</FilePath>
-            </File>
-            <File>
-              <FileName>tim.c</FileName>
+              <FileName>ip_gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Driver\tim.c</FilePath>
+              <FilePath>..\Ip\ip_gpio.c</FilePath>
             </File>
             <File>
-              <FileName>tim.h</FileName>
+              <FileName>ip_gpio.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Driver\tim.h</FilePath>
+              <FilePath>..\Ip\ip_gpio.h</FilePath>
             </File>
             <File>
-              <FileName>uart.c</FileName>
+              <FileName>ip_joystick.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Driver\uart.c</FilePath>
+              <FilePath>..\Ip\ip_joystick.c</FilePath>
             </File>
             <File>
-              <FileName>uart.h</FileName>
+              <FileName>ip_joystick.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Driver\uart.h</FilePath>
+              <FilePath>..\Ip\ip_joystick.h</FilePath>
+            </File>
+            <File>
+              <FileName>ip_mode.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Ip\ip_mode.c</FilePath>
+            </File>
+            <File>
+              <FileName>ip_mode.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Ip\ip_mode.h</FilePath>
+            </File>
+            <File>
+              <FileName>ip_protocol.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Ip\ip_protocol.c</FilePath>
+            </File>
+            <File>
+              <FileName>ip_protocol.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Ip\ip_protocol.h</FilePath>
+            </File>
+            <File>
+              <FileName>ip_systick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Ip\ip_systick.c</FilePath>
+            </File>
+            <File>
+              <FileName>ip_systick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Ip\ip_systick.h</FilePath>
+            </File>
+            <File>
+              <FileName>ip_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Ip\ip_tim.c</FilePath>
+            </File>
+            <File>
+              <FileName>ip_tim.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Ip\ip_tim.h</FilePath>
+            </File>
+            <File>
+              <FileName>ip_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Ip\ip_uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>ip_uart.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Ip\ip_uart.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -694,14 +744,104 @@
           <GroupName>Middleware</GroupName>
           <Files>
             <File>
-              <FileName>bluetooth.c</FileName>
+              <FileName>mid_adc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Middleware\bluetooth.c</FilePath>
+              <FilePath>..\Middleware\mid_adc.c</FilePath>
             </File>
             <File>
-              <FileName>bluetooth.h</FileName>
+              <FileName>mid_adc.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Middleware\bluetooth.h</FilePath>
+              <FilePath>..\Middleware\mid_adc.h</FilePath>
+            </File>
+            <File>
+              <FileName>mid_bluetooth.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middleware\mid_bluetooth.c</FilePath>
+            </File>
+            <File>
+              <FileName>mid_bluetooth.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middleware\mid_bluetooth.h</FilePath>
+            </File>
+            <File>
+              <FileName>mid_gamepad.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middleware\mid_gamepad.c</FilePath>
+            </File>
+            <File>
+              <FileName>mid_gamepad.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middleware\mid_gamepad.h</FilePath>
+            </File>
+            <File>
+              <FileName>mid_gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middleware\mid_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>mid_gpio.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middleware\mid_gpio.h</FilePath>
+            </File>
+            <File>
+              <FileName>mid_joystick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middleware\mid_joystick.c</FilePath>
+            </File>
+            <File>
+              <FileName>mid_joystick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middleware\mid_joystick.h</FilePath>
+            </File>
+            <File>
+              <FileName>mid_mode.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middleware\mid_mode.c</FilePath>
+            </File>
+            <File>
+              <FileName>mid_mode.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middleware\mid_mode.h</FilePath>
+            </File>
+            <File>
+              <FileName>mid_protocol.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middleware\mid_protocol.c</FilePath>
+            </File>
+            <File>
+              <FileName>mid_protocol.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middleware\mid_protocol.h</FilePath>
+            </File>
+            <File>
+              <FileName>mid_systick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middleware\mid_systick.c</FilePath>
+            </File>
+            <File>
+              <FileName>mid_systick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middleware\mid_systick.h</FilePath>
+            </File>
+            <File>
+              <FileName>mid_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middleware\mid_tim.c</FilePath>
+            </File>
+            <File>
+              <FileName>mid_tim.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middleware\mid_tim.h</FilePath>
+            </File>
+            <File>
+              <FileName>mid_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middleware\mid_uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>mid_uart.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Middleware\mid_uart.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -709,49 +849,104 @@
           <GroupName>Application</GroupName>
           <Files>
             <File>
-              <FileName>gamepad.c</FileName>
+              <FileName>app_adc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Application\gamepad.c</FilePath>
+              <FilePath>..\Application\app_adc.c</FilePath>
             </File>
             <File>
-              <FileName>gamepad.h</FileName>
+              <FileName>app_adc.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Application\gamepad.h</FilePath>
+              <FilePath>..\Application\app_adc.h</FilePath>
             </File>
             <File>
-              <FileName>mode.c</FileName>
+              <FileName>app_bluetooth.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Application\mode.c</FilePath>
+              <FilePath>..\Application\app_bluetooth.c</FilePath>
             </File>
             <File>
-              <FileName>mode.h</FileName>
+              <FileName>app_bluetooth.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Application\mode.h</FilePath>
+              <FilePath>..\Application\app_bluetooth.h</FilePath>
             </File>
             <File>
-              <FileName>protocol.c</FileName>
+              <FileName>app_gamepad.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Application\protocol.c</FilePath>
+              <FilePath>..\Application\app_gamepad.c</FilePath>
             </File>
             <File>
-              <FileName>protocol.h</FileName>
+              <FileName>app_gamepad.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Application\protocol.h</FilePath>
+              <FilePath>..\Application\app_gamepad.h</FilePath>
             </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Bsp</GroupName>
-          <Files>
             <File>
-              <FileName>joystick.c</FileName>
+              <FileName>app_gpio.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\Bsp\joystick.c</FilePath>
+              <FilePath>..\Application\app_gpio.c</FilePath>
             </File>
             <File>
-              <FileName>joystick.h</FileName>
+              <FileName>app_gpio.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\Bsp\joystick.h</FilePath>
+              <FilePath>..\Application\app_gpio.h</FilePath>
+            </File>
+            <File>
+              <FileName>app_joystick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\app_joystick.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_joystick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Application\app_joystick.h</FilePath>
+            </File>
+            <File>
+              <FileName>app_mode.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\app_mode.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_mode.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Application\app_mode.h</FilePath>
+            </File>
+            <File>
+              <FileName>app_protocol.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\app_protocol.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_protocol.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Application\app_protocol.h</FilePath>
+            </File>
+            <File>
+              <FileName>app_systick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\app_systick.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_systick.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Application\app_systick.h</FilePath>
+            </File>
+            <File>
+              <FileName>app_tim.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\app_tim.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_tim.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Application\app_tim.h</FilePath>
+            </File>
+            <File>
+              <FileName>app_uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Application\app_uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_uart.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Application\app_uart.h</FilePath>
             </File>
           </Files>
         </Group>

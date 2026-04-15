@@ -1,8 +1,7 @@
-#include "stm32f10x.h"
-#include <stdio.h>
-
 #include "system_init.h"
-#include "app.h"
+#include "app_control.h"
+#include "app_motor.h"
+#include "app_maze.h"
 
 int main(void)
 {
@@ -10,6 +9,21 @@ int main(void)
 
     while(1)
     {
-        App_Run();
+        App_Control_Run();
+
+        app_control_data_t data = App_Control_GetData();
+
+        if(data.mode == 'M')
+        {
+            App_Control_Execute(data);
+        }
+        else if(data.mode == 'A')
+        {
+            App_Maze_Run(data.speed);
+        }
+        else
+        {
+            App_Motor_Stop();
+        }
     }
 }
