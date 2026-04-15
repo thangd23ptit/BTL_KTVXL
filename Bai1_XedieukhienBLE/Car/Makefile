@@ -20,6 +20,7 @@ LDFLAGS += -Wl,--gc-sections
 LDFLAGS += -Wl,-Map=$(BUILD_DIR)/$(TARGET).map
 LDFLAGS += -Wl,--print-memory-usage
 LDFLAGS += --specs=nano.specs
+
 INCLUDES = \
 -IInc \
 -ISrc \
@@ -30,6 +31,7 @@ INCLUDES = \
 -ILib/STM32F10x_StdPeriph_Driver/inc \
 -ILib/CMSIS/CM3/CoreSupport \
 -ILib/CMSIS/CM3/DeviceSupport/ST/STM32F10x
+
 SRC = \
 $(wildcard Src/*.c) \
 $(wildcard Application/*.c) \
@@ -44,7 +46,9 @@ OBJ += $(BUILD_DIR)/startup.o
 BIN = $(BUILD_DIR)/$(TARGET).bin
 ELF = $(BUILD_DIR)/$(TARGET).elf
 HEX = $(BUILD_DIR)/$(TARGET).hex
+
 all: $(ELF)
+
 $(ELF): $(OBJ)
 	$(CC) $(OBJ) $(LDFLAGS) -o $@
 	$(OBJCOPY) -O ihex $@ $(HEX)
@@ -56,9 +60,11 @@ $(BUILD_DIR)/%.o: %.c
 $(BUILD_DIR)/startup.o: $(STARTUP)
 	@mkdir -p $(BUILD_DIR)
 	$(AS) $(CPU) -c $< -o $@
+
 clean:
 	rm -rf $(BUILD_DIR)
 STLINK = ./Tools/STM32_ST-LINK_Utility/ST-LINK_Utility/ST-LINK_CLI.exe
+
 flash: $(BIN)
 	$(STLINK) -P "$(shell cygpath -w $(CURDIR))/$(BIN)" 0x08000000 -Rst
 .PHONY: all clean flash
