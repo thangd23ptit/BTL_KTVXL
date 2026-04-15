@@ -1,6 +1,5 @@
 #include <stdint.h>
 
-/* ================= LINKER SYMBOLS ================= */
 extern uint32_t _sidata;
 extern uint32_t _sdata;
 extern uint32_t _edata;
@@ -8,13 +7,11 @@ extern uint32_t _sbss;
 extern uint32_t _ebss;
 extern uint32_t _estack;
 
-/* ================= FUNCTION ================= */
 int main(void);
 void SystemInit(void);
 void Reset_Handler(void);
 void Default_Handler(void);
 
-/* ================= CORE HANDLERS ================= */
 void NMI_Handler(void)        __attribute__((weak, alias("Default_Handler")));
 void HardFault_Handler(void)  __attribute__((weak, alias("Default_Handler")));
 void MemManage_Handler(void)  __attribute__((weak, alias("Default_Handler")));
@@ -25,7 +22,6 @@ void DebugMon_Handler(void)   __attribute__((weak, alias("Default_Handler")));
 void PendSV_Handler(void)     __attribute__((weak, alias("Default_Handler")));
 void SysTick_Handler(void)    __attribute__((weak, alias("Default_Handler")));
 
-/* ================= PERIPHERAL IRQ ================= */
 void WWDG_IRQHandler(void)            __attribute__((weak, alias("Default_Handler")));
 void PVD_IRQHandler(void)             __attribute__((weak, alias("Default_Handler")));
 void TAMPER_IRQHandler(void)          __attribute__((weak, alias("Default_Handler")));
@@ -70,7 +66,6 @@ void EXTI15_10_IRQHandler(void)       __attribute__((weak, alias("Default_Handle
 void RTC_Alarm_IRQHandler(void)       __attribute__((weak, alias("Default_Handler")));
 void USBWakeUp_IRQHandler(void)       __attribute__((weak, alias("Default_Handler")));
 
-/* ================= VECTOR TABLE ================= */
 __attribute__((section(".isr_vector")))
 const void *vector_table[] =
 {
@@ -87,7 +82,6 @@ const void *vector_table[] =
     0,
     PendSV_Handler,
     SysTick_Handler,
-
     WWDG_IRQHandler,
     PVD_IRQHandler,
     TAMPER_IRQHandler,
@@ -133,27 +127,17 @@ const void *vector_table[] =
     USBWakeUp_IRQHandler
 };
 
-/* ================= RESET ================= */
-void Reset_Handler(void)
-{
+void Reset_Handler(void){
     uint32_t *src = &_sidata;
     uint32_t *dst = &_sdata;
-
-    while(dst < &_edata)
-        *dst++ = *src++;
-
+    while(dst < &_edata) *dst++ = *src++;
     dst = &_sbss;
-    while(dst < &_ebss)
-        *dst++ = 0;
-
+    while(dst < &_ebss) *dst++ = 0;
     SystemInit();
     main();
-
     while(1);
 }
 
-/* ================= DEFAULT ================= */
-void Default_Handler(void)
-{
+void Default_Handler(void){
     while(1);
 }
