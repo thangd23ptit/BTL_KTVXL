@@ -11,6 +11,7 @@ void Control_Init(void){
 }
 
 // ham xu ly frane chuyen tu gamepad
+
 void Control_Run(void){
     static char frame[20];
     static uint8_t idx = 0;
@@ -21,9 +22,13 @@ void Control_Run(void){
         if(c == '#'){
             frame[idx] = '\0';
             idx = 0;
-            g_control.mode  = frame[1];
-            g_control.cmd   = frame[3];
-            g_control.speed = atoi(&frame[5]);
+            char mode, cmd;
+            uint16_t speed;
+            if(sscanf(frame, "$%c,%c,%hu#", &mode, &cmd, &speed) == 3){
+                g_control.mode = mode;
+                g_control.cmd = cmd;
+                g_control.speed = speed;
+            }
         }
     }
 }

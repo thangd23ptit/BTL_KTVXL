@@ -5,11 +5,11 @@
 
 typedef enum
 {
-    APP_MODE_AUTO = 0,
-    APP_MODE_MANUAL
+    APP_MODE_MANUAL = 'M',
+    APP_MODE_AUTO   = 'A'
 } app_mode_t;
 
-void App_SetMode(app_mode_t mode);
+void App_Init(void);
 void App_Run(void);
 
 #endif

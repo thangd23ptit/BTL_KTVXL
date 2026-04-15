@@ -20,8 +20,4 @@ void System_Init(void)
     Sensor_Init();        // SR05 front
     LineSensor_Init();    // 5 line
 
-    /* sensor startup stable */
-    Delay_ms(300);
-
-    Bluetooth_SendString("=== SYSTEM INIT OK ===\r\n");
 }
