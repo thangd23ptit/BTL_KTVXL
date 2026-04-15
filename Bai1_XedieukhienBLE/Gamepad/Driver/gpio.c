@@ -39,7 +39,7 @@ void GPIO_Write_Pin(GPIO_TypeDef *GPIOx, uint16_t pin, uint8_t state){
     else GPIOx->BRR = pin;
 }
 
-uint8_t GPIO_Read(GPIO_TypeDef *GPIOx, uint16_t pin){
+uint8_t GPIO_Read_Pin(GPIO_TypeDef *GPIOx, uint16_t pin){
     return (GPIOx->IDR & pin) ? 1 : 0;
 }
 

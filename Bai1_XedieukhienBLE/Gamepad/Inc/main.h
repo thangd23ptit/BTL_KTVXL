@@ -12,6 +12,6 @@
 #include "protocol.h"
 #include "mode.h"
 #include "gamepad.h"
-
+#include "tim.h"
 
 #endif

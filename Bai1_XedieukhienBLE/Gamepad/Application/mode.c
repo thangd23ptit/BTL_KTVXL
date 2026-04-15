@@ -11,10 +11,10 @@ void Mode_Init(Mode_t *mode, GPIO_TypeDef *port, uint16_t pin){
 }
 
 protocol_mode_t Mode_Update(Mode_t *mode){
-    uint8_t current_state = GPIO_Read(mode->port, mode->pin);
+    uint8_t current_state = GPIO_Read_Pin(mode->port, mode->pin);
     if(mode->last_state == 1 && current_state == 0){
         Delay_ms(20);
-        while(GPIO_Read(mode->port, mode->pin) == 0);
+        while(GPIO_Read_Pin(mode->port, mode->pin) == 0);
         if(mode->current_mode == MODE_MANUAL)
             mode->current_mode = MODE_AUTO;
         else

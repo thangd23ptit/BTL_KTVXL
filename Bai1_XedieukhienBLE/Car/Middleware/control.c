@@ -2,6 +2,7 @@
 #include "bluetooth.h"
 #include "motor.h"
 #include <stdlib.h>
+#include <stdio.h>
 // khoi tao che do ban dau la manual , dung xe , va toc do 700
 static control_data_t g_control = {'M', 'S', 700};
 

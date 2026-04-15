@@ -5,6 +5,7 @@
 #include "app_auto.h"
 #include "motor.h"
 #include "timer.h"
+#include "bluetooth.h"
 
 static app_mode_t g_mode = APP_MODE_MANUAL;
 static uint32_t last_rx_time = 0;
