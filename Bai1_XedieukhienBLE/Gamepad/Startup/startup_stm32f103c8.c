@@ -144,15 +144,12 @@ void Reset_Handler(void){
     for(uint32_t i = 0; i < size; i++) *pDst++ = *pSrc++;
     pDst = (uint8_t*)&_sbss;
     size = (uint32_t)&_ebss - (uint32_t)&_sbss;
-    for(uint32_t i = 0; i < size; i++)
-        *pDst++ = 0;
+    for(uint32_t i = 0; i < size; i++) *pDst++ = 0;
     SystemInit();   
     main();
-
     while(1);
 }
 
-void Default_Handler(void)
-{
+void Default_Handler(void){
     while (1);
 }
