@@ -1,28 +1,21 @@
-/* ================================================
-   startup.c - Startup file hoàn chỉnh cho STM32F103C8T6
-   ================================================ */
 
 #include <stdint.h>
 
-/* ================= MEMORY ================= */
 #define SRAM_START  0x20000000U
 #define SRAM_SIZE   (20U * 1024U)
 #define SRAM_END    (SRAM_START + SRAM_SIZE)
 
-/* ================= LINKER SYMBOLS ================= */
-extern uint32_t _etext;     /* end of .text (source of .data in Flash) */
-extern uint32_t _sdata;     /* start of .data in SRAM */
-extern uint32_t _edata;     /* end of .data */
-extern uint32_t _sbss;      /* start of .bss */
-extern uint32_t _ebss;      /* end of .bss */
-extern uint32_t _estack;    /* top of stack (được định nghĩa trong linker) */
+extern uint32_t _etext;   
+extern uint32_t _sdata;     
+extern uint32_t _edata;     
+extern uint32_t _sbss;      
+extern uint32_t _ebss;      
+extern uint32_t _estack;    
 
-/* ================= FUNCTION PROTOTYPES ================= */
 int main(void);
 void Reset_Handler(void);
 void Default_Handler(void);
 
-/* ================= CORTEX-M3 CORE HANDLERS ================= */
 void NMI_Handler(void)        __attribute__((weak, alias("Default_Handler")));
 void HardFault_Handler(void)  __attribute__((weak, alias("Default_Handler")));
 void MemManage_Handler(void)  __attribute__((weak, alias("Default_Handler")));
@@ -33,7 +26,6 @@ void DebugMon_Handler(void)   __attribute__((weak, alias("Default_Handler")));
 void PendSV_Handler(void)     __attribute__((weak, alias("Default_Handler")));
 void SysTick_Handler(void)    __attribute__((weak, alias("Default_Handler")));
 
-/* ================= STM32F103C8T6 PERIPHERAL HANDLERS ================= */
 void WWDG_IRQHandler(void)            __attribute__((weak, alias("Default_Handler")));
 void PVD_IRQHandler(void)             __attribute__((weak, alias("Default_Handler")));
 void TAMPER_IRQHandler(void)          __attribute__((weak, alias("Default_Handler")));
@@ -78,24 +70,22 @@ void EXTI15_10_IRQHandler(void)       __attribute__((weak, alias("Default_Handle
 void RTC_Alarm_IRQHandler(void)       __attribute__((weak, alias("Default_Handler")));
 void USBWakeUp_IRQHandler(void)       __attribute__((weak, alias("Default_Handler")));
 
-/* ================= VECTOR TABLE ================= */
 __attribute__((section(".isr_vector"), used))
 const uint32_t vector_table[] = {
-    (uint32_t)&_estack,               /*  0: Initial Stack Pointer */
-    (uint32_t)Reset_Handler,          /*  1: Reset */
+    (uint32_t)&_estack,              
+    (uint32_t)Reset_Handler,         
     (uint32_t)NMI_Handler,
     (uint32_t)HardFault_Handler,
     (uint32_t)MemManage_Handler,
     (uint32_t)BusFault_Handler,
     (uint32_t)UsageFault_Handler,
-    0, 0, 0, 0,                       /* Reserved */
+    0, 0, 0, 0,                     
     (uint32_t)SVC_Handler,
     (uint32_t)DebugMon_Handler,
-    0,                                /* Reserved */
+    0,                                
     (uint32_t)PendSV_Handler,
     (uint32_t)SysTick_Handler,
 
-    /* Peripheral interrupts (Medium density - F103xB) */
     (uint32_t)WWDG_IRQHandler,
     (uint32_t)PVD_IRQHandler,
     (uint32_t)TAMPER_IRQHandler,
@@ -139,41 +129,29 @@ const uint32_t vector_table[] = {
     (uint32_t)EXTI15_10_IRQHandler,
     (uint32_t)RTC_Alarm_IRQHandler,
     (uint32_t)USBWakeUp_IRQHandler,
-
-    /* Padding (theo startup assembly chính thức của ST) */
     0, 0, 0, 0, 0, 0, 0
 };
 
-/* ================= RESET HANDLER ================= */
 extern void SystemInit(void);
 extern uint32_t _sidata;
-
-void Reset_Handler(void)
-{
+void Reset_Handler(void){
     uint32_t size;
     uint8_t *pDst;
     uint8_t *pSrc;
-
     pDst = (uint8_t*)&_sdata;
     pSrc = (uint8_t*)&_sidata;
     size = (uint32_t)&_edata - (uint32_t)&_sdata;
-
-    for(uint32_t i = 0; i < size; i++)
-        *pDst++ = *pSrc++;
-
+    for(uint32_t i = 0; i < size; i++) *pDst++ = *pSrc++;
     pDst = (uint8_t*)&_sbss;
     size = (uint32_t)&_ebss - (uint32_t)&_sbss;
-
     for(uint32_t i = 0; i < size; i++)
         *pDst++ = 0;
-
-    SystemInit();   // QUAN TRỌNG
+    SystemInit();   
     main();
 
     while(1);
 }
 
-/* ================= DEFAULT HANDLER ================= */
 void Default_Handler(void)
 {
     while (1);
