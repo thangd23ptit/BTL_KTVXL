@@ -1,4 +1,5 @@
-./objects/app_uart.o: ..\Application\app_uart.c ..\Application\app_uart.h \
+./objects/app_uart.o: ..\Src\Application\app_uart.c \
+  ..\Inc\Application\app_uart.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   ..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h \
   G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h \
@@ -26,4 +27,5 @@
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h \
-  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h ..\Middleware\mid_uart.h
+  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h \
+  ..\Inc\MIddleware\mid_uart.h

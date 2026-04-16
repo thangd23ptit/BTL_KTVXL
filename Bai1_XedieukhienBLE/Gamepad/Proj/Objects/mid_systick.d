@@ -1,4 +1,5 @@
-./objects/mid_systick.o: ..\Middleware\mid_systick.c ..\Ip\ip_systick.h \
+./objects/mid_systick.o: ..\Src\MIddleware\mid_systick.c \
+  ..\Inc\Ip\ip_systick.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   ..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h \
   G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h \
@@ -27,4 +28,4 @@
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h \
-  ..\Middleware\mid_systick.h
+  ..\Inc\MIddleware\mid_systick.h

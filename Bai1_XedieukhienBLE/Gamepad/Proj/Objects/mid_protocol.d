@@ -1,6 +1,6 @@
-./objects/mid_protocol.o: ..\Middleware\mid_protocol.c \
-  ..\Ip\ip_protocol.h G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h \
-  ..\Ip\ip_bluetooth.h \
+./objects/mid_protocol.o: ..\Src\MIddleware\mid_protocol.c \
+  ..\Inc\Ip\ip_protocol.h G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  ..\Inc\Ip\ip_bluetooth.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   ..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\system_stm32f10x.h \
@@ -28,4 +28,4 @@
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h \
-  ..\Middleware\mid_protocol.h
+  ..\Inc\MIddleware\mid_protocol.h

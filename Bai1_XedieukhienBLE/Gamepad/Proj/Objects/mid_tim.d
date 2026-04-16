@@ -1,4 +1,4 @@
-./objects/mid_tim.o: ..\Middleware\mid_tim.c ..\Ip\ip_tim.h \
+./objects/mid_tim.o: ..\Src\MIddleware\mid_tim.c ..\Inc\Ip\ip_tim.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   ..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h \
   G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h \
@@ -26,4 +26,5 @@
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h \
-  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h ..\Middleware\mid_tim.h
+  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h \
+  ..\Inc\MIddleware\mid_tim.h

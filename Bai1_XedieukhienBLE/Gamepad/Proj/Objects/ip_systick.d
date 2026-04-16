@@ -1,4 +1,4 @@
-./objects/ip_systick.o: ..\Ip\ip_systick.c ..\Ip\ip_systick.h \
+./objects/ip_systick.o: ..\Src\Ip\ip_systick.c ..\Inc\Ip\ip_systick.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   ..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h \
   G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h \

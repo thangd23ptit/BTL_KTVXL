@@ -1,4 +1,4 @@
-./objects/ip_gpio.o: ..\Ip\ip_gpio.c ..\Ip\ip_gpio.h \
+./objects/ip_gpio.o: ..\Src\Ip\ip_gpio.c ..\Inc\Ip\ip_gpio.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   ..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h \
   G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h \

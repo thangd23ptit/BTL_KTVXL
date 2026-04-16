@@ -1,4 +1,4 @@
-./objects/ip_adc.o: ..\Ip\ip_adc.c ..\Ip\ip_adc.h \
+./objects/ip_adc.o: ..\Src\Ip\ip_adc.c ..\Inc\Ip\ip_adc.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   ..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h \
   G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h \

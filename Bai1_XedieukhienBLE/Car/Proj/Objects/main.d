@@ -1,7 +1,7 @@
 ./objects/main.o: ..\Src\main.c ..\Inc\system_init.h \
-  ..\Application\app_control.h \
+  ..\Inc\Application\app_control.h \
   G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h \
-  ..\Application\app_motor.h ..\Application\app_maze.h \
+  ..\Inc\Application\app_motor.h ..\Inc\Application\app_maze.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   ..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\system_stm32f10x.h \

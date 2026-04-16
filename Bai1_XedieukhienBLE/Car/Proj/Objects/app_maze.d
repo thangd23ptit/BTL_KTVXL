@@ -1,4 +1,5 @@
-./objects/app_maze.o: ..\Application\app_maze.c ..\Application\app_maze.h \
+./objects/app_maze.o: ..\Src\Application\app_maze.c \
+  ..\Inc\Application\app_maze.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   ..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h \
   G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h \
@@ -26,4 +27,5 @@
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h \
-  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h ..\Middleware\mid_maze.h
+  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h \
+  ..\Inc\Middleware\mid_maze.h

@@ -1,4 +1,4 @@
-./objects/ip_pwm.o: ..\Ip\ip_pwm.c ..\Ip\ip_pwm.h \
+./objects/ip_pwm.o: ..\Src\Ip\ip_pwm.c ..\Inc\Ip\ip_pwm.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   ..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h \
   G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h \

@@ -1,3 +1,3 @@
-./objects/mid_bluetooth.o: ..\Middleware\mid_bluetooth.c \
-  ..\Middleware\mid_bluetooth.h \
-  G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h ..\Ip\ip_bluetooth.h
+./objects/mid_bluetooth.o: ..\Src\MIddlewere\mid_bluetooth.c \
+  ..\Inc\Middleware\mid_bluetooth.h \
+  G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h ..\Inc\Ip\ip_bluetooth.h

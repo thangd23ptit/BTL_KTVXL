@@ -1,5 +1,5 @@
-./objects/app_joystick.o: ..\Application\app_joystick.c \
-  ..\Application\app_joystick.h \
+./objects/app_joystick.o: ..\Src\Application\app_joystick.c \
+  ..\Inc\Application\app_joystick.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   ..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h \
   G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h \
@@ -28,4 +28,4 @@
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h \
-  ..\Middleware\mid_joystick.h
+  ..\Inc\MIddleware\mid_joystick.h

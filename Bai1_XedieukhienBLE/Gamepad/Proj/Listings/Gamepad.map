@@ -10,6 +10,74 @@ Section Cross References
     main.o(.text.main) refers to app_gamepad.o(.text.App_Gamepad_Init) for App_Gamepad_Init
     main.o(.text.main) refers to app_gamepad.o(.text.App_Gamepad_Update) for App_Gamepad_Update
     main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
+    app_adc.o(.text.App_ADC1_Init_Single) refers to mid_adc.o(.text.Mid_ADC1_Init_Single) for Mid_ADC1_Init_Single
+    app_adc.o(.ARM.exidx.text.App_ADC1_Init_Single) refers to app_adc.o(.text.App_ADC1_Init_Single) for [Anonymous Symbol]
+    app_adc.o(.text.App_ADC1_Read) refers to mid_adc.o(.text.Mid_ADC1_Read) for Mid_ADC1_Read
+    app_adc.o(.ARM.exidx.text.App_ADC1_Read) refers to app_adc.o(.text.App_ADC1_Read) for [Anonymous Symbol]
+    app_adc.o(.text.App_ADC1_ReadVoltage) refers to mid_adc.o(.text.Mid_ADC1_ReadVoltage) for Mid_ADC1_ReadVoltage
+    app_adc.o(.ARM.exidx.text.App_ADC1_ReadVoltage) refers to app_adc.o(.text.App_ADC1_ReadVoltage) for [Anonymous Symbol]
+    app_bluetooth.o(.text.App_Bluetooth_Init) refers to mid_bluetooth.o(.text.Mid_Bluetooth_Init) for Mid_Bluetooth_Init
+    app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_Init) refers to app_bluetooth.o(.text.App_Bluetooth_Init) for [Anonymous Symbol]
+    app_bluetooth.o(.text.App_Bluetooth_SendChar) refers to mid_bluetooth.o(.text.Mid_Bluetooth_SendChar) for Mid_Bluetooth_SendChar
+    app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_SendChar) refers to app_bluetooth.o(.text.App_Bluetooth_SendChar) for [Anonymous Symbol]
+    app_bluetooth.o(.text.App_Bluetooth_SendString) refers to mid_bluetooth.o(.text.Mid_Bluetooth_SendString) for Mid_Bluetooth_SendString
+    app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_SendString) refers to app_bluetooth.o(.text.App_Bluetooth_SendString) for [Anonymous Symbol]
+    app_bluetooth.o(.text.App_Bluetooth_Available) refers to mid_bluetooth.o(.text.Mid_Bluetooth_Available) for Mid_Bluetooth_Available
+    app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_Available) refers to app_bluetooth.o(.text.App_Bluetooth_Available) for [Anonymous Symbol]
+    app_bluetooth.o(.text.App_Bluetooth_Read) refers to mid_bluetooth.o(.text.Mid_Bluetooth_Read) for Mid_Bluetooth_Read
+    app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_Read) refers to app_bluetooth.o(.text.App_Bluetooth_Read) for [Anonymous Symbol]
+    app_bluetooth.o(.text.App_Bluetooth_SendNum) refers to mid_bluetooth.o(.text.Mid_Bluetooth_SendNum) for Mid_Bluetooth_SendNum
+    app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_SendNum) refers to app_bluetooth.o(.text.App_Bluetooth_SendNum) for [Anonymous Symbol]
+    app_gamepad.o(.text.App_Gamepad_Init) refers to mid_gamepad.o(.text.Mid_Gamepad_Init) for Mid_Gamepad_Init
+    app_gamepad.o(.ARM.exidx.text.App_Gamepad_Init) refers to app_gamepad.o(.text.App_Gamepad_Init) for [Anonymous Symbol]
+    app_gamepad.o(.text.App_Gamepad_Update) refers to mid_gamepad.o(.text.Mid_Gamepad_Update) for Mid_Gamepad_Update
+    app_gamepad.o(.ARM.exidx.text.App_Gamepad_Update) refers to app_gamepad.o(.text.App_Gamepad_Update) for [Anonymous Symbol]
+    app_gpio.o(.text.App_GPIO_Config) refers to mid_gpio.o(.text.Mid_GPIO_Config) for Mid_GPIO_Config
+    app_gpio.o(.ARM.exidx.text.App_GPIO_Config) refers to app_gpio.o(.text.App_GPIO_Config) for [Anonymous Symbol]
+    app_gpio.o(.text.App_GPIO_Write_Pin) refers to mid_gpio.o(.text.Mid_GPIO_Write_Pin) for Mid_GPIO_Write_Pin
+    app_gpio.o(.ARM.exidx.text.App_GPIO_Write_Pin) refers to app_gpio.o(.text.App_GPIO_Write_Pin) for [Anonymous Symbol]
+    app_gpio.o(.text.App_GPIO_Read_Pin) refers to mid_gpio.o(.text.Mid_GPIO_Read_Pin) for Mid_GPIO_Read_Pin
+    app_gpio.o(.ARM.exidx.text.App_GPIO_Read_Pin) refers to app_gpio.o(.text.App_GPIO_Read_Pin) for [Anonymous Symbol]
+    app_gpio.o(.text.App_GPIO_Toggle) refers to mid_gpio.o(.text.Mid_GPIO_Toggle) for Mid_GPIO_Toggle
+    app_gpio.o(.ARM.exidx.text.App_GPIO_Toggle) refers to app_gpio.o(.text.App_GPIO_Toggle) for [Anonymous Symbol]
+    app_joystick.o(.text.App_Joystick_Init) refers to mid_joystick.o(.text.Mid_Joystick_Init) for Mid_Joystick_Init
+    app_joystick.o(.ARM.exidx.text.App_Joystick_Init) refers to app_joystick.o(.text.App_Joystick_Init) for [Anonymous Symbol]
+    app_joystick.o(.text.App_Joystick_ReadX) refers to mid_joystick.o(.text.Mid_Joystick_ReadX) for Mid_Joystick_ReadX
+    app_joystick.o(.ARM.exidx.text.App_Joystick_ReadX) refers to app_joystick.o(.text.App_Joystick_ReadX) for [Anonymous Symbol]
+    app_joystick.o(.text.App_Joystick_ReadY) refers to mid_joystick.o(.text.Mid_Joystick_ReadY) for Mid_Joystick_ReadY
+    app_joystick.o(.ARM.exidx.text.App_Joystick_ReadY) refers to app_joystick.o(.text.App_Joystick_ReadY) for [Anonymous Symbol]
+    app_joystick.o(.text.App_Joystick_GetXOffset) refers to mid_joystick.o(.text.Mid_Joystick_GetXOffset) for Mid_Joystick_GetXOffset
+    app_joystick.o(.ARM.exidx.text.App_Joystick_GetXOffset) refers to app_joystick.o(.text.App_Joystick_GetXOffset) for [Anonymous Symbol]
+    app_joystick.o(.text.App_Joystick_GetYOffset) refers to mid_joystick.o(.text.Mid_Joystick_GetYOffset) for Mid_Joystick_GetYOffset
+    app_joystick.o(.ARM.exidx.text.App_Joystick_GetYOffset) refers to app_joystick.o(.text.App_Joystick_GetYOffset) for [Anonymous Symbol]
+    app_mode.o(.text.App_Mode_Init) refers to mid_mode.o(.text.Mid_Mode_Init) for Mid_Mode_Init
+    app_mode.o(.ARM.exidx.text.App_Mode_Init) refers to app_mode.o(.text.App_Mode_Init) for [Anonymous Symbol]
+    app_mode.o(.text.App_Mode_Update) refers to mid_mode.o(.text.Mid_Mode_Update) for Mid_Mode_Update
+    app_mode.o(.ARM.exidx.text.App_Mode_Update) refers to app_mode.o(.text.App_Mode_Update) for [Anonymous Symbol]
+    app_protocol.o(.text.App_Protocol_Encode) refers to mid_protocol.o(.text.Mid_Protocol_Encode) for Mid_Protocol_Encode
+    app_protocol.o(.ARM.exidx.text.App_Protocol_Encode) refers to app_protocol.o(.text.App_Protocol_Encode) for [Anonymous Symbol]
+    app_protocol.o(.text.App_Protocol_Send) refers to mid_protocol.o(.text.Mid_Protocol_Send) for Mid_Protocol_Send
+    app_protocol.o(.ARM.exidx.text.App_Protocol_Send) refers to app_protocol.o(.text.App_Protocol_Send) for [Anonymous Symbol]
+    app_systick.o(.text.App_SysTick_DelayUs) refers to mid_systick.o(.text.Mid_SysTick_DelayUs) for Mid_SysTick_DelayUs
+    app_systick.o(.ARM.exidx.text.App_SysTick_DelayUs) refers to app_systick.o(.text.App_SysTick_DelayUs) for [Anonymous Symbol]
+    app_systick.o(.text.App_SysTick_DelayMs) refers to mid_systick.o(.text.Mid_SysTick_DelayMs) for Mid_SysTick_DelayMs
+    app_systick.o(.ARM.exidx.text.App_SysTick_DelayMs) refers to app_systick.o(.text.App_SysTick_DelayMs) for [Anonymous Symbol]
+    app_tim.o(.text.App_TIM2_Init_1ms) refers to mid_tim.o(.text.Mid_TIM2_Init_1ms) for Mid_TIM2_Init_1ms
+    app_tim.o(.ARM.exidx.text.App_TIM2_Init_1ms) refers to app_tim.o(.text.App_TIM2_Init_1ms) for [Anonymous Symbol]
+    app_tim.o(.text.App_Delay_ms) refers to mid_tim.o(.text.Mid_Delay_ms) for Mid_Delay_ms
+    app_tim.o(.ARM.exidx.text.App_Delay_ms) refers to app_tim.o(.text.App_Delay_ms) for [Anonymous Symbol]
+    app_uart.o(.text.App_UART1_Init) refers to mid_uart.o(.text.Mid_UART1_Init) for Mid_UART1_Init
+    app_uart.o(.ARM.exidx.text.App_UART1_Init) refers to app_uart.o(.text.App_UART1_Init) for [Anonymous Symbol]
+    app_uart.o(.text.App_UART1_SendChar) refers to mid_uart.o(.text.Mid_UART1_SendChar) for Mid_UART1_SendChar
+    app_uart.o(.ARM.exidx.text.App_UART1_SendChar) refers to app_uart.o(.text.App_UART1_SendChar) for [Anonymous Symbol]
+    app_uart.o(.text.App_UART1_SendString) refers to mid_uart.o(.text.Mid_UART1_SendString) for Mid_UART1_SendString
+    app_uart.o(.ARM.exidx.text.App_UART1_SendString) refers to app_uart.o(.text.App_UART1_SendString) for [Anonymous Symbol]
+    app_uart.o(.text.App_UART1_Available) refers to mid_uart.o(.text.Mid_UART1_Available) for Mid_UART1_Available
+    app_uart.o(.ARM.exidx.text.App_UART1_Available) refers to app_uart.o(.text.App_UART1_Available) for [Anonymous Symbol]
+    app_uart.o(.text.App_UART1_ReadBuffer) refers to mid_uart.o(.text.Mid_UART1_ReadBuffer) for Mid_UART1_ReadBuffer
+    app_uart.o(.ARM.exidx.text.App_UART1_ReadBuffer) refers to app_uart.o(.text.App_UART1_ReadBuffer) for [Anonymous Symbol]
+    app_uart.o(.text.App_UART1_SendNumber) refers to mid_uart.o(.text.Mid_UART1_SendNumber) for Mid_UART1_SendNumber
+    app_uart.o(.ARM.exidx.text.App_UART1_SendNumber) refers to app_uart.o(.text.App_UART1_SendNumber) for [Anonymous Symbol]
     ip_adc.o(.text.Ip_ADC1_Init_Single) refers to ip_adc.o(.bss.current_channel) for current_channel
     ip_adc.o(.text.Ip_ADC1_Init_Single) refers to ip_adc.o(.text.Ip_ADC_GPIO_Config) for Ip_ADC_GPIO_Config
     ip_adc.o(.text.Ip_ADC1_Init_Single) refers to ip_adc.o(.bss.Ip_ADC1_Init_Single.adc_inited) for Ip_ADC1_Init_Single.adc_inited
@@ -93,6 +161,74 @@ Section Cross References
     ip_uart.o(.ARM.exidx.text.Ip_UART1_SendString) refers to ip_uart.o(.text.Ip_UART1_SendString) for [Anonymous Symbol]
     ip_uart.o(.text.Ip_UART1_SendNumber) refers to ip_uart.o(.text.Ip_UART1_SendChar) for Ip_UART1_SendChar
     ip_uart.o(.ARM.exidx.text.Ip_UART1_SendNumber) refers to ip_uart.o(.text.Ip_UART1_SendNumber) for [Anonymous Symbol]
+    mid_adc.o(.text.Mid_ADC1_Init_Single) refers to ip_adc.o(.text.Ip_ADC1_Init_Single) for Ip_ADC1_Init_Single
+    mid_adc.o(.ARM.exidx.text.Mid_ADC1_Init_Single) refers to mid_adc.o(.text.Mid_ADC1_Init_Single) for [Anonymous Symbol]
+    mid_adc.o(.text.Mid_ADC1_Read) refers to ip_adc.o(.text.Ip_ADC1_Read) for Ip_ADC1_Read
+    mid_adc.o(.ARM.exidx.text.Mid_ADC1_Read) refers to mid_adc.o(.text.Mid_ADC1_Read) for [Anonymous Symbol]
+    mid_adc.o(.text.Mid_ADC1_ReadVoltage) refers to ip_adc.o(.text.Ip_ADC1_ReadVoltage) for Ip_ADC1_ReadVoltage
+    mid_adc.o(.ARM.exidx.text.Mid_ADC1_ReadVoltage) refers to mid_adc.o(.text.Mid_ADC1_ReadVoltage) for [Anonymous Symbol]
+    mid_bluetooth.o(.text.Mid_Bluetooth_Init) refers to ip_bluetooth.o(.text.Ip_Bluetooth_Init) for Ip_Bluetooth_Init
+    mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_Init) refers to mid_bluetooth.o(.text.Mid_Bluetooth_Init) for [Anonymous Symbol]
+    mid_bluetooth.o(.text.Mid_Bluetooth_SendChar) refers to ip_bluetooth.o(.text.Ip_Bluetooth_SendChar) for Ip_Bluetooth_SendChar
+    mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_SendChar) refers to mid_bluetooth.o(.text.Mid_Bluetooth_SendChar) for [Anonymous Symbol]
+    mid_bluetooth.o(.text.Mid_Bluetooth_SendString) refers to ip_bluetooth.o(.text.Ip_Bluetooth_SendString) for Ip_Bluetooth_SendString
+    mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_SendString) refers to mid_bluetooth.o(.text.Mid_Bluetooth_SendString) for [Anonymous Symbol]
+    mid_bluetooth.o(.text.Mid_Bluetooth_Available) refers to ip_bluetooth.o(.text.Ip_Bluetooth_Available) for Ip_Bluetooth_Available
+    mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_Available) refers to mid_bluetooth.o(.text.Mid_Bluetooth_Available) for [Anonymous Symbol]
+    mid_bluetooth.o(.text.Mid_Bluetooth_Read) refers to ip_bluetooth.o(.text.Ip_Bluetooth_Read) for Ip_Bluetooth_Read
+    mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_Read) refers to mid_bluetooth.o(.text.Mid_Bluetooth_Read) for [Anonymous Symbol]
+    mid_bluetooth.o(.text.Mid_Bluetooth_SendNum) refers to ip_bluetooth.o(.text.Ip_Bluetooth_SendNum) for Ip_Bluetooth_SendNum
+    mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_SendNum) refers to mid_bluetooth.o(.text.Mid_Bluetooth_SendNum) for [Anonymous Symbol]
+    mid_gamepad.o(.text.Mid_Gamepad_Init) refers to ip_gamepad.o(.text.Ip_Gamepad_Init) for Ip_Gamepad_Init
+    mid_gamepad.o(.ARM.exidx.text.Mid_Gamepad_Init) refers to mid_gamepad.o(.text.Mid_Gamepad_Init) for [Anonymous Symbol]
+    mid_gamepad.o(.text.Mid_Gamepad_Update) refers to ip_gamepad.o(.text.Ip_Gamepad_Update) for Ip_Gamepad_Update
+    mid_gamepad.o(.ARM.exidx.text.Mid_Gamepad_Update) refers to mid_gamepad.o(.text.Mid_Gamepad_Update) for [Anonymous Symbol]
+    mid_gpio.o(.text.Mid_GPIO_Config) refers to ip_gpio.o(.text.Ip_GPIO_Config) for Ip_GPIO_Config
+    mid_gpio.o(.ARM.exidx.text.Mid_GPIO_Config) refers to mid_gpio.o(.text.Mid_GPIO_Config) for [Anonymous Symbol]
+    mid_gpio.o(.text.Mid_GPIO_Write_Pin) refers to ip_gpio.o(.text.Ip_GPIO_Write_Pin) for Ip_GPIO_Write_Pin
+    mid_gpio.o(.ARM.exidx.text.Mid_GPIO_Write_Pin) refers to mid_gpio.o(.text.Mid_GPIO_Write_Pin) for [Anonymous Symbol]
+    mid_gpio.o(.text.Mid_GPIO_Read_Pin) refers to ip_gpio.o(.text.Ip_GPIO_Read_Pin) for Ip_GPIO_Read_Pin
+    mid_gpio.o(.ARM.exidx.text.Mid_GPIO_Read_Pin) refers to mid_gpio.o(.text.Mid_GPIO_Read_Pin) for [Anonymous Symbol]
+    mid_gpio.o(.text.Mid_GPIO_Toggle) refers to ip_gpio.o(.text.Ip_GPIO_Toggle) for Ip_GPIO_Toggle
+    mid_gpio.o(.ARM.exidx.text.Mid_GPIO_Toggle) refers to mid_gpio.o(.text.Mid_GPIO_Toggle) for [Anonymous Symbol]
+    mid_joystick.o(.text.Mid_Joystick_Init) refers to ip_joystick.o(.text.Ip_Joystick_Init) for Ip_Joystick_Init
+    mid_joystick.o(.ARM.exidx.text.Mid_Joystick_Init) refers to mid_joystick.o(.text.Mid_Joystick_Init) for [Anonymous Symbol]
+    mid_joystick.o(.text.Mid_Joystick_ReadX) refers to ip_joystick.o(.text.Ip_Joystick_ReadX) for Ip_Joystick_ReadX
+    mid_joystick.o(.ARM.exidx.text.Mid_Joystick_ReadX) refers to mid_joystick.o(.text.Mid_Joystick_ReadX) for [Anonymous Symbol]
+    mid_joystick.o(.text.Mid_Joystick_ReadY) refers to ip_joystick.o(.text.Ip_Joystick_ReadY) for Ip_Joystick_ReadY
+    mid_joystick.o(.ARM.exidx.text.Mid_Joystick_ReadY) refers to mid_joystick.o(.text.Mid_Joystick_ReadY) for [Anonymous Symbol]
+    mid_joystick.o(.text.Mid_Joystick_GetXOffset) refers to ip_joystick.o(.text.Ip_Joystick_GetXOffset) for Ip_Joystick_GetXOffset
+    mid_joystick.o(.ARM.exidx.text.Mid_Joystick_GetXOffset) refers to mid_joystick.o(.text.Mid_Joystick_GetXOffset) for [Anonymous Symbol]
+    mid_joystick.o(.text.Mid_Joystick_GetYOffset) refers to ip_joystick.o(.text.Ip_Joystick_GetYOffset) for Ip_Joystick_GetYOffset
+    mid_joystick.o(.ARM.exidx.text.Mid_Joystick_GetYOffset) refers to mid_joystick.o(.text.Mid_Joystick_GetYOffset) for [Anonymous Symbol]
+    mid_mode.o(.text.Mid_Mode_Init) refers to ip_mode.o(.text.Ip_Mode_Init) for Ip_Mode_Init
+    mid_mode.o(.ARM.exidx.text.Mid_Mode_Init) refers to mid_mode.o(.text.Mid_Mode_Init) for [Anonymous Symbol]
+    mid_mode.o(.text.Mid_Mode_Update) refers to ip_mode.o(.text.Ip_Mode_Update) for Ip_Mode_Update
+    mid_mode.o(.ARM.exidx.text.Mid_Mode_Update) refers to mid_mode.o(.text.Mid_Mode_Update) for [Anonymous Symbol]
+    mid_protocol.o(.text.Mid_Protocol_Encode) refers to ip_protocol.o(.text.Ip_Protocol_Encode) for Ip_Protocol_Encode
+    mid_protocol.o(.ARM.exidx.text.Mid_Protocol_Encode) refers to mid_protocol.o(.text.Mid_Protocol_Encode) for [Anonymous Symbol]
+    mid_protocol.o(.text.Mid_Protocol_Send) refers to ip_protocol.o(.text.Ip_Protocol_Send) for Ip_Protocol_Send
+    mid_protocol.o(.ARM.exidx.text.Mid_Protocol_Send) refers to mid_protocol.o(.text.Mid_Protocol_Send) for [Anonymous Symbol]
+    mid_systick.o(.text.Mid_SysTick_DelayUs) refers to ip_systick.o(.text.Ip_SysTick_DelayUs) for Ip_SysTick_DelayUs
+    mid_systick.o(.ARM.exidx.text.Mid_SysTick_DelayUs) refers to mid_systick.o(.text.Mid_SysTick_DelayUs) for [Anonymous Symbol]
+    mid_systick.o(.text.Mid_SysTick_DelayMs) refers to ip_systick.o(.text.Ip_SysTick_DelayMs) for Ip_SysTick_DelayMs
+    mid_systick.o(.ARM.exidx.text.Mid_SysTick_DelayMs) refers to mid_systick.o(.text.Mid_SysTick_DelayMs) for [Anonymous Symbol]
+    mid_tim.o(.text.Mid_TIM2_Init_1ms) refers to ip_tim.o(.text.Ip_TIM2_Init_1ms) for Ip_TIM2_Init_1ms
+    mid_tim.o(.ARM.exidx.text.Mid_TIM2_Init_1ms) refers to mid_tim.o(.text.Mid_TIM2_Init_1ms) for [Anonymous Symbol]
+    mid_tim.o(.text.Mid_Delay_ms) refers to ip_tim.o(.text.Ip_Delay_ms) for Ip_Delay_ms
+    mid_tim.o(.ARM.exidx.text.Mid_Delay_ms) refers to mid_tim.o(.text.Mid_Delay_ms) for [Anonymous Symbol]
+    mid_uart.o(.text.Mid_UART1_Init) refers to ip_uart.o(.text.Ip_UART1_Init) for Ip_UART1_Init
+    mid_uart.o(.ARM.exidx.text.Mid_UART1_Init) refers to mid_uart.o(.text.Mid_UART1_Init) for [Anonymous Symbol]
+    mid_uart.o(.text.Mid_UART1_SendChar) refers to ip_uart.o(.text.Ip_UART1_SendChar) for Ip_UART1_SendChar
+    mid_uart.o(.ARM.exidx.text.Mid_UART1_SendChar) refers to mid_uart.o(.text.Mid_UART1_SendChar) for [Anonymous Symbol]
+    mid_uart.o(.text.Mid_UART1_SendString) refers to ip_uart.o(.text.Ip_UART1_SendString) for Ip_UART1_SendString
+    mid_uart.o(.ARM.exidx.text.Mid_UART1_SendString) refers to mid_uart.o(.text.Mid_UART1_SendString) for [Anonymous Symbol]
+    mid_uart.o(.text.Mid_UART1_Available) refers to ip_uart.o(.text.Ip_UART1_Available) for Ip_UART1_Available
+    mid_uart.o(.ARM.exidx.text.Mid_UART1_Available) refers to mid_uart.o(.text.Mid_UART1_Available) for [Anonymous Symbol]
+    mid_uart.o(.text.Mid_UART1_ReadBuffer) refers to ip_uart.o(.text.Ip_UART1_ReadBuffer) for Ip_UART1_ReadBuffer
+    mid_uart.o(.ARM.exidx.text.Mid_UART1_ReadBuffer) refers to mid_uart.o(.text.Mid_UART1_ReadBuffer) for [Anonymous Symbol]
+    mid_uart.o(.text.Mid_UART1_SendNumber) refers to ip_uart.o(.text.Ip_UART1_SendNumber) for Ip_UART1_SendNumber
+    mid_uart.o(.ARM.exidx.text.Mid_UART1_SendNumber) refers to mid_uart.o(.text.Mid_UART1_SendNumber) for [Anonymous Symbol]
     misc.o(.ARM.exidx.text.NVIC_PriorityGroupConfig) refers to misc.o(.text.NVIC_PriorityGroupConfig) for [Anonymous Symbol]
     misc.o(.ARM.exidx.text.NVIC_Init) refers to misc.o(.text.NVIC_Init) for [Anonymous Symbol]
     misc.o(.ARM.exidx.text.NVIC_SetVectorTable) refers to misc.o(.text.NVIC_SetVectorTable) for [Anonymous Symbol]
@@ -631,142 +767,6 @@ Section Cross References
     stm32f10x_wwdg.o(.ARM.exidx.text.WWDG_Enable) refers to stm32f10x_wwdg.o(.text.WWDG_Enable) for [Anonymous Symbol]
     stm32f10x_wwdg.o(.ARM.exidx.text.WWDG_GetFlagStatus) refers to stm32f10x_wwdg.o(.text.WWDG_GetFlagStatus) for [Anonymous Symbol]
     stm32f10x_wwdg.o(.ARM.exidx.text.WWDG_ClearFlag) refers to stm32f10x_wwdg.o(.text.WWDG_ClearFlag) for [Anonymous Symbol]
-    mid_adc.o(.text.Mid_ADC1_Init_Single) refers to ip_adc.o(.text.Ip_ADC1_Init_Single) for Ip_ADC1_Init_Single
-    mid_adc.o(.ARM.exidx.text.Mid_ADC1_Init_Single) refers to mid_adc.o(.text.Mid_ADC1_Init_Single) for [Anonymous Symbol]
-    mid_adc.o(.text.Mid_ADC1_Read) refers to ip_adc.o(.text.Ip_ADC1_Read) for Ip_ADC1_Read
-    mid_adc.o(.ARM.exidx.text.Mid_ADC1_Read) refers to mid_adc.o(.text.Mid_ADC1_Read) for [Anonymous Symbol]
-    mid_adc.o(.text.Mid_ADC1_ReadVoltage) refers to ip_adc.o(.text.Ip_ADC1_ReadVoltage) for Ip_ADC1_ReadVoltage
-    mid_adc.o(.ARM.exidx.text.Mid_ADC1_ReadVoltage) refers to mid_adc.o(.text.Mid_ADC1_ReadVoltage) for [Anonymous Symbol]
-    mid_bluetooth.o(.text.Mid_Bluetooth_Init) refers to ip_bluetooth.o(.text.Ip_Bluetooth_Init) for Ip_Bluetooth_Init
-    mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_Init) refers to mid_bluetooth.o(.text.Mid_Bluetooth_Init) for [Anonymous Symbol]
-    mid_bluetooth.o(.text.Mid_Bluetooth_SendChar) refers to ip_bluetooth.o(.text.Ip_Bluetooth_SendChar) for Ip_Bluetooth_SendChar
-    mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_SendChar) refers to mid_bluetooth.o(.text.Mid_Bluetooth_SendChar) for [Anonymous Symbol]
-    mid_bluetooth.o(.text.Mid_Bluetooth_SendString) refers to ip_bluetooth.o(.text.Ip_Bluetooth_SendString) for Ip_Bluetooth_SendString
-    mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_SendString) refers to mid_bluetooth.o(.text.Mid_Bluetooth_SendString) for [Anonymous Symbol]
-    mid_bluetooth.o(.text.Mid_Bluetooth_Available) refers to ip_bluetooth.o(.text.Ip_Bluetooth_Available) for Ip_Bluetooth_Available
-    mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_Available) refers to mid_bluetooth.o(.text.Mid_Bluetooth_Available) for [Anonymous Symbol]
-    mid_bluetooth.o(.text.Mid_Bluetooth_Read) refers to ip_bluetooth.o(.text.Ip_Bluetooth_Read) for Ip_Bluetooth_Read
-    mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_Read) refers to mid_bluetooth.o(.text.Mid_Bluetooth_Read) for [Anonymous Symbol]
-    mid_bluetooth.o(.text.Mid_Bluetooth_SendNum) refers to ip_bluetooth.o(.text.Ip_Bluetooth_SendNum) for Ip_Bluetooth_SendNum
-    mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_SendNum) refers to mid_bluetooth.o(.text.Mid_Bluetooth_SendNum) for [Anonymous Symbol]
-    mid_gamepad.o(.text.Mid_Gamepad_Init) refers to ip_gamepad.o(.text.Ip_Gamepad_Init) for Ip_Gamepad_Init
-    mid_gamepad.o(.ARM.exidx.text.Mid_Gamepad_Init) refers to mid_gamepad.o(.text.Mid_Gamepad_Init) for [Anonymous Symbol]
-    mid_gamepad.o(.text.Mid_Gamepad_Update) refers to ip_gamepad.o(.text.Ip_Gamepad_Update) for Ip_Gamepad_Update
-    mid_gamepad.o(.ARM.exidx.text.Mid_Gamepad_Update) refers to mid_gamepad.o(.text.Mid_Gamepad_Update) for [Anonymous Symbol]
-    mid_gpio.o(.text.Mid_GPIO_Config) refers to ip_gpio.o(.text.Ip_GPIO_Config) for Ip_GPIO_Config
-    mid_gpio.o(.ARM.exidx.text.Mid_GPIO_Config) refers to mid_gpio.o(.text.Mid_GPIO_Config) for [Anonymous Symbol]
-    mid_gpio.o(.text.Mid_GPIO_Write_Pin) refers to ip_gpio.o(.text.Ip_GPIO_Write_Pin) for Ip_GPIO_Write_Pin
-    mid_gpio.o(.ARM.exidx.text.Mid_GPIO_Write_Pin) refers to mid_gpio.o(.text.Mid_GPIO_Write_Pin) for [Anonymous Symbol]
-    mid_gpio.o(.text.Mid_GPIO_Read_Pin) refers to ip_gpio.o(.text.Ip_GPIO_Read_Pin) for Ip_GPIO_Read_Pin
-    mid_gpio.o(.ARM.exidx.text.Mid_GPIO_Read_Pin) refers to mid_gpio.o(.text.Mid_GPIO_Read_Pin) for [Anonymous Symbol]
-    mid_gpio.o(.text.Mid_GPIO_Toggle) refers to ip_gpio.o(.text.Ip_GPIO_Toggle) for Ip_GPIO_Toggle
-    mid_gpio.o(.ARM.exidx.text.Mid_GPIO_Toggle) refers to mid_gpio.o(.text.Mid_GPIO_Toggle) for [Anonymous Symbol]
-    mid_joystick.o(.text.Mid_Joystick_Init) refers to ip_joystick.o(.text.Ip_Joystick_Init) for Ip_Joystick_Init
-    mid_joystick.o(.ARM.exidx.text.Mid_Joystick_Init) refers to mid_joystick.o(.text.Mid_Joystick_Init) for [Anonymous Symbol]
-    mid_joystick.o(.text.Mid_Joystick_ReadX) refers to ip_joystick.o(.text.Ip_Joystick_ReadX) for Ip_Joystick_ReadX
-    mid_joystick.o(.ARM.exidx.text.Mid_Joystick_ReadX) refers to mid_joystick.o(.text.Mid_Joystick_ReadX) for [Anonymous Symbol]
-    mid_joystick.o(.text.Mid_Joystick_ReadY) refers to ip_joystick.o(.text.Ip_Joystick_ReadY) for Ip_Joystick_ReadY
-    mid_joystick.o(.ARM.exidx.text.Mid_Joystick_ReadY) refers to mid_joystick.o(.text.Mid_Joystick_ReadY) for [Anonymous Symbol]
-    mid_joystick.o(.text.Mid_Joystick_GetXOffset) refers to ip_joystick.o(.text.Ip_Joystick_GetXOffset) for Ip_Joystick_GetXOffset
-    mid_joystick.o(.ARM.exidx.text.Mid_Joystick_GetXOffset) refers to mid_joystick.o(.text.Mid_Joystick_GetXOffset) for [Anonymous Symbol]
-    mid_joystick.o(.text.Mid_Joystick_GetYOffset) refers to ip_joystick.o(.text.Ip_Joystick_GetYOffset) for Ip_Joystick_GetYOffset
-    mid_joystick.o(.ARM.exidx.text.Mid_Joystick_GetYOffset) refers to mid_joystick.o(.text.Mid_Joystick_GetYOffset) for [Anonymous Symbol]
-    mid_mode.o(.text.Mid_Mode_Init) refers to ip_mode.o(.text.Ip_Mode_Init) for Ip_Mode_Init
-    mid_mode.o(.ARM.exidx.text.Mid_Mode_Init) refers to mid_mode.o(.text.Mid_Mode_Init) for [Anonymous Symbol]
-    mid_mode.o(.text.Mid_Mode_Update) refers to ip_mode.o(.text.Ip_Mode_Update) for Ip_Mode_Update
-    mid_mode.o(.ARM.exidx.text.Mid_Mode_Update) refers to mid_mode.o(.text.Mid_Mode_Update) for [Anonymous Symbol]
-    mid_protocol.o(.text.Mid_Protocol_Encode) refers to ip_protocol.o(.text.Ip_Protocol_Encode) for Ip_Protocol_Encode
-    mid_protocol.o(.ARM.exidx.text.Mid_Protocol_Encode) refers to mid_protocol.o(.text.Mid_Protocol_Encode) for [Anonymous Symbol]
-    mid_protocol.o(.text.Mid_Protocol_Send) refers to ip_protocol.o(.text.Ip_Protocol_Send) for Ip_Protocol_Send
-    mid_protocol.o(.ARM.exidx.text.Mid_Protocol_Send) refers to mid_protocol.o(.text.Mid_Protocol_Send) for [Anonymous Symbol]
-    mid_systick.o(.text.Mid_SysTick_DelayUs) refers to ip_systick.o(.text.Ip_SysTick_DelayUs) for Ip_SysTick_DelayUs
-    mid_systick.o(.ARM.exidx.text.Mid_SysTick_DelayUs) refers to mid_systick.o(.text.Mid_SysTick_DelayUs) for [Anonymous Symbol]
-    mid_systick.o(.text.Mid_SysTick_DelayMs) refers to ip_systick.o(.text.Ip_SysTick_DelayMs) for Ip_SysTick_DelayMs
-    mid_systick.o(.ARM.exidx.text.Mid_SysTick_DelayMs) refers to mid_systick.o(.text.Mid_SysTick_DelayMs) for [Anonymous Symbol]
-    mid_tim.o(.text.Mid_TIM2_Init_1ms) refers to ip_tim.o(.text.Ip_TIM2_Init_1ms) for Ip_TIM2_Init_1ms
-    mid_tim.o(.ARM.exidx.text.Mid_TIM2_Init_1ms) refers to mid_tim.o(.text.Mid_TIM2_Init_1ms) for [Anonymous Symbol]
-    mid_tim.o(.text.Mid_Delay_ms) refers to ip_tim.o(.text.Ip_Delay_ms) for Ip_Delay_ms
-    mid_tim.o(.ARM.exidx.text.Mid_Delay_ms) refers to mid_tim.o(.text.Mid_Delay_ms) for [Anonymous Symbol]
-    mid_uart.o(.text.Mid_UART1_Init) refers to ip_uart.o(.text.Ip_UART1_Init) for Ip_UART1_Init
-    mid_uart.o(.ARM.exidx.text.Mid_UART1_Init) refers to mid_uart.o(.text.Mid_UART1_Init) for [Anonymous Symbol]
-    mid_uart.o(.text.Mid_UART1_SendChar) refers to ip_uart.o(.text.Ip_UART1_SendChar) for Ip_UART1_SendChar
-    mid_uart.o(.ARM.exidx.text.Mid_UART1_SendChar) refers to mid_uart.o(.text.Mid_UART1_SendChar) for [Anonymous Symbol]
-    mid_uart.o(.text.Mid_UART1_SendString) refers to ip_uart.o(.text.Ip_UART1_SendString) for Ip_UART1_SendString
-    mid_uart.o(.ARM.exidx.text.Mid_UART1_SendString) refers to mid_uart.o(.text.Mid_UART1_SendString) for [Anonymous Symbol]
-    mid_uart.o(.text.Mid_UART1_Available) refers to ip_uart.o(.text.Ip_UART1_Available) for Ip_UART1_Available
-    mid_uart.o(.ARM.exidx.text.Mid_UART1_Available) refers to mid_uart.o(.text.Mid_UART1_Available) for [Anonymous Symbol]
-    mid_uart.o(.text.Mid_UART1_ReadBuffer) refers to ip_uart.o(.text.Ip_UART1_ReadBuffer) for Ip_UART1_ReadBuffer
-    mid_uart.o(.ARM.exidx.text.Mid_UART1_ReadBuffer) refers to mid_uart.o(.text.Mid_UART1_ReadBuffer) for [Anonymous Symbol]
-    mid_uart.o(.text.Mid_UART1_SendNumber) refers to ip_uart.o(.text.Ip_UART1_SendNumber) for Ip_UART1_SendNumber
-    mid_uart.o(.ARM.exidx.text.Mid_UART1_SendNumber) refers to mid_uart.o(.text.Mid_UART1_SendNumber) for [Anonymous Symbol]
-    app_adc.o(.text.App_ADC1_Init_Single) refers to mid_adc.o(.text.Mid_ADC1_Init_Single) for Mid_ADC1_Init_Single
-    app_adc.o(.ARM.exidx.text.App_ADC1_Init_Single) refers to app_adc.o(.text.App_ADC1_Init_Single) for [Anonymous Symbol]
-    app_adc.o(.text.App_ADC1_Read) refers to mid_adc.o(.text.Mid_ADC1_Read) for Mid_ADC1_Read
-    app_adc.o(.ARM.exidx.text.App_ADC1_Read) refers to app_adc.o(.text.App_ADC1_Read) for [Anonymous Symbol]
-    app_adc.o(.text.App_ADC1_ReadVoltage) refers to mid_adc.o(.text.Mid_ADC1_ReadVoltage) for Mid_ADC1_ReadVoltage
-    app_adc.o(.ARM.exidx.text.App_ADC1_ReadVoltage) refers to app_adc.o(.text.App_ADC1_ReadVoltage) for [Anonymous Symbol]
-    app_bluetooth.o(.text.App_Bluetooth_Init) refers to mid_bluetooth.o(.text.Mid_Bluetooth_Init) for Mid_Bluetooth_Init
-    app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_Init) refers to app_bluetooth.o(.text.App_Bluetooth_Init) for [Anonymous Symbol]
-    app_bluetooth.o(.text.App_Bluetooth_SendChar) refers to mid_bluetooth.o(.text.Mid_Bluetooth_SendChar) for Mid_Bluetooth_SendChar
-    app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_SendChar) refers to app_bluetooth.o(.text.App_Bluetooth_SendChar) for [Anonymous Symbol]
-    app_bluetooth.o(.text.App_Bluetooth_SendString) refers to mid_bluetooth.o(.text.Mid_Bluetooth_SendString) for Mid_Bluetooth_SendString
-    app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_SendString) refers to app_bluetooth.o(.text.App_Bluetooth_SendString) for [Anonymous Symbol]
-    app_bluetooth.o(.text.App_Bluetooth_Available) refers to mid_bluetooth.o(.text.Mid_Bluetooth_Available) for Mid_Bluetooth_Available
-    app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_Available) refers to app_bluetooth.o(.text.App_Bluetooth_Available) for [Anonymous Symbol]
-    app_bluetooth.o(.text.App_Bluetooth_Read) refers to mid_bluetooth.o(.text.Mid_Bluetooth_Read) for Mid_Bluetooth_Read
-    app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_Read) refers to app_bluetooth.o(.text.App_Bluetooth_Read) for [Anonymous Symbol]
-    app_bluetooth.o(.text.App_Bluetooth_SendNum) refers to mid_bluetooth.o(.text.Mid_Bluetooth_SendNum) for Mid_Bluetooth_SendNum
-    app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_SendNum) refers to app_bluetooth.o(.text.App_Bluetooth_SendNum) for [Anonymous Symbol]
-    app_gamepad.o(.text.App_Gamepad_Init) refers to mid_gamepad.o(.text.Mid_Gamepad_Init) for Mid_Gamepad_Init
-    app_gamepad.o(.ARM.exidx.text.App_Gamepad_Init) refers to app_gamepad.o(.text.App_Gamepad_Init) for [Anonymous Symbol]
-    app_gamepad.o(.text.App_Gamepad_Update) refers to mid_gamepad.o(.text.Mid_Gamepad_Update) for Mid_Gamepad_Update
-    app_gamepad.o(.ARM.exidx.text.App_Gamepad_Update) refers to app_gamepad.o(.text.App_Gamepad_Update) for [Anonymous Symbol]
-    app_gpio.o(.text.App_GPIO_Config) refers to mid_gpio.o(.text.Mid_GPIO_Config) for Mid_GPIO_Config
-    app_gpio.o(.ARM.exidx.text.App_GPIO_Config) refers to app_gpio.o(.text.App_GPIO_Config) for [Anonymous Symbol]
-    app_gpio.o(.text.App_GPIO_Write_Pin) refers to mid_gpio.o(.text.Mid_GPIO_Write_Pin) for Mid_GPIO_Write_Pin
-    app_gpio.o(.ARM.exidx.text.App_GPIO_Write_Pin) refers to app_gpio.o(.text.App_GPIO_Write_Pin) for [Anonymous Symbol]
-    app_gpio.o(.text.App_GPIO_Read_Pin) refers to mid_gpio.o(.text.Mid_GPIO_Read_Pin) for Mid_GPIO_Read_Pin
-    app_gpio.o(.ARM.exidx.text.App_GPIO_Read_Pin) refers to app_gpio.o(.text.App_GPIO_Read_Pin) for [Anonymous Symbol]
-    app_gpio.o(.text.App_GPIO_Toggle) refers to mid_gpio.o(.text.Mid_GPIO_Toggle) for Mid_GPIO_Toggle
-    app_gpio.o(.ARM.exidx.text.App_GPIO_Toggle) refers to app_gpio.o(.text.App_GPIO_Toggle) for [Anonymous Symbol]
-    app_joystick.o(.text.App_Joystick_Init) refers to mid_joystick.o(.text.Mid_Joystick_Init) for Mid_Joystick_Init
-    app_joystick.o(.ARM.exidx.text.App_Joystick_Init) refers to app_joystick.o(.text.App_Joystick_Init) for [Anonymous Symbol]
-    app_joystick.o(.text.App_Joystick_ReadX) refers to mid_joystick.o(.text.Mid_Joystick_ReadX) for Mid_Joystick_ReadX
-    app_joystick.o(.ARM.exidx.text.App_Joystick_ReadX) refers to app_joystick.o(.text.App_Joystick_ReadX) for [Anonymous Symbol]
-    app_joystick.o(.text.App_Joystick_ReadY) refers to mid_joystick.o(.text.Mid_Joystick_ReadY) for Mid_Joystick_ReadY
-    app_joystick.o(.ARM.exidx.text.App_Joystick_ReadY) refers to app_joystick.o(.text.App_Joystick_ReadY) for [Anonymous Symbol]
-    app_joystick.o(.text.App_Joystick_GetXOffset) refers to mid_joystick.o(.text.Mid_Joystick_GetXOffset) for Mid_Joystick_GetXOffset
-    app_joystick.o(.ARM.exidx.text.App_Joystick_GetXOffset) refers to app_joystick.o(.text.App_Joystick_GetXOffset) for [Anonymous Symbol]
-    app_joystick.o(.text.App_Joystick_GetYOffset) refers to mid_joystick.o(.text.Mid_Joystick_GetYOffset) for Mid_Joystick_GetYOffset
-    app_joystick.o(.ARM.exidx.text.App_Joystick_GetYOffset) refers to app_joystick.o(.text.App_Joystick_GetYOffset) for [Anonymous Symbol]
-    app_mode.o(.text.App_Mode_Init) refers to mid_mode.o(.text.Mid_Mode_Init) for Mid_Mode_Init
-    app_mode.o(.ARM.exidx.text.App_Mode_Init) refers to app_mode.o(.text.App_Mode_Init) for [Anonymous Symbol]
-    app_mode.o(.text.App_Mode_Update) refers to mid_mode.o(.text.Mid_Mode_Update) for Mid_Mode_Update
-    app_mode.o(.ARM.exidx.text.App_Mode_Update) refers to app_mode.o(.text.App_Mode_Update) for [Anonymous Symbol]
-    app_protocol.o(.text.App_Protocol_Encode) refers to mid_protocol.o(.text.Mid_Protocol_Encode) for Mid_Protocol_Encode
-    app_protocol.o(.ARM.exidx.text.App_Protocol_Encode) refers to app_protocol.o(.text.App_Protocol_Encode) for [Anonymous Symbol]
-    app_protocol.o(.text.App_Protocol_Send) refers to mid_protocol.o(.text.Mid_Protocol_Send) for Mid_Protocol_Send
-    app_protocol.o(.ARM.exidx.text.App_Protocol_Send) refers to app_protocol.o(.text.App_Protocol_Send) for [Anonymous Symbol]
-    app_systick.o(.text.App_SysTick_DelayUs) refers to mid_systick.o(.text.Mid_SysTick_DelayUs) for Mid_SysTick_DelayUs
-    app_systick.o(.ARM.exidx.text.App_SysTick_DelayUs) refers to app_systick.o(.text.App_SysTick_DelayUs) for [Anonymous Symbol]
-    app_systick.o(.text.App_SysTick_DelayMs) refers to mid_systick.o(.text.Mid_SysTick_DelayMs) for Mid_SysTick_DelayMs
-    app_systick.o(.ARM.exidx.text.App_SysTick_DelayMs) refers to app_systick.o(.text.App_SysTick_DelayMs) for [Anonymous Symbol]
-    app_tim.o(.text.App_TIM2_Init_1ms) refers to mid_tim.o(.text.Mid_TIM2_Init_1ms) for Mid_TIM2_Init_1ms
-    app_tim.o(.ARM.exidx.text.App_TIM2_Init_1ms) refers to app_tim.o(.text.App_TIM2_Init_1ms) for [Anonymous Symbol]
-    app_tim.o(.text.App_Delay_ms) refers to mid_tim.o(.text.Mid_Delay_ms) for Mid_Delay_ms
-    app_tim.o(.ARM.exidx.text.App_Delay_ms) refers to app_tim.o(.text.App_Delay_ms) for [Anonymous Symbol]
-    app_uart.o(.text.App_UART1_Init) refers to mid_uart.o(.text.Mid_UART1_Init) for Mid_UART1_Init
-    app_uart.o(.ARM.exidx.text.App_UART1_Init) refers to app_uart.o(.text.App_UART1_Init) for [Anonymous Symbol]
-    app_uart.o(.text.App_UART1_SendChar) refers to mid_uart.o(.text.Mid_UART1_SendChar) for Mid_UART1_SendChar
-    app_uart.o(.ARM.exidx.text.App_UART1_SendChar) refers to app_uart.o(.text.App_UART1_SendChar) for [Anonymous Symbol]
-    app_uart.o(.text.App_UART1_SendString) refers to mid_uart.o(.text.Mid_UART1_SendString) for Mid_UART1_SendString
-    app_uart.o(.ARM.exidx.text.App_UART1_SendString) refers to app_uart.o(.text.App_UART1_SendString) for [Anonymous Symbol]
-    app_uart.o(.text.App_UART1_Available) refers to mid_uart.o(.text.Mid_UART1_Available) for Mid_UART1_Available
-    app_uart.o(.ARM.exidx.text.App_UART1_Available) refers to app_uart.o(.text.App_UART1_Available) for [Anonymous Symbol]
-    app_uart.o(.text.App_UART1_ReadBuffer) refers to mid_uart.o(.text.Mid_UART1_ReadBuffer) for Mid_UART1_ReadBuffer
-    app_uart.o(.ARM.exidx.text.App_UART1_ReadBuffer) refers to app_uart.o(.text.App_UART1_ReadBuffer) for [Anonymous Symbol]
-    app_uart.o(.text.App_UART1_SendNumber) refers to mid_uart.o(.text.Mid_UART1_SendNumber) for Mid_UART1_SendNumber
-    app_uart.o(.ARM.exidx.text.App_UART1_SendNumber) refers to app_uart.o(.text.App_UART1_SendNumber) for [Anonymous Symbol]
     startup_stm32f10x_md.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_stm32f10x_md.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_stm32f10x_md.o(RESET) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
@@ -912,6 +912,80 @@ Removing Unused input sections from the image.
     Removing main.o(.text), (0 bytes).
     Removing main.o(.ARM.exidx.text.main), (8 bytes).
     Removing main.o(.ARM.use_no_argv), (4 bytes).
+    Removing app_adc.o(.text), (0 bytes).
+    Removing app_adc.o(.text.App_ADC1_Init_Single), (8 bytes).
+    Removing app_adc.o(.ARM.exidx.text.App_ADC1_Init_Single), (8 bytes).
+    Removing app_adc.o(.text.App_ADC1_Read), (8 bytes).
+    Removing app_adc.o(.ARM.exidx.text.App_ADC1_Read), (8 bytes).
+    Removing app_adc.o(.text.App_ADC1_ReadVoltage), (8 bytes).
+    Removing app_adc.o(.ARM.exidx.text.App_ADC1_ReadVoltage), (8 bytes).
+    Removing app_bluetooth.o(.text), (0 bytes).
+    Removing app_bluetooth.o(.text.App_Bluetooth_Init), (8 bytes).
+    Removing app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_Init), (8 bytes).
+    Removing app_bluetooth.o(.text.App_Bluetooth_SendChar), (8 bytes).
+    Removing app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_SendChar), (8 bytes).
+    Removing app_bluetooth.o(.text.App_Bluetooth_SendString), (8 bytes).
+    Removing app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_SendString), (8 bytes).
+    Removing app_bluetooth.o(.text.App_Bluetooth_Available), (8 bytes).
+    Removing app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_Available), (8 bytes).
+    Removing app_bluetooth.o(.text.App_Bluetooth_Read), (8 bytes).
+    Removing app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_Read), (8 bytes).
+    Removing app_bluetooth.o(.text.App_Bluetooth_SendNum), (8 bytes).
+    Removing app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_SendNum), (8 bytes).
+    Removing app_gamepad.o(.text), (0 bytes).
+    Removing app_gamepad.o(.ARM.exidx.text.App_Gamepad_Init), (8 bytes).
+    Removing app_gamepad.o(.ARM.exidx.text.App_Gamepad_Update), (8 bytes).
+    Removing app_gpio.o(.text), (0 bytes).
+    Removing app_gpio.o(.text.App_GPIO_Config), (8 bytes).
+    Removing app_gpio.o(.ARM.exidx.text.App_GPIO_Config), (8 bytes).
+    Removing app_gpio.o(.text.App_GPIO_Write_Pin), (8 bytes).
+    Removing app_gpio.o(.ARM.exidx.text.App_GPIO_Write_Pin), (8 bytes).
+    Removing app_gpio.o(.text.App_GPIO_Read_Pin), (8 bytes).
+    Removing app_gpio.o(.ARM.exidx.text.App_GPIO_Read_Pin), (8 bytes).
+    Removing app_gpio.o(.text.App_GPIO_Toggle), (8 bytes).
+    Removing app_gpio.o(.ARM.exidx.text.App_GPIO_Toggle), (8 bytes).
+    Removing app_joystick.o(.text), (0 bytes).
+    Removing app_joystick.o(.text.App_Joystick_Init), (8 bytes).
+    Removing app_joystick.o(.ARM.exidx.text.App_Joystick_Init), (8 bytes).
+    Removing app_joystick.o(.text.App_Joystick_ReadX), (8 bytes).
+    Removing app_joystick.o(.ARM.exidx.text.App_Joystick_ReadX), (8 bytes).
+    Removing app_joystick.o(.text.App_Joystick_ReadY), (8 bytes).
+    Removing app_joystick.o(.ARM.exidx.text.App_Joystick_ReadY), (8 bytes).
+    Removing app_joystick.o(.text.App_Joystick_GetXOffset), (8 bytes).
+    Removing app_joystick.o(.ARM.exidx.text.App_Joystick_GetXOffset), (8 bytes).
+    Removing app_joystick.o(.text.App_Joystick_GetYOffset), (8 bytes).
+    Removing app_joystick.o(.ARM.exidx.text.App_Joystick_GetYOffset), (8 bytes).
+    Removing app_mode.o(.text), (0 bytes).
+    Removing app_mode.o(.text.App_Mode_Init), (8 bytes).
+    Removing app_mode.o(.ARM.exidx.text.App_Mode_Init), (8 bytes).
+    Removing app_mode.o(.text.App_Mode_Update), (8 bytes).
+    Removing app_mode.o(.ARM.exidx.text.App_Mode_Update), (8 bytes).
+    Removing app_protocol.o(.text), (0 bytes).
+    Removing app_protocol.o(.text.App_Protocol_Encode), (8 bytes).
+    Removing app_protocol.o(.ARM.exidx.text.App_Protocol_Encode), (8 bytes).
+    Removing app_protocol.o(.text.App_Protocol_Send), (8 bytes).
+    Removing app_protocol.o(.ARM.exidx.text.App_Protocol_Send), (8 bytes).
+    Removing app_systick.o(.text), (0 bytes).
+    Removing app_systick.o(.text.App_SysTick_DelayUs), (8 bytes).
+    Removing app_systick.o(.ARM.exidx.text.App_SysTick_DelayUs), (8 bytes).
+    Removing app_systick.o(.ARM.exidx.text.App_SysTick_DelayMs), (8 bytes).
+    Removing app_tim.o(.text), (0 bytes).
+    Removing app_tim.o(.text.App_TIM2_Init_1ms), (8 bytes).
+    Removing app_tim.o(.ARM.exidx.text.App_TIM2_Init_1ms), (8 bytes).
+    Removing app_tim.o(.text.App_Delay_ms), (8 bytes).
+    Removing app_tim.o(.ARM.exidx.text.App_Delay_ms), (8 bytes).
+    Removing app_uart.o(.text), (0 bytes).
+    Removing app_uart.o(.ARM.exidx.text.App_UART1_Init), (8 bytes).
+    Removing app_uart.o(.text.App_UART1_SendChar), (8 bytes).
+    Removing app_uart.o(.ARM.exidx.text.App_UART1_SendChar), (8 bytes).
+    Removing app_uart.o(.text.App_UART1_SendString), (8 bytes).
+    Removing app_uart.o(.ARM.exidx.text.App_UART1_SendString), (8 bytes).
+    Removing app_uart.o(.text.App_UART1_Available), (8 bytes).
+    Removing app_uart.o(.ARM.exidx.text.App_UART1_Available), (8 bytes).
+    Removing app_uart.o(.text.App_UART1_ReadBuffer), (8 bytes).
+    Removing app_uart.o(.ARM.exidx.text.App_UART1_ReadBuffer), (8 bytes).
+    Removing app_uart.o(.text.App_UART1_SendNumber), (8 bytes).
+    Removing app_uart.o(.ARM.exidx.text.App_UART1_SendNumber), (8 bytes).
     Removing ip_adc.o(.text), (0 bytes).
     Removing ip_adc.o(.ARM.exidx.text.Ip_ADC1_Init_Single), (8 bytes).
     Removing ip_adc.o(.ARM.exidx.text.Ip_ADC_GPIO_Config), (8 bytes).
@@ -974,6 +1048,80 @@ Removing Unused input sections from the image.
     Removing ip_uart.o(.text.Ip_UART1_SendString), (28 bytes).
     Removing ip_uart.o(.ARM.exidx.text.Ip_UART1_SendString), (8 bytes).
     Removing ip_uart.o(.ARM.exidx.text.Ip_UART1_SendNumber), (8 bytes).
+    Removing mid_adc.o(.text), (0 bytes).
+    Removing mid_adc.o(.text.Mid_ADC1_Init_Single), (8 bytes).
+    Removing mid_adc.o(.ARM.exidx.text.Mid_ADC1_Init_Single), (8 bytes).
+    Removing mid_adc.o(.text.Mid_ADC1_Read), (8 bytes).
+    Removing mid_adc.o(.ARM.exidx.text.Mid_ADC1_Read), (8 bytes).
+    Removing mid_adc.o(.text.Mid_ADC1_ReadVoltage), (8 bytes).
+    Removing mid_adc.o(.ARM.exidx.text.Mid_ADC1_ReadVoltage), (8 bytes).
+    Removing mid_bluetooth.o(.text), (0 bytes).
+    Removing mid_bluetooth.o(.text.Mid_Bluetooth_Init), (8 bytes).
+    Removing mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_Init), (8 bytes).
+    Removing mid_bluetooth.o(.text.Mid_Bluetooth_SendChar), (8 bytes).
+    Removing mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_SendChar), (8 bytes).
+    Removing mid_bluetooth.o(.text.Mid_Bluetooth_SendString), (8 bytes).
+    Removing mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_SendString), (8 bytes).
+    Removing mid_bluetooth.o(.text.Mid_Bluetooth_Available), (8 bytes).
+    Removing mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_Available), (8 bytes).
+    Removing mid_bluetooth.o(.text.Mid_Bluetooth_Read), (8 bytes).
+    Removing mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_Read), (8 bytes).
+    Removing mid_bluetooth.o(.text.Mid_Bluetooth_SendNum), (8 bytes).
+    Removing mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_SendNum), (8 bytes).
+    Removing mid_gamepad.o(.text), (0 bytes).
+    Removing mid_gamepad.o(.ARM.exidx.text.Mid_Gamepad_Init), (8 bytes).
+    Removing mid_gamepad.o(.ARM.exidx.text.Mid_Gamepad_Update), (8 bytes).
+    Removing mid_gpio.o(.text), (0 bytes).
+    Removing mid_gpio.o(.text.Mid_GPIO_Config), (8 bytes).
+    Removing mid_gpio.o(.ARM.exidx.text.Mid_GPIO_Config), (8 bytes).
+    Removing mid_gpio.o(.text.Mid_GPIO_Write_Pin), (8 bytes).
+    Removing mid_gpio.o(.ARM.exidx.text.Mid_GPIO_Write_Pin), (8 bytes).
+    Removing mid_gpio.o(.text.Mid_GPIO_Read_Pin), (8 bytes).
+    Removing mid_gpio.o(.ARM.exidx.text.Mid_GPIO_Read_Pin), (8 bytes).
+    Removing mid_gpio.o(.text.Mid_GPIO_Toggle), (8 bytes).
+    Removing mid_gpio.o(.ARM.exidx.text.Mid_GPIO_Toggle), (8 bytes).
+    Removing mid_joystick.o(.text), (0 bytes).
+    Removing mid_joystick.o(.text.Mid_Joystick_Init), (8 bytes).
+    Removing mid_joystick.o(.ARM.exidx.text.Mid_Joystick_Init), (8 bytes).
+    Removing mid_joystick.o(.text.Mid_Joystick_ReadX), (8 bytes).
+    Removing mid_joystick.o(.ARM.exidx.text.Mid_Joystick_ReadX), (8 bytes).
+    Removing mid_joystick.o(.text.Mid_Joystick_ReadY), (8 bytes).
+    Removing mid_joystick.o(.ARM.exidx.text.Mid_Joystick_ReadY), (8 bytes).
+    Removing mid_joystick.o(.text.Mid_Joystick_GetXOffset), (8 bytes).
+    Removing mid_joystick.o(.ARM.exidx.text.Mid_Joystick_GetXOffset), (8 bytes).
+    Removing mid_joystick.o(.text.Mid_Joystick_GetYOffset), (8 bytes).
+    Removing mid_joystick.o(.ARM.exidx.text.Mid_Joystick_GetYOffset), (8 bytes).
+    Removing mid_mode.o(.text), (0 bytes).
+    Removing mid_mode.o(.text.Mid_Mode_Init), (8 bytes).
+    Removing mid_mode.o(.ARM.exidx.text.Mid_Mode_Init), (8 bytes).
+    Removing mid_mode.o(.text.Mid_Mode_Update), (8 bytes).
+    Removing mid_mode.o(.ARM.exidx.text.Mid_Mode_Update), (8 bytes).
+    Removing mid_protocol.o(.text), (0 bytes).
+    Removing mid_protocol.o(.text.Mid_Protocol_Encode), (8 bytes).
+    Removing mid_protocol.o(.ARM.exidx.text.Mid_Protocol_Encode), (8 bytes).
+    Removing mid_protocol.o(.text.Mid_Protocol_Send), (8 bytes).
+    Removing mid_protocol.o(.ARM.exidx.text.Mid_Protocol_Send), (8 bytes).
+    Removing mid_systick.o(.text), (0 bytes).
+    Removing mid_systick.o(.text.Mid_SysTick_DelayUs), (8 bytes).
+    Removing mid_systick.o(.ARM.exidx.text.Mid_SysTick_DelayUs), (8 bytes).
+    Removing mid_systick.o(.ARM.exidx.text.Mid_SysTick_DelayMs), (8 bytes).
+    Removing mid_tim.o(.text), (0 bytes).
+    Removing mid_tim.o(.text.Mid_TIM2_Init_1ms), (8 bytes).
+    Removing mid_tim.o(.ARM.exidx.text.Mid_TIM2_Init_1ms), (8 bytes).
+    Removing mid_tim.o(.text.Mid_Delay_ms), (8 bytes).
+    Removing mid_tim.o(.ARM.exidx.text.Mid_Delay_ms), (8 bytes).
+    Removing mid_uart.o(.text), (0 bytes).
+    Removing mid_uart.o(.ARM.exidx.text.Mid_UART1_Init), (8 bytes).
+    Removing mid_uart.o(.text.Mid_UART1_SendChar), (8 bytes).
+    Removing mid_uart.o(.ARM.exidx.text.Mid_UART1_SendChar), (8 bytes).
+    Removing mid_uart.o(.text.Mid_UART1_SendString), (8 bytes).
+    Removing mid_uart.o(.ARM.exidx.text.Mid_UART1_SendString), (8 bytes).
+    Removing mid_uart.o(.text.Mid_UART1_Available), (8 bytes).
+    Removing mid_uart.o(.ARM.exidx.text.Mid_UART1_Available), (8 bytes).
+    Removing mid_uart.o(.text.Mid_UART1_ReadBuffer), (8 bytes).
+    Removing mid_uart.o(.ARM.exidx.text.Mid_UART1_ReadBuffer), (8 bytes).
+    Removing mid_uart.o(.text.Mid_UART1_SendNumber), (8 bytes).
+    Removing mid_uart.o(.ARM.exidx.text.Mid_UART1_SendNumber), (8 bytes).
     Removing misc.o(.text), (0 bytes).
     Removing misc.o(.text.NVIC_PriorityGroupConfig), (20 bytes).
     Removing misc.o(.ARM.exidx.text.NVIC_PriorityGroupConfig), (8 bytes).
@@ -1947,154 +2095,6 @@ Removing Unused input sections from the image.
     Removing stm32f10x_wwdg.o(.ARM.exidx.text.WWDG_GetFlagStatus), (8 bytes).
     Removing stm32f10x_wwdg.o(.text.WWDG_ClearFlag), (14 bytes).
     Removing stm32f10x_wwdg.o(.ARM.exidx.text.WWDG_ClearFlag), (8 bytes).
-    Removing mid_adc.o(.text), (0 bytes).
-    Removing mid_adc.o(.text.Mid_ADC1_Init_Single), (8 bytes).
-    Removing mid_adc.o(.ARM.exidx.text.Mid_ADC1_Init_Single), (8 bytes).
-    Removing mid_adc.o(.text.Mid_ADC1_Read), (8 bytes).
-    Removing mid_adc.o(.ARM.exidx.text.Mid_ADC1_Read), (8 bytes).
-    Removing mid_adc.o(.text.Mid_ADC1_ReadVoltage), (8 bytes).
-    Removing mid_adc.o(.ARM.exidx.text.Mid_ADC1_ReadVoltage), (8 bytes).
-    Removing mid_bluetooth.o(.text), (0 bytes).
-    Removing mid_bluetooth.o(.text.Mid_Bluetooth_Init), (8 bytes).
-    Removing mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_Init), (8 bytes).
-    Removing mid_bluetooth.o(.text.Mid_Bluetooth_SendChar), (8 bytes).
-    Removing mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_SendChar), (8 bytes).
-    Removing mid_bluetooth.o(.text.Mid_Bluetooth_SendString), (8 bytes).
-    Removing mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_SendString), (8 bytes).
-    Removing mid_bluetooth.o(.text.Mid_Bluetooth_Available), (8 bytes).
-    Removing mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_Available), (8 bytes).
-    Removing mid_bluetooth.o(.text.Mid_Bluetooth_Read), (8 bytes).
-    Removing mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_Read), (8 bytes).
-    Removing mid_bluetooth.o(.text.Mid_Bluetooth_SendNum), (8 bytes).
-    Removing mid_bluetooth.o(.ARM.exidx.text.Mid_Bluetooth_SendNum), (8 bytes).
-    Removing mid_gamepad.o(.text), (0 bytes).
-    Removing mid_gamepad.o(.ARM.exidx.text.Mid_Gamepad_Init), (8 bytes).
-    Removing mid_gamepad.o(.ARM.exidx.text.Mid_Gamepad_Update), (8 bytes).
-    Removing mid_gpio.o(.text), (0 bytes).
-    Removing mid_gpio.o(.text.Mid_GPIO_Config), (8 bytes).
-    Removing mid_gpio.o(.ARM.exidx.text.Mid_GPIO_Config), (8 bytes).
-    Removing mid_gpio.o(.text.Mid_GPIO_Write_Pin), (8 bytes).
-    Removing mid_gpio.o(.ARM.exidx.text.Mid_GPIO_Write_Pin), (8 bytes).
-    Removing mid_gpio.o(.text.Mid_GPIO_Read_Pin), (8 bytes).
-    Removing mid_gpio.o(.ARM.exidx.text.Mid_GPIO_Read_Pin), (8 bytes).
-    Removing mid_gpio.o(.text.Mid_GPIO_Toggle), (8 bytes).
-    Removing mid_gpio.o(.ARM.exidx.text.Mid_GPIO_Toggle), (8 bytes).
-    Removing mid_joystick.o(.text), (0 bytes).
-    Removing mid_joystick.o(.text.Mid_Joystick_Init), (8 bytes).
-    Removing mid_joystick.o(.ARM.exidx.text.Mid_Joystick_Init), (8 bytes).
-    Removing mid_joystick.o(.text.Mid_Joystick_ReadX), (8 bytes).
-    Removing mid_joystick.o(.ARM.exidx.text.Mid_Joystick_ReadX), (8 bytes).
-    Removing mid_joystick.o(.text.Mid_Joystick_ReadY), (8 bytes).
-    Removing mid_joystick.o(.ARM.exidx.text.Mid_Joystick_ReadY), (8 bytes).
-    Removing mid_joystick.o(.text.Mid_Joystick_GetXOffset), (8 bytes).
-    Removing mid_joystick.o(.ARM.exidx.text.Mid_Joystick_GetXOffset), (8 bytes).
-    Removing mid_joystick.o(.text.Mid_Joystick_GetYOffset), (8 bytes).
-    Removing mid_joystick.o(.ARM.exidx.text.Mid_Joystick_GetYOffset), (8 bytes).
-    Removing mid_mode.o(.text), (0 bytes).
-    Removing mid_mode.o(.text.Mid_Mode_Init), (8 bytes).
-    Removing mid_mode.o(.ARM.exidx.text.Mid_Mode_Init), (8 bytes).
-    Removing mid_mode.o(.text.Mid_Mode_Update), (8 bytes).
-    Removing mid_mode.o(.ARM.exidx.text.Mid_Mode_Update), (8 bytes).
-    Removing mid_protocol.o(.text), (0 bytes).
-    Removing mid_protocol.o(.text.Mid_Protocol_Encode), (8 bytes).
-    Removing mid_protocol.o(.ARM.exidx.text.Mid_Protocol_Encode), (8 bytes).
-    Removing mid_protocol.o(.text.Mid_Protocol_Send), (8 bytes).
-    Removing mid_protocol.o(.ARM.exidx.text.Mid_Protocol_Send), (8 bytes).
-    Removing mid_systick.o(.text), (0 bytes).
-    Removing mid_systick.o(.text.Mid_SysTick_DelayUs), (8 bytes).
-    Removing mid_systick.o(.ARM.exidx.text.Mid_SysTick_DelayUs), (8 bytes).
-    Removing mid_systick.o(.ARM.exidx.text.Mid_SysTick_DelayMs), (8 bytes).
-    Removing mid_tim.o(.text), (0 bytes).
-    Removing mid_tim.o(.text.Mid_TIM2_Init_1ms), (8 bytes).
-    Removing mid_tim.o(.ARM.exidx.text.Mid_TIM2_Init_1ms), (8 bytes).
-    Removing mid_tim.o(.text.Mid_Delay_ms), (8 bytes).
-    Removing mid_tim.o(.ARM.exidx.text.Mid_Delay_ms), (8 bytes).
-    Removing mid_uart.o(.text), (0 bytes).
-    Removing mid_uart.o(.ARM.exidx.text.Mid_UART1_Init), (8 bytes).
-    Removing mid_uart.o(.text.Mid_UART1_SendChar), (8 bytes).
-    Removing mid_uart.o(.ARM.exidx.text.Mid_UART1_SendChar), (8 bytes).
-    Removing mid_uart.o(.text.Mid_UART1_SendString), (8 bytes).
-    Removing mid_uart.o(.ARM.exidx.text.Mid_UART1_SendString), (8 bytes).
-    Removing mid_uart.o(.text.Mid_UART1_Available), (8 bytes).
-    Removing mid_uart.o(.ARM.exidx.text.Mid_UART1_Available), (8 bytes).
-    Removing mid_uart.o(.text.Mid_UART1_ReadBuffer), (8 bytes).
-    Removing mid_uart.o(.ARM.exidx.text.Mid_UART1_ReadBuffer), (8 bytes).
-    Removing mid_uart.o(.text.Mid_UART1_SendNumber), (8 bytes).
-    Removing mid_uart.o(.ARM.exidx.text.Mid_UART1_SendNumber), (8 bytes).
-    Removing app_adc.o(.text), (0 bytes).
-    Removing app_adc.o(.text.App_ADC1_Init_Single), (8 bytes).
-    Removing app_adc.o(.ARM.exidx.text.App_ADC1_Init_Single), (8 bytes).
-    Removing app_adc.o(.text.App_ADC1_Read), (8 bytes).
-    Removing app_adc.o(.ARM.exidx.text.App_ADC1_Read), (8 bytes).
-    Removing app_adc.o(.text.App_ADC1_ReadVoltage), (8 bytes).
-    Removing app_adc.o(.ARM.exidx.text.App_ADC1_ReadVoltage), (8 bytes).
-    Removing app_bluetooth.o(.text), (0 bytes).
-    Removing app_bluetooth.o(.text.App_Bluetooth_Init), (8 bytes).
-    Removing app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_Init), (8 bytes).
-    Removing app_bluetooth.o(.text.App_Bluetooth_SendChar), (8 bytes).
-    Removing app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_SendChar), (8 bytes).
-    Removing app_bluetooth.o(.text.App_Bluetooth_SendString), (8 bytes).
-    Removing app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_SendString), (8 bytes).
-    Removing app_bluetooth.o(.text.App_Bluetooth_Available), (8 bytes).
-    Removing app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_Available), (8 bytes).
-    Removing app_bluetooth.o(.text.App_Bluetooth_Read), (8 bytes).
-    Removing app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_Read), (8 bytes).
-    Removing app_bluetooth.o(.text.App_Bluetooth_SendNum), (8 bytes).
-    Removing app_bluetooth.o(.ARM.exidx.text.App_Bluetooth_SendNum), (8 bytes).
-    Removing app_gamepad.o(.text), (0 bytes).
-    Removing app_gamepad.o(.ARM.exidx.text.App_Gamepad_Init), (8 bytes).
-    Removing app_gamepad.o(.ARM.exidx.text.App_Gamepad_Update), (8 bytes).
-    Removing app_gpio.o(.text), (0 bytes).
-    Removing app_gpio.o(.text.App_GPIO_Config), (8 bytes).
-    Removing app_gpio.o(.ARM.exidx.text.App_GPIO_Config), (8 bytes).
-    Removing app_gpio.o(.text.App_GPIO_Write_Pin), (8 bytes).
-    Removing app_gpio.o(.ARM.exidx.text.App_GPIO_Write_Pin), (8 bytes).
-    Removing app_gpio.o(.text.App_GPIO_Read_Pin), (8 bytes).
-    Removing app_gpio.o(.ARM.exidx.text.App_GPIO_Read_Pin), (8 bytes).
-    Removing app_gpio.o(.text.App_GPIO_Toggle), (8 bytes).
-    Removing app_gpio.o(.ARM.exidx.text.App_GPIO_Toggle), (8 bytes).
-    Removing app_joystick.o(.text), (0 bytes).
-    Removing app_joystick.o(.text.App_Joystick_Init), (8 bytes).
-    Removing app_joystick.o(.ARM.exidx.text.App_Joystick_Init), (8 bytes).
-    Removing app_joystick.o(.text.App_Joystick_ReadX), (8 bytes).
-    Removing app_joystick.o(.ARM.exidx.text.App_Joystick_ReadX), (8 bytes).
-    Removing app_joystick.o(.text.App_Joystick_ReadY), (8 bytes).
-    Removing app_joystick.o(.ARM.exidx.text.App_Joystick_ReadY), (8 bytes).
-    Removing app_joystick.o(.text.App_Joystick_GetXOffset), (8 bytes).
-    Removing app_joystick.o(.ARM.exidx.text.App_Joystick_GetXOffset), (8 bytes).
-    Removing app_joystick.o(.text.App_Joystick_GetYOffset), (8 bytes).
-    Removing app_joystick.o(.ARM.exidx.text.App_Joystick_GetYOffset), (8 bytes).
-    Removing app_mode.o(.text), (0 bytes).
-    Removing app_mode.o(.text.App_Mode_Init), (8 bytes).
-    Removing app_mode.o(.ARM.exidx.text.App_Mode_Init), (8 bytes).
-    Removing app_mode.o(.text.App_Mode_Update), (8 bytes).
-    Removing app_mode.o(.ARM.exidx.text.App_Mode_Update), (8 bytes).
-    Removing app_protocol.o(.text), (0 bytes).
-    Removing app_protocol.o(.text.App_Protocol_Encode), (8 bytes).
-    Removing app_protocol.o(.ARM.exidx.text.App_Protocol_Encode), (8 bytes).
-    Removing app_protocol.o(.text.App_Protocol_Send), (8 bytes).
-    Removing app_protocol.o(.ARM.exidx.text.App_Protocol_Send), (8 bytes).
-    Removing app_systick.o(.text), (0 bytes).
-    Removing app_systick.o(.text.App_SysTick_DelayUs), (8 bytes).
-    Removing app_systick.o(.ARM.exidx.text.App_SysTick_DelayUs), (8 bytes).
-    Removing app_systick.o(.ARM.exidx.text.App_SysTick_DelayMs), (8 bytes).
-    Removing app_tim.o(.text), (0 bytes).
-    Removing app_tim.o(.text.App_TIM2_Init_1ms), (8 bytes).
-    Removing app_tim.o(.ARM.exidx.text.App_TIM2_Init_1ms), (8 bytes).
-    Removing app_tim.o(.text.App_Delay_ms), (8 bytes).
-    Removing app_tim.o(.ARM.exidx.text.App_Delay_ms), (8 bytes).
-    Removing app_uart.o(.text), (0 bytes).
-    Removing app_uart.o(.ARM.exidx.text.App_UART1_Init), (8 bytes).
-    Removing app_uart.o(.text.App_UART1_SendChar), (8 bytes).
-    Removing app_uart.o(.ARM.exidx.text.App_UART1_SendChar), (8 bytes).
-    Removing app_uart.o(.text.App_UART1_SendString), (8 bytes).
-    Removing app_uart.o(.ARM.exidx.text.App_UART1_SendString), (8 bytes).
-    Removing app_uart.o(.text.App_UART1_Available), (8 bytes).
-    Removing app_uart.o(.ARM.exidx.text.App_UART1_Available), (8 bytes).
-    Removing app_uart.o(.text.App_UART1_ReadBuffer), (8 bytes).
-    Removing app_uart.o(.ARM.exidx.text.App_UART1_ReadBuffer), (8 bytes).
-    Removing app_uart.o(.text.App_UART1_SendNumber), (8 bytes).
-    Removing app_uart.o(.ARM.exidx.text.App_UART1_SendNumber), (8 bytes).
     Removing system_stm32f10x.o(.text), (0 bytes).
     Removing system_stm32f10x.o(.ARM.exidx.text.SystemInit), (8 bytes).
     Removing system_stm32f10x.o(.ARM.exidx.text.SetSysClock), (8 bytes).
@@ -2596,52 +2596,52 @@ Memory Map of the image
     0x08000224   0x08000224   0x00000002   Code   RO         1756    .text               c_w.l(use_no_semi.o)
     0x08000226   0x08000226   0x00000000   Code   RO         1758    .text               c_w.l(indicate_semi.o)
     0x08000226   0x08000226   0x00000002   PAD
-    0x08000228   0x08000228   0x00000014   Code   RO         1489    .text.App_Gamepad_Init  app_gamepad.o
-    0x0800023c   0x0800023c   0x00000008   Code   RO         1491    .text.App_Gamepad_Update  app_gamepad.o
-    0x08000244   0x08000244   0x00000008   Code   RO         1561    .text.App_SysTick_DelayMs  app_systick.o
-    0x0800024c   0x0800024c   0x00000008   Code   RO         1583    .text.App_UART1_Init  app_uart.o
-    0x08000254   0x08000254   0x000000cc   Code   RO           12    .text.Ip_ADC1_Init_Single  ip_adc.o
-    0x08000320   0x08000320   0x00000030   Code   RO           16    .text.Ip_ADC1_Read  ip_adc.o
-    0x08000350   0x08000350   0x00000066   Code   RO           14    .text.Ip_ADC_GPIO_Config  ip_adc.o
+    0x08000228   0x08000228   0x00000014   Code   RO           46    .text.App_Gamepad_Init  app_gamepad.o
+    0x0800023c   0x0800023c   0x00000008   Code   RO           48    .text.App_Gamepad_Update  app_gamepad.o
+    0x08000244   0x08000244   0x00000008   Code   RO          118    .text.App_SysTick_DelayMs  app_systick.o
+    0x0800024c   0x0800024c   0x00000008   Code   RO          140    .text.App_UART1_Init  app_uart.o
+    0x08000254   0x08000254   0x000000cc   Code   RO          160    .text.Ip_ADC1_Init_Single  ip_adc.o
+    0x08000320   0x08000320   0x00000030   Code   RO          164    .text.Ip_ADC1_Read  ip_adc.o
+    0x08000350   0x08000350   0x00000066   Code   RO          162    .text.Ip_ADC_GPIO_Config  ip_adc.o
     0x080003b6   0x080003b6   0x00000002   PAD
-    0x080003b8   0x080003b8   0x00000008   Code   RO           32    .text.Ip_Bluetooth_SendChar  ip_bluetooth.o
-    0x080003c0   0x080003c0   0x00000008   Code   RO           40    .text.Ip_Bluetooth_SendNum  ip_bluetooth.o
-    0x080003c8   0x080003c8   0x0000007a   Code   RO           62    .text.Ip_GPIO_Config  ip_gpio.o
+    0x080003b8   0x080003b8   0x00000008   Code   RO          180    .text.Ip_Bluetooth_SendChar  ip_bluetooth.o
+    0x080003c0   0x080003c0   0x00000008   Code   RO          188    .text.Ip_Bluetooth_SendNum  ip_bluetooth.o
+    0x080003c8   0x080003c8   0x0000007a   Code   RO          210    .text.Ip_GPIO_Config  ip_gpio.o
     0x08000442   0x08000442   0x00000002   PAD
-    0x08000444   0x08000444   0x00000038   Code   RO           64    .text.Ip_GPIO_EnableClock  ip_gpio.o
-    0x0800047c   0x0800047c   0x0000000a   Code   RO           68    .text.Ip_GPIO_Read_Pin  ip_gpio.o
+    0x08000444   0x08000444   0x00000038   Code   RO          212    .text.Ip_GPIO_EnableClock  ip_gpio.o
+    0x0800047c   0x0800047c   0x0000000a   Code   RO          216    .text.Ip_GPIO_Read_Pin  ip_gpio.o
     0x08000486   0x08000486   0x00000002   PAD
-    0x08000488   0x08000488   0x00000018   Code   RO           50    .text.Ip_Gamepad_Init  ip_gamepad.o
-    0x080004a0   0x080004a0   0x00000074   Code   RO           52    .text.Ip_Gamepad_Update  ip_gamepad.o
-    0x08000514   0x08000514   0x0000000c   Code   RO           80    .text.Ip_Joystick_Init  ip_joystick.o
-    0x08000520   0x08000520   0x0000000e   Code   RO           82    .text.Ip_Joystick_ReadX  ip_joystick.o
+    0x08000488   0x08000488   0x00000018   Code   RO          198    .text.Ip_Gamepad_Init  ip_gamepad.o
+    0x080004a0   0x080004a0   0x00000074   Code   RO          200    .text.Ip_Gamepad_Update  ip_gamepad.o
+    0x08000514   0x08000514   0x0000000c   Code   RO          228    .text.Ip_Joystick_Init  ip_joystick.o
+    0x08000520   0x08000520   0x0000000e   Code   RO          230    .text.Ip_Joystick_ReadX  ip_joystick.o
     0x0800052e   0x0800052e   0x00000002   PAD
-    0x08000530   0x08000530   0x0000000e   Code   RO           84    .text.Ip_Joystick_ReadY  ip_joystick.o
+    0x08000530   0x08000530   0x0000000e   Code   RO          232    .text.Ip_Joystick_ReadY  ip_joystick.o
     0x0800053e   0x0800053e   0x00000002   PAD
-    0x08000540   0x08000540   0x00000018   Code   RO           98    .text.Ip_Mode_Init  ip_mode.o
-    0x08000558   0x08000558   0x0000004a   Code   RO          100    .text.Ip_Mode_Update  ip_mode.o
+    0x08000540   0x08000540   0x00000018   Code   RO          246    .text.Ip_Mode_Init  ip_mode.o
+    0x08000558   0x08000558   0x0000004a   Code   RO          248    .text.Ip_Mode_Update  ip_mode.o
     0x080005a2   0x080005a2   0x00000002   PAD
-    0x080005a4   0x080005a4   0x0000003c   Code   RO          110    .text.Ip_Protocol_Encode  ip_protocol.o
-    0x080005e0   0x080005e0   0x00000034   Code   RO          112    .text.Ip_Protocol_Send  ip_protocol.o
-    0x08000614   0x08000614   0x0000001c   Code   RO          124    .text.Ip_SysTick_DelayMs  ip_systick.o
-    0x08000630   0x08000630   0x0000002c   Code   RO          122    .text.Ip_SysTick_DelayUs  ip_systick.o
-    0x0800065c   0x0800065c   0x00000080   Code   RO          146    .text.Ip_UART1_Init  ip_uart.o
-    0x080006dc   0x080006dc   0x00000012   Code   RO          156    .text.Ip_UART1_SendChar  ip_uart.o
+    0x080005a4   0x080005a4   0x0000003c   Code   RO          258    .text.Ip_Protocol_Encode  ip_protocol.o
+    0x080005e0   0x080005e0   0x00000034   Code   RO          260    .text.Ip_Protocol_Send  ip_protocol.o
+    0x08000614   0x08000614   0x0000001c   Code   RO          272    .text.Ip_SysTick_DelayMs  ip_systick.o
+    0x08000630   0x08000630   0x0000002c   Code   RO          270    .text.Ip_SysTick_DelayUs  ip_systick.o
+    0x0800065c   0x0800065c   0x00000080   Code   RO          294    .text.Ip_UART1_Init  ip_uart.o
+    0x080006dc   0x080006dc   0x00000012   Code   RO          304    .text.Ip_UART1_SendChar  ip_uart.o
     0x080006ee   0x080006ee   0x00000002   PAD
-    0x080006f0   0x080006f0   0x0000007e   Code   RO          160    .text.Ip_UART1_SendNumber  ip_uart.o
+    0x080006f0   0x080006f0   0x0000007e   Code   RO          308    .text.Ip_UART1_SendNumber  ip_uart.o
     0x0800076e   0x0800076e   0x00000002   PAD
-    0x08000770   0x08000770   0x00000014   Code   RO         1341    .text.Mid_Gamepad_Init  mid_gamepad.o
-    0x08000784   0x08000784   0x00000008   Code   RO         1343    .text.Mid_Gamepad_Update  mid_gamepad.o
-    0x0800078c   0x0800078c   0x00000008   Code   RO         1413    .text.Mid_SysTick_DelayMs  mid_systick.o
-    0x08000794   0x08000794   0x00000008   Code   RO         1435    .text.Mid_UART1_Init  mid_uart.o
-    0x0800079c   0x0800079c   0x0000000e   Code   RO          148    .text.NVIC_EnableIRQ  ip_uart.o
+    0x08000770   0x08000770   0x00000014   Code   RO          355    .text.Mid_Gamepad_Init  mid_gamepad.o
+    0x08000784   0x08000784   0x00000008   Code   RO          357    .text.Mid_Gamepad_Update  mid_gamepad.o
+    0x0800078c   0x0800078c   0x00000008   Code   RO          427    .text.Mid_SysTick_DelayMs  mid_systick.o
+    0x08000794   0x08000794   0x00000008   Code   RO          449    .text.Mid_UART1_Init  mid_uart.o
+    0x0800079c   0x0800079c   0x0000000e   Code   RO          296    .text.NVIC_EnableIRQ  ip_uart.o
     0x080007aa   0x080007aa   0x00000002   PAD
     0x080007ac   0x080007ac   0x00000008   Code   RO         1614    .text.SetSysClock   system_stm32f10x.o
     0x080007b4   0x080007b4   0x000000be   Code   RO         1618    .text.SetSysClockTo72  system_stm32f10x.o
     0x08000872   0x08000872   0x00000002   PAD
     0x08000874   0x08000874   0x00000056   Code   RO         1612    .text.SystemInit    system_stm32f10x.o
     0x080008ca   0x080008ca   0x00000002   PAD
-    0x080008cc   0x080008cc   0x00000044   Code   RO          150    .text.USART1_IRQHandler  ip_uart.o
+    0x080008cc   0x080008cc   0x00000044   Code   RO          298    .text.USART1_IRQHandler  ip_uart.o
     0x08000910   0x08000910   0x0000003e   Code   RO            2    .text.main          main.o
     0x0800094e   0x0800094e   0x00000002   PAD
     0x08000950   0x08000950   0x00000010   Data   RO         1814    Region$$Table       anon$$obj.o
@@ -2652,13 +2652,13 @@ Memory Map of the image
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x20000000        -       0x00000060   Zero   RW         1681    .bss                c_w.l(libspace.o)
-    0x20000060        -       0x00000001   Zero   RW           20    .bss.Ip_ADC1_Init_Single.adc_inited  ip_adc.o
-    0x20000061        -       0x00000001   Zero   RW           21    .bss.current_channel  ip_adc.o
+    0x20000060        -       0x00000001   Zero   RW          168    .bss.Ip_ADC1_Init_Single.adc_inited  ip_adc.o
+    0x20000061        -       0x00000001   Zero   RW          169    .bss.current_channel  ip_adc.o
     0x20000062   0x08000960   0x00000002   PAD
     0x20000064        -       0x0000000c   Zero   RW            4    .bss.gamepad        main.o
-    0x20000070        -       0x00000040   Zero   RW          164    .bss.uart1_rx_buffer  ip_uart.o
-    0x200000b0        -       0x00000001   Zero   RW          162    .bss.uart1_rx_head  ip_uart.o
-    0x200000b1        -       0x00000001   Zero   RW          163    .bss.uart1_rx_tail  ip_uart.o
+    0x20000070        -       0x00000040   Zero   RW          312    .bss.uart1_rx_buffer  ip_uart.o
+    0x200000b0        -       0x00000001   Zero   RW          310    .bss.uart1_rx_head  ip_uart.o
+    0x200000b1        -       0x00000001   Zero   RW          311    .bss.uart1_rx_tail  ip_uart.o
     0x200000b2   0x08000960   0x00000006   PAD
     0x200000b8        -       0x00000200   Zero   RW         1603    HEAP                startup_stm32f10x_md.o
     0x200002b8        -       0x00000400   Zero   RW         1602    STACK               startup_stm32f10x_md.o
@@ -2671,27 +2671,27 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-        28          0          0          0          0       2091   app_gamepad.o
-         8          0          0          0          0        704   app_systick.o
-         8          0          0          0          0       1293   app_uart.o
-       354          0          0          0          2       2304   ip_adc.o
-        16          0          0          0          0       1294   ip_bluetooth.o
-       140         10          0          0          0       2183   ip_gamepad.o
-       188         16          0          0          0       2328   ip_gpio.o
-        40          0          0          0          0       1452   ip_joystick.o
-        98          0          0          0          0       1658   ip_mode.o
-       112          0          0          0          0       1387   ip_protocol.o
-        72          0          0          0          0        956   ip_systick.o
-       354          0          0          0         66       4704   ip_uart.o
-        62          0          0          0         12       1366   main.o
-        28          0          0          0          0       1725   mid_gamepad.o
-         8          0          0          0          0        702   mid_systick.o
-         8          0          0          0          0       1291   mid_uart.o
+        28          0          0          0          0       2126   app_gamepad.o
+         8          0          0          0          0        712   app_systick.o
+         8          0          0          0          0       1301   app_uart.o
+       354          0          0          0          2       2312   ip_adc.o
+        16          0          0          0          0       1302   ip_bluetooth.o
+       140         10          0          0          0       2201   ip_gamepad.o
+       188         16          0          0          0       2346   ip_gpio.o
+        40          0          0          0          0       1470   ip_joystick.o
+        98          0          0          0          0       1676   ip_mode.o
+       112          0          0          0          0       1405   ip_protocol.o
+        72          0          0          0          0        964   ip_systick.o
+       354          0          0          0         66       4712   ip_uart.o
+        62          0          0          0         12       1370   main.o
+        28          0          0          0          0       1760   mid_gamepad.o
+         8          0          0          0          0        710   mid_systick.o
+         8          0          0          0          0       1299   mid_uart.o
         64         26        236          0       1536        832   startup_stm32f10x_md.o
        284          0          0          0          0       2700   system_stm32f10x.o
 
     ----------------------------------------------------------------------
-      1896         52        252          0       1624      30970   Object Totals
+      1896         52        252          0       1624      31198   Object Totals
          0          0         16          0          0          0   (incl. Generated)
         24          0          0          0          8          0   (incl. Padding)
 
@@ -2739,8 +2739,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      2148         68        252          0       1720      31122   Grand Totals
-      2148         68        252          0       1720      31122   ELF Image Totals
+      2148         68        252          0       1720      31350   Grand Totals
+      2148         68        252          0       1720      31350   ELF Image Totals
       2148         68        252          0          0          0   ROM Totals
 
 ==============================================================================

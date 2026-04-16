@@ -1,5 +1,5 @@
-./objects/app_gamepad.o: ..\Application\app_gamepad.c \
-  ..\Application\app_gamepad.h ..\Application\app_joystick.h \
+./objects/app_gamepad.o: ..\Src\Application\app_gamepad.c \
+  ..\Inc\Application\app_gamepad.h ..\Inc\Application\app_joystick.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   ..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h \
   G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h \
@@ -27,7 +27,7 @@
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h \
-  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h ..\Application\app_mode.h \
-  ..\Application\app_protocol.h ..\Middleware\mid_gamepad.h \
-  ..\Middleware\mid_joystick.h ..\Middleware\mid_mode.h \
-  ..\Ip\ip_protocol.h
+  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h \
+  ..\Inc\Application\app_mode.h ..\Inc\Application\app_protocol.h \
+  ..\Inc\MIddleware\mid_gamepad.h ..\Inc\MIddleware\mid_joystick.h \
+  ..\Inc\MIddleware\mid_mode.h ..\Inc\Ip\ip_protocol.h

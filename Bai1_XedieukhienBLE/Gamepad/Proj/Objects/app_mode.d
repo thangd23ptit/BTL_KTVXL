@@ -1,4 +1,5 @@
-./objects/app_mode.o: ..\Application\app_mode.c ..\Application\app_mode.h \
+./objects/app_mode.o: ..\Src\Application\app_mode.c \
+  ..\Inc\Application\app_mode.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   ..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h \
   G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h \
@@ -27,5 +28,5 @@
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h \
-  ..\Application\app_protocol.h ..\Middleware\mid_mode.h \
-  ..\Ip\ip_protocol.h
+  ..\Inc\Application\app_protocol.h ..\Inc\MIddleware\mid_mode.h \
+  ..\Inc\Ip\ip_protocol.h

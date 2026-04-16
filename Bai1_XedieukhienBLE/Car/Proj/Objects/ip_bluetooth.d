@@ -1,5 +1,6 @@
-./objects/ip_bluetooth.o: ..\Ip\ip_bluetooth.c ..\Ip\ip_bluetooth.h \
-  G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h ..\Ip\ip_uart.h \
+./objects/ip_bluetooth.o: ..\Src\Ip\ip_bluetooth.c \
+  ..\Inc\Ip\ip_bluetooth.h G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  ..\Inc\Ip\ip_uart.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   ..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\system_stm32f10x.h \

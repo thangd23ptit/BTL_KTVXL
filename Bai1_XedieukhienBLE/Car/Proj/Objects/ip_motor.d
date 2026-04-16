@@ -1,5 +1,5 @@
-./objects/ip_motor.o: ..\Ip\ip_motor.c ..\Ip\ip_motor.h \
-  G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h ..\Ip\ip_gpio.h \
+./objects/ip_motor.o: ..\Src\Ip\ip_motor.c ..\Inc\Ip\ip_motor.h \
+  G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h ..\Inc\Ip\ip_gpio.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   ..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\system_stm32f10x.h \
@@ -26,4 +26,4 @@
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_tim.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h \
-  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h ..\Ip\ip_pwm.h
+  ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h ..\Inc\Ip\ip_pwm.h

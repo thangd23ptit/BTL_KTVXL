@@ -1,4 +1,4 @@
-./objects/ip_timer.o: ..\Ip\ip_timer.c ..\Ip\ip_timer.h \
+./objects/ip_timer.o: ..\Src\Ip\ip_timer.c ..\Inc\Ip\ip_timer.h \
   G:\KeilC\Package\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   ..\Lib\CMSIS\CM3\CoreSupport\core_cm3.h \
   G:\KeilC\ARM\ARMCLANG\Bin\..\include\stdint.h \
