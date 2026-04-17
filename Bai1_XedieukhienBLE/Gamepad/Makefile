@@ -45,7 +45,7 @@ INCLUDES = \
 # Recursive wildcard function (tìm .c trong tất cả thư mục con)
 rwildcard=$(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
 
-# Tìm tất cả file .c theo cấu trúc của bạn
+# Tìm tất cả file .c 
 SRC = \
 $(call rwildcard,Src,*.c) \
 $(wildcard Proj/*.c) \

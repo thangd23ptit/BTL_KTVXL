@@ -7,6 +7,6 @@
 
 void Ip_LineSensor_Init(void);
 uint8_t Ip_LineSensor_ReadRaw(void);
-int8_t Ip_LineSensor_GetError(void);
+int16_t Ip_LineSensor_GetError(void);
 
 #endif

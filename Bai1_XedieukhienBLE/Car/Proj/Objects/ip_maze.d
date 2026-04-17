@@ -27,5 +27,4 @@
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_usart.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\stm32f10x_wwdg.h \
   ..\Lib\STM32F10x_StdPeriph_Driver\inc\misc.h \
-  ..\Inc\Ip\ip_line_sensor.h ..\Inc\Ip\ip_sensor.h ..\Inc\Ip\ip_motor.h \
-  ..\Inc\Ip\ip_timer.h
+  ..\Inc\Ip\ip_line_sensor.h ..\Inc\Ip\ip_motor.h ..\Inc\Ip\ip_timer.h
